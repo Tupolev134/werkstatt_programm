@@ -1,0 +1,1969 @@
+{
+  "name": "Overlanders Parts Profile Test",
+  "path_to_profile": "../test_data/overlanders_parts_profile_default.json",
+  "path_to_excel": "/Users/tupolev/Desktop/Coding/Python/py_parts/test_data/Bestellliste-Defender-28_04_2023_active.xlsx",
+  "kategorie": [
+    [
+      "ANBAUTEILE KAROSSERIE",
+      13
+    ],
+    [
+      "ANTRIEBSTRANG",
+      2
+    ],
+    [
+      "BREMSE",
+      43
+    ],
+    [
+      "Fahrwerk",
+      18
+    ],
+    [
+      "KUPPLUNG",
+      3
+    ],
+    [
+      "LENKUNG",
+      16
+    ],
+    [
+      "unidentified",
+      23
+    ],
+    [
+      "INNENRAUM",
+      21
+    ],
+    [
+      "MOTOR",
+      50
+    ],
+    [
+      "AUSPUFF",
+      3
+    ],
+    [
+      "KRAFTSTOFFSYSTEM",
+      4
+    ],
+    [
+      "SCHEIBENWISCHER",
+      4
+    ],
+    [
+      "VERTEILERGETRIEBE",
+      6
+    ],
+    [
+      "ACHSEN ",
+      34
+    ],
+    [
+      "BELEUCHTUNG",
+      4
+    ],
+    [
+      "GETRIEBE",
+      5
+    ],
+    [
+      "K\u00dcHLER/SCHL\u00c4UCHE",
+      9
+    ],
+    [
+      "TANK",
+      1
+    ],
+    [
+      "KAROSSERIE",
+      3
+    ],
+    [
+      "Schrauben Halter Edelstahl ",
+      6
+    ],
+    [
+      "ACHSE",
+      4
+    ],
+    [
+      "EDELSTAHLSCHRAUBEN",
+      2
+    ],
+    [
+      "BREMSEbzh",
+      1
+    ]
+  ],
+  "artikelnummer": [
+    [
+      "RBL242TUV",
+      1
+    ],
+    [
+      "EN-1LR104HD",
+      1
+    ],
+    [
+      "EN-1LR700HD",
+      1
+    ],
+    [
+      "EN-5LR01",
+      1
+    ],
+    [
+      "4W-42HCK",
+      1
+    ],
+    [
+      "4W7204",
+      1
+    ],
+    [
+      "4W7208",
+      1
+    ],
+    [
+      "EN-7LR003",
+      1
+    ],
+    [
+      "EN-6LR003",
+      1
+    ],
+    [
+      "EN-6LR010R",
+      1
+    ],
+    [
+      "EN-6LR008S",
+      1
+    ],
+    [
+      "EN-6LR010",
+      1
+    ],
+    [
+      "EN-6LR011",
+      1
+    ],
+    [
+      "EN-6LR111SL",
+      1
+    ],
+    [
+      "EN-6LR009S",
+      1
+    ],
+    [
+      "4W10175",
+      1
+    ],
+    [
+      "LR072972HD",
+      1
+    ],
+    [
+      "24-022354",
+      1
+    ],
+    [
+      "unidentified",
+      73
+    ],
+    [
+      "DR11016510V2",
+      1
+    ],
+    [
+      "DR01015028",
+      1
+    ],
+    [
+      "DA9500XS",
+      1
+    ],
+    [
+      "ALQ710040K",
+      1
+    ],
+    [
+      "DA8102",
+      1
+    ],
+    [
+      "ERR7266",
+      1
+    ],
+    [
+      "LRO55339GEN",
+      1
+    ],
+    [
+      "LR055331GEN",
+      1
+    ],
+    [
+      "WCD000500B",
+      1
+    ],
+    [
+      "ICW500010B",
+      1
+    ],
+    [
+      "ICW500020B",
+      1
+    ],
+    [
+      "SDC100200B",
+      1
+    ],
+    [
+      "SPB500200B",
+      1
+    ],
+    [
+      "SYP50090B",
+      1
+    ],
+    [
+      "LRO13018GB",
+      1
+    ],
+    [
+      "PRC4297B",
+      1
+    ],
+    [
+      "SGL1000000GEN",
+      1
+    ],
+    [
+      "ICW1000050GB",
+      1
+    ],
+    [
+      "DA1860B",
+      1
+    ],
+    [
+      "LR017960GALVB",
+      1
+    ],
+    [
+      "LR017961GALVB",
+      1
+    ],
+    [
+      "ANR4189B",
+      1
+    ],
+    [
+      "ANR4188B",
+      1
+    ],
+    [
+      "DA8953B",
+      1
+    ],
+    [
+      "DA8935B ",
+      1
+    ],
+    [
+      "DA8093B",
+      1
+    ],
+    [
+      "DA8082B",
+      1
+    ],
+    [
+      "DA8095B",
+      1
+    ],
+    [
+      "DA8094B",
+      1
+    ],
+    [
+      "SKE500060GB",
+      1
+    ],
+    [
+      "SAD000010PMAB",
+      1
+    ],
+    [
+      "WKT100020B",
+      1
+    ],
+    [
+      "WJP107940B",
+      1
+    ],
+    [
+      "WJP107930B",
+      1
+    ],
+    [
+      "QRH10030GB",
+      1
+    ],
+    [
+      "QME50031GB",
+      1
+    ],
+    [
+      "YKL100120B",
+      1
+    ],
+    [
+      "PNH101840B",
+      1
+    ],
+    [
+      "ERR7042B",
+      1
+    ],
+    [
+      "ERR5285B",
+      1
+    ],
+    [
+      "DKK500010GEN",
+      1
+    ],
+    [
+      "DMC100550B",
+      1
+    ],
+    [
+      "RTC3890B",
+      1
+    ],
+    [
+      "LRO55718B",
+      1
+    ],
+    [
+      "STC3433B",
+      1
+    ],
+    [
+      "FRC2894",
+      1
+    ],
+    [
+      "607187.G",
+      1
+    ],
+    [
+      "STC4403",
+      1
+    ],
+    [
+      "607181.T",
+      1
+    ],
+    [
+      "607197.",
+      1
+    ],
+    [
+      "607180.G",
+      1
+    ],
+    [
+      "607177.",
+      1
+    ],
+    [
+      "607179.",
+      1
+    ],
+    [
+      "607189.",
+      1
+    ],
+    [
+      "607188.",
+      1
+    ],
+    [
+      "607190.",
+      1
+    ],
+    [
+      "607191.",
+      1
+    ],
+    [
+      "549473.",
+      1
+    ],
+    [
+      "3292.",
+      2
+    ],
+    [
+      "607169.",
+      1
+    ],
+    [
+      " FTC3647",
+      1
+    ],
+    [
+      " FTC3154",
+      1
+    ],
+    [
+      "FTC861.G",
+      1
+    ],
+    [
+      " FTC840",
+      1
+    ],
+    [
+      "FTC56",
+      1
+    ],
+    [
+      "TAU100170",
+      1
+    ],
+    [
+      "FTC3188",
+      1
+    ],
+    [
+      "BX110111L",
+      1
+    ],
+    [
+      "TDB500280",
+      1
+    ],
+    [
+      "TDB500290",
+      1
+    ],
+    [
+      "DA2381.G",
+      1
+    ],
+    [
+      "DA3179",
+      1
+    ],
+    [
+      "DA2868",
+      1
+    ],
+    [
+      "LR017952EBC",
+      1
+    ],
+    [
+      "LR018026EBC",
+      1
+    ],
+    [
+      "NTC1888.G",
+      1
+    ],
+    [
+      "NV116047",
+      1
+    ],
+    [
+      "552819.",
+      1
+    ],
+    [
+      "NTC8202",
+      1
+    ],
+    [
+      "NC112041",
+      1
+    ],
+    [
+      "KRO1000030",
+      1
+    ],
+    [
+      "KQB500560.LR",
+      2
+    ],
+    [
+      "KQB500550.LR",
+      1
+    ],
+    [
+      "KQB500550",
+      1
+    ],
+    [
+      "DA8084",
+      1
+    ],
+    [
+      "AS70",
+      1
+    ],
+    [
+      "AS112",
+      1
+    ],
+    [
+      "AS53",
+      1
+    ],
+    [
+      "AS249-S-BLK",
+      1
+    ],
+    [
+      "ASH16-BLK",
+      1
+    ],
+    [
+      "ASH09",
+      1
+    ],
+    [
+      "ASH32-LHD-BLK",
+      1
+    ],
+    [
+      "1208396.LS",
+      1
+    ],
+    [
+      "RTC308",
+      1
+    ],
+    [
+      "QFW000030.G",
+      1
+    ],
+    [
+      "STC874",
+      1
+    ],
+    [
+      "NH614041",
+      1
+    ],
+    [
+      "QYX100280",
+      1
+    ],
+    [
+      "KKB500750.LR",
+      1
+    ],
+    [
+      "MSC000040E",
+      2
+    ],
+    [
+      "ERR7234",
+      1
+    ],
+    [
+      "LHG100580",
+      1
+    ],
+    [
+      "LYG101190",
+      1
+    ],
+    [
+      "QVB101350",
+      1
+    ],
+    [
+      "LR025985",
+      1
+    ],
+    [
+      "LPF500020",
+      2
+    ],
+    [
+      "JPB101330",
+      1
+    ],
+    [
+      "PQS101500.G",
+      1
+    ],
+    [
+      "LR042752",
+      2
+    ],
+    [
+      "LR017315",
+      2
+    ],
+    [
+      "ER7233.G",
+      1
+    ],
+    [
+      "ERR3683",
+      1
+    ],
+    [
+      "NAD101240.G",
+      1
+    ],
+    [
+      "ERR6951",
+      1
+    ],
+    [
+      "ERR6066",
+      1
+    ],
+    [
+      "AMR6103NB",
+      1
+    ],
+    [
+      "ERR6949",
+      1
+    ],
+    [
+      "LGJ100690",
+      1
+    ],
+    [
+      "LGQ000020",
+      1
+    ],
+    [
+      "LHA000030",
+      1
+    ],
+    [
+      "KKJ500260",
+      1
+    ],
+    [
+      "MHK100620",
+      1
+    ],
+    [
+      "PBC500230.REP",
+      1
+    ],
+    [
+      "DA6004P",
+      1
+    ],
+    [
+      "PEM500040",
+      1
+    ],
+    [
+      "ERR5369",
+      1
+    ],
+    [
+      "LLN100140L",
+      1
+    ],
+    [
+      "ERR5992",
+      1
+    ],
+    [
+      "NSC100790",
+      1
+    ],
+    [
+      "LWQ100270",
+      1
+    ],
+    [
+      "KKB500750",
+      1
+    ],
+    [
+      "ERR5384",
+      1
+    ],
+    [
+      "DA2113",
+      1
+    ],
+    [
+      "LKC102020.LR",
+      1
+    ],
+    [
+      "TRL100040",
+      1
+    ],
+    [
+      "DKB000051PMD",
+      1
+    ],
+    [
+      "DA9018",
+      1
+    ],
+    [
+      "ASH37-BLK",
+      1
+    ],
+    [
+      "DA5051BLACK",
+      1
+    ],
+    [
+      "LRC9936",
+      1
+    ],
+    [
+      "LRC2494",
+      1
+    ],
+    [
+      "LRC1577",
+      1
+    ],
+    [
+      "LRC1576",
+      1
+    ],
+    [
+      "LRC2491",
+      1
+    ],
+    [
+      "ORP50/NH",
+      1
+    ],
+    [
+      "LRC2482",
+      1
+    ],
+    [
+      "LRI32080",
+      1
+    ],
+    [
+      "BLKslks",
+      2
+    ],
+    [
+      "LRI36185",
+      2
+    ],
+    [
+      "1000650",
+      2
+    ],
+    [
+      "8001100",
+      1
+    ],
+    [
+      "1000400",
+      1
+    ],
+    [
+      "TEMPTD5",
+      1
+    ],
+    [
+      "STC50301",
+      1
+    ],
+    [
+      "LEDSLDEF-C11DRL",
+      1
+    ],
+    [
+      "NA7Z-DEF-SM-VAPB",
+      1
+    ],
+    [
+      "LEDRPLDEF-B",
+      1
+    ],
+    [
+      "DA8083",
+      1
+    ],
+    [
+      "KUPFED",
+      1
+    ],
+    [
+      "LR-20-4",
+      1
+    ],
+    [
+      "LR-22-4",
+      1
+    ],
+    [
+      "LR-12-4",
+      1
+    ],
+    [
+      "DIE-050549",
+      1
+    ],
+    [
+      "JWP872",
+      1
+    ],
+    [
+      "JWP870",
+      1
+    ],
+    [
+      "IBH00130PUMTDC",
+      1
+    ],
+    [
+      "NO: 240",
+      1
+    ],
+    [
+      "NO: 016E",
+      1
+    ],
+    [
+      "NO: 016G",
+      1
+    ],
+    [
+      "NO: 016C",
+      1
+    ],
+    [
+      "NO:  016",
+      1
+    ],
+    [
+      "NO:  069",
+      1
+    ],
+    [
+      "WJP500090",
+      1
+    ],
+    [
+      "AS112-AC",
+      1
+    ],
+    [
+      "LNL100000",
+      1
+    ]
+  ],
+  "beschreibung": [
+    [
+      "Defender 110 Aussenk\u00e4fig f\u00fcr 5 T\u00fcren ohne Innenb\u00fcgel",
+      1
+    ],
+    [
+      "HD2 Doppelgelenk Kardan110 Td4 HA",
+      1
+    ],
+    [
+      "HD2 Doppelgelenk Kardan Td4 ",
+      1
+    ],
+    [
+      "Engage High Performance Bremsanlage Defender VA+HA ",
+      1
+    ],
+    [
+      "Fahrwerks Buchsen Kit HD PU",
+      1
+    ],
+    [
+      "Schraubensatz Fahrwerk Td4 VA",
+      1
+    ],
+    [
+      "Schraubensatz Fahrwerk",
+      1
+    ],
+    [
+      "Lenkschub-& Spurstangen Kit mit verst\u00e4rkten Gelenken",
+      1
+    ],
+    [
+      "LR Engage Stossd\u00e4mpfer Step 3  46mm Kit (Einstellbar), 1 Satz",
+      1
+    ],
+    [
+      "Schubstreben Rookie HA Defender mit T\u00dcV",
+      1
+    ],
+    [
+      "HD DAEMPFERDOME FUER STIFTAUFNAHME WARENZOLLTARIFNUMMER 73089059",
+      1
+    ],
+    [
+      "Schubstreben Hochleistung HA Defender mit T\u00dcV",
+      1
+    ],
+    [
+      "Panhardstab einstellbar mit Teilegutachten",
+      1
+    ],
+    [
+      "Engage 4x4 Expedition Schwerlastfedern + 40 mm mit T\u00dcV ",
+      1
+    ],
+    [
+      "Zugstreben 3* Rookie Series Nachlauf Korrektur (Stahl)",
+      1
+    ],
+    [
+      "Heavy Duty Kupplungs-Kit Defender Td5",
+      1
+    ],
+    [
+      "HD Kupplungs-Kit Defender Td4 SAC-Kit ",
+      1
+    ],
+    [
+      "Lenkunsd\u00e4mpfer B6 Bilstein",
+      1
+    ],
+    [
+      " A-Frame-Gelenk mit Weitwinkel f\u00fcr mehr Verschr\u00e4nkung ",
+      1
+    ],
+    [
+      " Schrauben-Satz Defender Fahrwerk ",
+      1
+    ],
+    [
+      " Schrauben-Satz Fahrwerk Hinterachse Land Rover Defender ",
+      1
+    ],
+    [
+      " Fahrwerksbuchsen-Satz Polyurethan Defender TD5 1999 > 2002 ",
+      1
+    ],
+    [
+      " Verst\u00e4rkter Lenkstangen-Spurstangen-Kit ",
+      1
+    ],
+    [
+      " Panhardstab einstellbar f\u00fcr Land Rover Defender mit T\u00dcV Teilegutachten ",
+      1
+    ],
+    [
+      " Buchse Panhardstab f\u00fcr Defender & Discovery 2 ",
+      1
+    ],
+    [
+      "KOMPRESSOR KIT FUER COIL RITE",
+      1
+    ],
+    [
+      "Firestone Air Springs Defender 110 - 130",
+      1
+    ],
+    [
+      "unidentified",
+      13
+    ],
+    [
+      "Frontstossstange mit Integrierten Led-Leuchten",
+      1
+    ],
+    [
+      "Befestigungskit Sto\u00dfstange",
+      1
+    ],
+    [
+      "Dynatape",
+      1
+    ],
+    [
+      "Isolatorbuchse Ventildeckel Td5",
+      1
+    ],
+    [
+      "Aluminium header tank cap for Defender Td5 & Tdci / Discovery 2 v8 & Td5 - Black",
+      1
+    ],
+    [
+      "Engine oil filler cap for Td5 - Black",
+      1
+    ],
+    [
+      "Schmutzf\u00e4nger Defender 130/110 HCPU hinten links mit Halter",
+      1
+    ],
+    [
+      "Schmutzf\u00e4nger Defender 130/110 HCPU hinten rechts mit Halter",
+      1
+    ],
+    [
+      "Flammrohr Td5 mit Katalysator",
+      1
+    ],
+    [
+      "Handbremsbacken defender, Discovery 1/2, New Range Rover",
+      1
+    ],
+    [
+      "Einsteller Handbremsbacken Defender ab LA Discovery 2",
+      1
+    ],
+    [
+      "Handbremstrommel Land Rover Defender und Discovery 1/2",
+      1
+    ],
+    [
+      "Handbremsseil Defender ab LA",
+      1
+    ],
+    [
+      "Schraube Bremssattel M12x35",
+      1
+    ],
+    [
+      "Hauptbremszylinder Defender ohne ABS",
+      1
+    ],
+    [
+      "Bremslichtschalter Land Rover Defender ",
+      1
+    ],
+    [
+      "T-Verteiler Bremse hinten Defender ab Td5 ohne ABS",
+      1
+    ],
+    [
+      "Befestigungssatz Handbremsbacken Defender",
+      1
+    ],
+    [
+      "Schmutzschild Paar Bremse vorne Verzinkt",
+      1
+    ],
+    [
+      "Schmutzschild Bremse hinten rechts verzinkt",
+      1
+    ],
+    [
+      "Schmutzschild Bremse hinten links verzinkt",
+      1
+    ],
+    [
+      "Achsanschlaggumi hinten Defender Discovery Range",
+      1
+    ],
+    [
+      "Achsanschlaggumi vorne Defender Discovery Range",
+      1
+    ],
+    [
+      "Umrandung T\u00fcr\u00f6ffner Paar Aluminium schwarz",
+      1
+    ],
+    [
+      "T\u00fcrgriff innen Defender Aluminium schwarz eloxiert",
+      1
+    ],
+    [
+      "D\u00e4mmmatten Set Motorhaube Defender Td5 Marke Dynamat Xtreme",
+      1
+    ],
+    [
+      "D\u00e4mmmatten Set Motorhaube Defender Td4 Marke Dynamat Xtreme",
+      1
+    ],
+    [
+      "D\u00e4mmmatten Set Sitzkasten Defender Td5 Marke Dynamat Xtreme",
+      1
+    ],
+    [
+      "D\u00e4mmmatten Set Fu\u00dfraum Defender Td5 Marke Dynamat Xtreme",
+      1
+    ],
+    [
+      "Pedalgummi Defender Bremse Kupplung",
+      1
+    ],
+    [
+      "Pedalgummi Land Rover Defender Gaspedal Td4/Td5",
+      1
+    ],
+    [
+      "Deckel Abdeckung Kraftstofffilter vom Defender Td5",
+      1
+    ],
+    [
+      "Leitung R\u00fccklauf Td5 Defender 110 130 Pumpe an Filter",
+      1
+    ],
+    [
+      "Leitung R\u00fccklauf Td5 Defender 110 130 Filter an Pumpe",
+      1
+    ],
+    [
+      "Abrissschraube Lenks\u00e4ulenschloss Defender",
+      1
+    ],
+    [
+      "Kreuzgelenke mit Lenks\u00e4ule Defender VA133509 inkl. Td5",
+      1
+    ],
+    [
+      "Leitung \u00d6lzulauf Lichtmaschine Td5",
+      1
+    ],
+    [
+      "Rohr \u00d6lablauf Turbolader Defender Discovery 2Td5",
+      1
+    ],
+    [
+      "Welle L\u00fcfterrad Td 5",
+      1
+    ],
+    [
+      "Lager Viskol\u00fcfterwelle",
+      1
+    ],
+    [
+      "Dichtung Wischerspindel Defender",
+      1
+    ],
+    [
+      "Scheibenwaschpumpe Freelancer, Discovery 2, Defender",
+      1
+    ],
+    [
+      "Getriebedichtsatz Verteilergetriebe LT230",
+      1
+    ],
+    [
+      "Flange Kit vorne LT230 Verteilergetriebe Td5/Td4",
+      1
+    ],
+    [
+      "Flansch Kit hinten LT230 Verteilergetriebe",
+      1
+    ],
+    [
+      "Def 90/Def 110/130 Front Disco I/Disco II/RRC",
+      1
+    ],
+    [
+      "Salisbury ATB",
+      1
+    ],
+    [
+      "LT230 Master Rebuild Kit ",
+      1
+    ],
+    [
+      "LT230 Bolt Kit ",
+      1
+    ],
+    [
+      "FRC6968, Planet Gear Thrust Washers x 4 ",
+      1
+    ],
+    [
+      "Pair of 859 Drive Flanges ",
+      1
+    ],
+    [
+      "LT 230 Verteilergertiebe Komplett \u00dcberholt",
+      1
+    ],
+    [
+      "LT 230 Verteilergertiebe Komplett \u00dcberholt ",
+      1
+    ],
+    [
+      "Achsschenkelbolzen unten Defender/Discovery I/RRC",
+      1
+    ],
+    [
+      "Lager Differential Salisbury (OEM)",
+      1
+    ],
+    [
+      "Flansch-Kit Salisbury-Achse ab XA159807",
+      1
+    ],
+    [
+      "Lager, Diff.-Ausgang au\u00dfen, Salisbury",
+      1
+    ],
+    [
+      "Lagereinstellh\u00fclse Diff.-Ausgang, Salisbury",
+      1
+    ],
+    [
+      "Lager Diff.-Ausgang innen Salisbury (OEM)",
+      1
+    ],
+    [
+      "Einstellscheibe Antr.-Ritzel Salisbury-Diff. 0.003\"",
+      1
+    ],
+    [
+      "Einstellscheibe Antr.-Ritzel Salisbury-Diff. 0.010",
+      1
+    ],
+    [
+      "Beilage, Diff.-Lager, Salisbury, 0.005\"",
+      1
+    ],
+    [
+      "Beilage, Diff.-Lager, Salisbury, 0.003",
+      1
+    ],
+    [
+      "Beilage, Diff.-Lager, Salisbury, 0.010",
+      1
+    ],
+    [
+      "Beilage, Diff.-Lager, Salisbury, 0.030",
+      1
+    ],
+    [
+      "Sicherungsring Steckachse Defender/Discovery I/RRC",
+      1
+    ],
+    [
+      "Stopfen VA Geh\u00e4\u00fcse",
+      1
+    ],
+    [
+      "Druckscheibe Salisbury-Diff",
+      1
+    ],
+    [
+      "Dichtung ASB",
+      1
+    ],
+    [
+      "Achsschenkel/Achsstumpf Def/Discovery I/RRC VA (ab15M...)",
+      1
+    ],
+    [
+      "Lager Achsschenkel VA (OEM)",
+      1
+    ],
+    [
+      "Simmerring Achszapfen Defender/Discovery I/RRC",
+      1
+    ],
+    [
+      "Anlaufring Achsschenkel VA",
+      1
+    ],
+    [
+      "Halterung Lenkanschlag",
+      1
+    ],
+    [
+      "Achsschenkel/Achsstumpf Defender/Discovery I/RRC HA",
+      1
+    ],
+    [
+      "Schraube M10x55",
+      1
+    ],
+    [
+      "Steckachse VA rechts kpl. mit Gleichlaufgelenk Defender ab 7A000001",
+      1
+    ],
+    [
+      "Steckachse VA links kpl. mit Gleichlaufgelenk Defender ab 7A000001",
+      1
+    ],
+    [
+      "Radlagersatz Defender ab LA930456/Modelljahr 1994 (OEM)",
+      1
+    ],
+    [
+      "Stopfen",
+      1
+    ],
+    [
+      "Achsschenkelgeh\u00e4use-Kit Defender ab XA159807 ohne ABS",
+      1
+    ],
+    [
+      "Komfort Blinker Modul Defender",
+      1
+    ],
+    [
+      "Bremsscheiben VA Defender/Discovery 1 innenbel\u00fcftet bel./gelocht/geschlitzt mit ABE/KBA Nummer (Paar)",
+      1
+    ],
+    [
+      "Bremsscheiben HA Defender 110/130 ab XA159807 mit ABE/KBA Nummer (Paar)",
+      1
+    ],
+    [
+      "Kugelgelenk Stabilisator (OEM)",
+      1
+    ],
+    [
+      "Mutter M16 selbstsichernd",
+      1
+    ],
+    [
+      "Stabi/Sto\u00dfd\u00e4mpfergummi",
+      1
+    ],
+    [
+      "Bolzen Stabibefestigung",
+      1
+    ],
+    [
+      "Kronenmutter M12",
+      1
+    ],
+    [
+      "Hitzeschild Getriebelager",
+      1
+    ],
+    [
+      "Getriebelager (Gummi) links Defender ab XA159807",
+      2
+    ],
+    [
+      "Getriebelager (Gummi) rechts Defender ab XA159807",
+      2
+    ],
+    [
+      "Schalld\u00e4mmmatten Dynamat Xtreme f\u00fcr die Sitzbox vorn Defender Td4",
+      1
+    ],
+    [
+      "Upgrade Wasserk\u00fchler Allisport Td4/Td5",
+      1
+    ],
+    [
+      "Ladeluftk\u00fchler Allisport Td5",
+      1
+    ],
+    [
+      "Upgrade Wasserk\u00fchler Allisport",
+      1
+    ],
+    [
+      "Ausgleichsbeh\u00e4lter K\u00fchlmittel Allisport schwarz",
+      1
+    ],
+    [
+      "Ladeluftschlauchset Silikon Allisport schwarz Td4",
+      1
+    ],
+    [
+      "Ladeluftschlauchset Silikon Allisport schwarz Td5",
+      1
+    ],
+    [
+      "Silikon K\u00fchlwasserschlauchset Komplett Defender Td5 schwarz",
+      1
+    ],
+    [
+      "Lenkungsd\u00e4mpfer Defender BILSTEIN TREKFINDER ",
+      1
+    ],
+    [
+      "Dichtsatz Servolenkgetriebe Adwest Heavyweight ",
+      1
+    ],
+    [
+      "Lenkarm Adwest Defender (LHD) kpl. mit Kugelkopf (OEM)",
+      1
+    ],
+    [
+      "Sicherungsblech Lenkarm an Welle Servolenkgetr. (60 mm)",
+      1
+    ],
+    [
+      "Mutter Lenkarm Adwest Heavyweight manuell (Normalausf.)",
+      1
+    ],
+    [
+      "O-Ring Leitung Servolenkung",
+      1
+    ],
+    [
+      "Motorlager (Gummi) Defender Td5/Td4 (ab XA159807)",
+      2
+    ],
+    [
+      "Einspritzd\u00fcse & Sensor Td5 (\u00fcberholt)",
+      2
+    ],
+    [
+      "Kipphebel Td5 (OEM)",
+      1
+    ],
+    [
+      "Riemenscheibe/Schwingungsd\u00e4mpfer KW Td5",
+      1
+    ],
+    [
+      "Bolzen KW Riemenscheibe Td5",
+      1
+    ],
+    [
+      "Servopumpe Td5 Defender ggf. ben\u00f6tigte O-Ringe: 2x QYX100280",
+      1
+    ],
+    [
+      "Kondensator Klimaanlage (kpl. mit Gebl\u00e4se) Defender (OEM)",
+      1
+    ],
+    [
+      "\u00d6lpumpe Baugruppe Td5",
+      2
+    ],
+    [
+      "Kompressor Klimaanlage Td5 u. V8",
+      1
+    ],
+    [
+      "Keilrippenriemen Td5 mit Klima ohne ACE",
+      1
+    ],
+    [
+      "Turbolader Defender Td4 2.2",
+      2
+    ],
+    [
+      "Turbolader Td5 (Garrett) NEU ohne Austausch",
+      2
+    ],
+    [
+      "Hydrost\u00f6\u00dfel Td5 ( OEM )",
+      1
+    ],
+    [
+      "O-Ring F\u00fchrungsrohr \u00d6lmessstab",
+      1
+    ],
+    [
+      "Anlasser Td5 (OEM Denso)",
+      1
+    ],
+    [
+      "Keilriemenspanner Td5 Defender/Discovery",
+      1
+    ],
+    [
+      "Gl\u00fchkerze Td5",
+      1
+    ],
+    [
+      "Kabelebaum Pumpe-D\u00fcse Einspritzung Td5 ",
+      1
+    ],
+    [
+      "Umlenkrolle Keilrippenriemen mit Halter Td5",
+      1
+    ],
+    [
+      "F\u00fchrung Steuerkette Td5",
+      1
+    ],
+    [
+      "Kettenspanner Td5",
+      1
+    ],
+    [
+      "Steuerkette mit Zahnrad Td5 (Servicekit)",
+      1
+    ],
+    [
+      "Schutzblech Motorlager",
+      1
+    ],
+    [
+      "Luftmassenmesser Td5",
+      1
+    ],
+    [
+      "Reparatursatz Motor\u00f6lk\u00fchler",
+      1
+    ],
+    [
+      "Service-Kit Defender/Discovery Td5 (OEM) inkl. \u00d6L-,Zentrifugen\u00f6l-,Kraftstoff- u. Luftfilter, Dichtring \u00d6labla\u00dfschraube OE- Qualit\u00e4t",
+      1
+    ],
+    [
+      "Wasserpumpe Td5 (NB)",
+      1
+    ],
+    [
+      "Dichtung Nockenwelle Td5",
+      1
+    ],
+    [
+      "Ventil Entl\u00fcftung Nockenwellendeckel Td5 / TDCi",
+      1
+    ],
+    [
+      "Simmering Kurbelwelle vorne Td5 (OEM)",
+      1
+    ],
+    [
+      "Sensor Kurbelwelle (OT) Td5",
+      1
+    ],
+    [
+      "Hitzeschutzblech Turbolader Td5",
+      1
+    ],
+    [
+      "Zylinderkopfschraube Td5 (NB)",
+      1
+    ],
+    [
+      "Motordichtsatz (Block) Td5",
+      1
+    ],
+    [
+      "Abgaskr\u00fcmmer Td5 (orig. LR",
+      1
+    ],
+    [
+      "\u00d6labla\u00dfschraube Td5",
+      1
+    ],
+    [
+      "Scheibenwischerarm Defender links/rechts (LHD) ab 2002",
+      1
+    ],
+    [
+      "Deckel LT230 Verst\u00e4rkt",
+      1
+    ],
+    [
+      "Defender Puma 2.2 TDCI Silicone Coolant Hose Kit in Black - By Allisport",
+      1
+    ],
+    [
+      "DA5051 - Black Aluminium Gear and Transfer Knobs for Land Rover Defender from 2007 Onwards - Fits All Defender Puma Models",
+      1
+    ],
+    [
+      "Land Rover Defender Puma TDCi Key Saver",
+      1
+    ],
+    [
+      "LRC2494 - Rear Lamp Plinth in Black by Optimill for Land Rover Defender - Comes as a Pair - To Fit NAS Style Lights / Reverse and Fog Lamp",
+      1
+    ],
+    [
+      "LRC1577 - Defender Aluminium Seat Release Handles - Fits to Back of Rear Seats on Puma Defenders - Comes as a Pair",
+      1
+    ],
+    [
+      "LRC1576 - Defender Aluminium Seat Reclining Handles - Comes as a Pair - Fits All Defender Front Seats as well as Puma Rear Seats",
+      1
+    ],
+    [
+      "Front Lamp Plinth in Black by Optimill for Land Rover Defender - Comes as a Pair - To Fit NAS Style Lights to Front",
+      1
+    ],
+    [
+      "Gloss Black Mirror Heads for Land Rover Defender by Optimill",
+      1
+    ],
+    [
+      "- Upgraded Washer System and Jet Kit In Black for Land Rover Defender by Optimill - Fits 1998-2016 - Fits Front and Rear",
+      1
+    ],
+    [
+      "Audison+ Hertz Stage 3 sound system speaker upgrade set Fits Land Rover Defender",
+      1
+    ],
+    [
+      "BLACK ALUMINIUM indicator, wiper & light stalks FIT LAND ROVER DEFENDER 90 110",
+      2
+    ],
+    [
+      "Black Aluminium number plate light bracket Fits Land Rover Defender 90 110",
+      2
+    ],
+    [
+      "EDELSTAHL-ABGASANLAGE - DEFENDER - DEFENDER 110 TD4",
+      1
+    ],
+    [
+      "EDELSTAHL-ABGASANLAGE - DEFENDER - DEFENDER 130 TD5",
+      1
+    ],
+    [
+      "LONGRANGE-KRAFTSTOFFTANK \u2013 DEFENDER 110",
+      1
+    ],
+    [
+      "GESCHWINDIGKEITS REGELANLAGE ",
+      1
+    ],
+    [
+      "TEMPOMAT TD5",
+      1
+    ],
+    [
+      "Land Rover  Defender Hecksto\u00dfstange ",
+      1
+    ],
+    [
+      "LED Siganalleuchtenset f\u00fcr Land Rover Defender",
+      1
+    ],
+    [
+      "Nolden 7 Zoll BI-LED Refelektor-Hauptscheinwerfer",
+      1
+    ],
+    [
+      "Nakanatenga LED Kotfl\u00fcgelblinker f\u00fcr Land Rover Defender",
+      1
+    ],
+    [
+      "Schalld\u00e4mmmatten Dynamat Xtreme f\u00fcr den Fu\u00dfraum vorn defender Td4",
+      1
+    ],
+    [
+      "Kupplungsfeder f\u00fcr Land Rover Defender ",
+      1
+    ],
+    [
+      "Scheibenrahmenhalter f\u00fcr Land Rover Defender",
+      1
+    ],
+    [
+      "Motorhaubenhalter f\u00fcr Land Rover Defender schwarz",
+      1
+    ],
+    [
+      "T\u00fcrscharniere f\u00fcr Land Rover Defender 4 T\u00fcren",
+      1
+    ],
+    [
+      "DEI extremer Hitzeschild \"Floor & Tunnel Shield II\" Schwarz 42\" x 48\" (106,6 cm x 121,9 cm) ",
+      1
+    ],
+    [
+      "JWP872 - Pair Built Up 2nd Row 110 Galvanised Push Button Doors & Built Up Parts Separate Fully Crated",
+      1
+    ],
+    [
+      "Pair Built Up Galvanised Push Button Doors & Customisable Parts Separate Fully Crated",
+      1
+    ],
+    [
+      "Defender 130 Puma 2.4 / 2.2 TDCi Galvanised Bulkhead",
+      1
+    ],
+    [
+      "HDG Bulkhead to Chassis Brackets - LR Defender - Yes, Yes",
+      1
+    ],
+    [
+      "300tdi/Td5 LHS Chassis Rail Exhaust Bracket HDG \u2013 LR Defender",
+      1
+    ],
+    [
+      "Td5 Centre Exhaust Bracket (A Frame Cross Member) HDG \u2013 LR Defender",
+      1
+    ],
+    [
+      "Exhaust Bracket HDG",
+      1
+    ],
+    [
+      "Rear Exhaust Bracket 1987 onwards HDG \u2013 LR Defender",
+      1
+    ],
+    [
+      "Defender Rear Crossmember Exhaust Hanger",
+      1
+    ],
+    [
+      "LHS 316 S/S Brake Pipe Swivel Mount Bracket - LR Defender ",
+      1
+    ],
+    [
+      "RHS 316 S/S Brake Pipe Swivel Mount Bracket - LR Defender ",
+      1
+    ],
+    [
+      "S/S 316 Swivel Pin/Mud Shield Bracket - LR Defender/D1/RRC ",
+      1
+    ],
+    [
+      "S/S 316 Swivel Oil Seal Retainer - LR Defender/D1/RRC ",
+      1
+    ],
+    [
+      "316 S/S Front & Rear Stub Axle Locking Plate  - LR Defender/D1/RRC ",
+      1
+    ],
+    [
+      "Bolt for Stub Axle - SX110256M - LR Defender/D1/RRC ",
+      1
+    ],
+    [
+      "Spring Seat, Retainer & Fixing Kit - Option B",
+      1
+    ],
+    [
+      "316 S/S Chassis Brake Pipe Bracket - LR Defender ",
+      1
+    ],
+    [
+      "316 S/S Towing Eyes & Fixings A4-80 ",
+      1
+    ],
+    [
+      "S/S Rear Shock Mount Chassis A4-80 Fixing Kit ",
+      1
+    ],
+    [
+      "S/S Bulkhead to Chassis A4-80 Fixing Kit ",
+      1
+    ],
+    [
+      "A Frame S/S Fixing Kit Pre 2009 A4-80 - LR Defender/D1/RRC - Yes",
+      1
+    ],
+    [
+      "Front of A Frame to Chassis NOT STAINLESS STEEL - LR Defender/D1/RRC ",
+      1
+    ],
+    [
+      "S/S Front or Rear Bump Stop Chassis Fixing Kit - LR Defender/D1/RRC ",
+      1
+    ],
+    [
+      "S/S Mid Cross Member Fixing Kit A4-80 ",
+      1
+    ],
+    [
+      "S/S Fuel Filter Bracket to Chassis Fixing Kit - LR Defender ",
+      1
+    ],
+    [
+      "S/S Chassis to Crossmember Fixing Kit (gearbox) not 300tdi ",
+      1
+    ],
+    [
+      "S/S Front Anti Roll Bar to Chassis Bracket A4-80 Fixing Kit ",
+      1
+    ],
+    [
+      "S/S Rear Anti Roll Bar to Chassis Bracket A4-80 Fixing Kit ",
+      1
+    ],
+    [
+      "S/S Steering Drop Down Bar to Chassis Up to 2000 A4-80 Fixing Kit ",
+      1
+    ],
+    [
+      "S/S Steering Damper A4-80 Fixing Kit ",
+      1
+    ],
+    [
+      "S/S Seatbox to Chassis Fixing Kit A4-80 - LR Defender & Series ",
+      1
+    ],
+    [
+      "S/S Front Shock Absorber Turret Rings - LR Defender/D1/RRC ",
+      1
+    ],
+    [
+      "316 S/S Front Axle Swivel Seal/Mudshield/Brake Pipe Bracket Fixing Kit ",
+      1
+    ],
+    [
+      "S/S Axle Turning Circle Fixing Kit - LR Defender ",
+      1
+    ],
+    [
+      "Swivel Housing To Axle Bolt - M10 - Double Hex - Dowel - UYG500040 - LR Defender/D1/RRC ",
+      1
+    ],
+    [
+      "Swivel Housing To Axle Washer - M10 - FRC8530 - LR Defender/D1/RRC ",
+      1
+    ],
+    [
+      "Front Footwell Floor Plate Fixing Kit - LR Defender & Series 2 & 3 ",
+      1
+    ],
+    [
+      "Pk 20 S/S Floor Plate/Gearbox Tunnel screws & washers - LR Defender & Series 2 & 3 ",
+      1
+    ],
+    [
+      "GENUINE Bulkhead Gearbox Diaphragm Panel RTC6826LR - LR Defender R380 (300tdi/Td5/V8) ",
+      1
+    ],
+    [
+      "CZA4705L Pk 10 Plastic Floor Body Lock Nut ",
+      1
+    ],
+    [
+      "Pk 25 Front Wing S/S Screws & S/S No 14 Captive J Nuts ",
+      1
+    ],
+    [
+      "S/S Bulkhead Door Hinge Screw Captive Nuts Pk 8 BYH500100 - LR Defender & Series 2 & 3 ",
+      1
+    ],
+    [
+      "S/S Front Wing to Bulkhead Fixing Kit - LR Defender & Series 2 & 3 ",
+      1
+    ],
+    [
+      "S/S Front Radius & Rear Trailing Arm A4-80 Fixing Kit ",
+      1
+    ],
+    [
+      "S/S Early Panhard Rod A4-80 Fixing Kit - LR Defender/D1/RRC upto 2002 ",
+      1
+    ],
+    [
+      "Anti Roll Bar Bolt Front & Rear PIN - LR Defender/D1/RRC - 1106SS",
+      1
+    ],
+    [
+      "S/S 316 Steering Tie Bar to Drop Down Arm Washer - LR Defender/D1/RRC ",
+      1
+    ],
+    [
+      "S/S Steering Box A4-80 Fixing Kit - No",
+      1
+    ],
+    [
+      "316 S/S Rear Brake Shield Bracket - LR Defender/D1/RRC ",
+      1
+    ],
+    [
+      "S/S Body to Chassis Fixing Kit - LR Defender 110 4 or 5 Door ",
+      1
+    ],
+    [
+      "S/S Toe/Kick Panel Fixing Kit A4-80 - LR Defender & Series 4 or 5 Door ",
+      1
+    ],
+    [
+      "HDG Front Shock Absorber Mounting Turret NRC6372 - LR Defender/D1/RRC ",
+      1
+    ],
+    [
+      "Kraftstoffleitung Pumpe->Mot Def 110 Td5",
+      1
+    ],
+    [
+      "Allisport Intercooler For Defender from 1998-2016 - TD5 and Puma Engine TD4 2.4 & 2.2 Engine ",
+      1
+    ],
+    [
+      "\u00d6ld\u00fcse Steuerkette Td5",
+      1
+    ]
+  ],
+  "haendler": [
+    [
+      "4WARD 4x4 Equipment",
+      31
+    ],
+    [
+      "4X4 Roversland",
+      4
+    ],
+    [
+      "Alisport",
+      2
+    ],
+    [
+      "Allrad Kontor Bremen e.K.",
+      39
+    ],
+    [
+      "Ashcroft Transmissions",
+      6
+    ],
+    [
+      "Ashcroft Trasmissions",
+      2
+    ],
+    [
+      "Landy Scheune",
+      99
+    ],
+    [
+      "LR Centre Limited",
+      9
+    ],
+    [
+      "LRI Solutions",
+      3
+    ],
+    [
+      "Lucari Solutions",
+      2
+    ],
+    [
+      "Matzker KFZ-Technik",
+      5
+    ],
+    [
+      "Nakanatenga",
+      6
+    ],
+    [
+      "Offroad Monkeys",
+      3
+    ],
+    [
+      "R-Parts",
+      1
+    ],
+    [
+      "S&P Body Panlels",
+      2
+    ],
+    [
+      "Shielder Chassis",
+      1
+    ],
+    [
+      "YRM Metal Solutions",
+      49
+    ],
+    [
+      "unidentified",
+      11
+    ]
+  ]
+}

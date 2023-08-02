@@ -1,0 +1,9 @@
+{
+  "name": "Overlanders Parts Profile",
+  "path_to_profile": "/Users/tupolev/Desktop/Arbeit/Overlanders_Coding/py_parts/test_data/overlanders_parts_profile.json",
+  "path_to_excel": "/Users/tupolev/Library/CloudStorage/OneDrive-SharedLibraries-TheOverlandersGmbH/Office - General/05_Listen_Tabellen_Aufstellungen/Bestellliste-Defender-28_04_2023.xlsx",
+  "kategorie": [],
+  "artikelnummer": [],
+  "beschreibung": [],
+  "haendler": []
+}
