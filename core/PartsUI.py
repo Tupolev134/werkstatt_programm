@@ -7,7 +7,7 @@ from datetime import date
 from core.Profile import Profile
 from core.ProfileController import ProfileController
 from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QPushButton, QLabel, QProgressBar, \
-    QComboBox, QLineEdit, QFileDialog, QMessageBox, QFrame, QHBoxLayout, QGridLayout, QCompleter
+    QComboBox, QLineEdit, QFileDialog, QMessageBox, QFrame, QHBoxLayout, QGridLayout, QCompleter, QScrollArea
 from PyQt6.QtGui import QAction
 from PyQt6.QtCore import Qt, pyqtSignal, QStringListModel, QDate
 
@@ -51,8 +51,9 @@ class PartsUI(QMainWindow):
         self.load_profile_btn = QPushButton("Load a profile", self)
 
         try:
-            self.excel_profile = Profile.load_from_json(r"C:\Users\TheOverlanders\Desktop\Coding\parts_py\test_data\overlanders_parts_profile.json")
+            self.excel_profile = Profile.load_from_json("/Users/tupolev/Desktop/Coding/Python/py_parts/test_data/overlanders_parts_profile.json")
             self.profile_controller = ProfileController(self.excel_profile)
+            self.profile_controller.populate_profile()
             self.update_profile_labels()
         except Exception as e:
             raise
@@ -96,7 +97,20 @@ class PartsUI(QMainWindow):
 
         # ------------------ setup Window ------------------
         central_widget = QWidget()
-        self.setCentralWidget(central_widget)
+        scroll_area = QScrollArea()
+        scroll_area.setWidgetResizable(True)
+        scroll_area.setWidget(central_widget)
+
+        # Set the QMainWindow's central widget to the QScrollArea
+        self.setCentralWidget(scroll_area)
+
+        # Get the screen size and set the maximum height of the window
+        screen = QApplication.primaryScreen()
+        rect = screen.availableGeometry()
+        self.setMaximumHeight(rect.height())
+
+        # Create central widget
+        self.setCentralWidget(scroll_area)
         self.main_layout = QVBoxLayout(central_widget)
 
         if self.excel_profile: self.init_autofill_from_profile()
@@ -243,8 +257,8 @@ class PartsUI(QMainWindow):
         self.profile_path_label.setText(self.excel_profile.path_to_profile)
         self.profile_excel_path_label.setText(self.excel_profile.path_to_excel)
         self.num_teile.setText("Anzahl verschiedener Teile: " + str(self.profile_controller.get_letzte_zeile()))
-        self.preis_total.setText("Gesamtpreis: " + str(round(self.profile_controller.get_gesamtpreis(), 2)) + "€")
-        self.laufender_gesamtpreis = round(self.profile_controller.get_gesamtpreis(), 2)
+        if self.profile_controller.get_gesamtpreis(): self.preis_total.setText("Gesamtpreis: " + str(round(self.profile_controller.get_gesamtpreis(), 2)) + "€")
+        if self.profile_controller.get_gesamtpreis(): self.laufender_gesamtpreis = round(self.profile_controller.get_gesamtpreis(), 2)
 
     def update_profile_labels_static(self):
         self.num_teile.setText("Anzahl verschiedener Teile: " + str(self.profile_controller.get_letzte_zeile() + 1))
