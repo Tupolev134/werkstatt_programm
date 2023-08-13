@@ -4,6 +4,8 @@ import subprocess
 import sys
 from datetime import date
 
+import requests as requests
+
 from core.Profile import Profile
 from core.ProfileController import ProfileController
 from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QPushButton, QLabel, QProgressBar, \
@@ -11,6 +13,7 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QPu
 from PyQt6.QtGui import QAction
 from PyQt6.QtCore import Qt, pyqtSignal, QStringListModel, QDate
 
+from core.UI.NavigationBar import NavigationBar
 
 
 def _get_line_widget():
@@ -27,26 +30,13 @@ def get_sorted_list(list_of_tuples):
 class CustomQDateEdit:
     pass
 
-
-class PartsUI(QMainWindow):
-    def __init__(self):
+class InsertOrderablePartsMenu(QMainWindow):
+    def __init__(self, window_manager):
         super().__init__()
-        super().__init__()
-        self.setWindowTitle("PDF Renamer")
+        self.setWindowTitle("Import OrderablePart")
         self.resize(450, 600)
 
-        self.excel_profile = None
-        self.profile_controller = None
-        self.laufender_gesamtpreis = 0.0
-
-        # ------------------ Init Section Widgets ------------------
-
-        try:
-            self.excel_profile = Profile.load_from_json("/Users/tupolev/Desktop/Coding/Python/py_parts/test_data/overlanders_parts_profile.json")
-            self.profile_controller = ProfileController(self.excel_profile)
-            self.profile_controller.populate_profile()
-        except Exception as e:
-            raise
+        self.backend_profile = Profile()
 
         # Naming
         self.naming_section_layout = QGridLayout()
@@ -63,14 +53,6 @@ class PartsUI(QMainWindow):
         self.beschreibung_label = QLabel("Beschreibung:")
         self.beschreibung_input = QLineEdit()
 
-        # Menge Darlene
-        self.menge_darlene_label = QLabel("Menge Darlene:")
-        self.menge_darlene_input = QLineEdit()
-
-        # Menge Diana
-        self.menge_diana_label = QLabel("Menge Diana:")
-        self.menge_diana_input = QLineEdit()
-
         # Einzelpreis
         self.einzelpreis_label = QLabel("Einzelpreis:")
         self.einzelpreis_input = QLineEdit()
@@ -83,36 +65,39 @@ class PartsUI(QMainWindow):
         self.haendler_label = QLabel("Haendler:")
         self.haendler_input = QLineEdit()
 
-        self.next_button = QPushButton("Next", self)
+        self.next_button = QPushButton("Import", self)
 
         # ------------------ setup Window ------------------
         central_widget = QWidget()
         scroll_area = QScrollArea()
         scroll_area.setWidgetResizable(True)
         scroll_area.setWidget(central_widget)
-
-        # Set the QMainWindow's central widget to the QScrollArea
         self.setCentralWidget(scroll_area)
 
-        # Get the screen size and set the maximum height of the window
         screen = QApplication.primaryScreen()
         rect = screen.availableGeometry()
         self.setMaximumHeight(rect.height())
 
-        # Create central widget
         self.setCentralWidget(scroll_area)
         self.main_layout = QVBoxLayout(central_widget)
 
-        if self.excel_profile: self.init_autofill_from_profile()
+        # Window Manager
+        self.window_manager = window_manager
+        self.nav_bar = NavigationBar(self.window_manager)
+        self.main_layout.addWidget(self.nav_bar)
+
+        # ------------------ setup Sections ------------------
         self.create_naming_section()
 
         self.main_layout.addLayout(self.naming_section_layout)
         self.main_layout.addWidget(_get_line_widget())
 
+        self.init_autofill_from_profile()
+
         self.raise_()
 
     def init_autofill_from_profile(self):
-        kategorie_list = get_sorted_list(self.excel_profile.kategorie)
+        kategorie_list = get_sorted_list(self.backend_profile.kategorie)
         kategorie_list_model = QStringListModel(kategorie_list, self)
         kategorie_completer = QCompleter()
         kategorie_completer.setCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
@@ -120,7 +105,7 @@ class PartsUI(QMainWindow):
         kategorie_completer.setModel(kategorie_list_model)
         self.kategorie_input.setCompleter(kategorie_completer)
 
-        artikelnummer_list = get_sorted_list(self.excel_profile.artikelnummer)
+        artikelnummer_list = get_sorted_list(self.backend_profile.artikelnummer)
         artikelnummer_list_model = QStringListModel(artikelnummer_list, self)
         artikelnummer_completer = QCompleter()
         artikelnummer_completer.setCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
@@ -128,7 +113,7 @@ class PartsUI(QMainWindow):
         artikelnummer_completer.setModel(artikelnummer_list_model)
         self.artikelnummer_input.setCompleter(artikelnummer_completer)
 
-        beschreibung_list = get_sorted_list(self.excel_profile.beschreibung)
+        beschreibung_list = get_sorted_list(self.backend_profile.beschreibung)
         beschreibung_list_model = QStringListModel(beschreibung_list, self)
         beschreibung_completer = QCompleter()
         beschreibung_completer.setCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
@@ -136,7 +121,7 @@ class PartsUI(QMainWindow):
         beschreibung_completer.setModel(beschreibung_list_model)
         self.beschreibung_input.setCompleter(beschreibung_completer)
 
-        haendler_list = get_sorted_list(self.excel_profile.haendler)
+        haendler_list = get_sorted_list(self.backend_profile.haendler)
         haendler_list_model = QStringListModel(haendler_list, self)
         haendler_completer = QCompleter()
         haendler_completer.setCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
@@ -160,16 +145,7 @@ class PartsUI(QMainWindow):
         # Beschreibung
         self.naming_section_layout.addWidget(self.beschreibung_label, 2, 0)
         self.naming_section_layout.addWidget(self.beschreibung_input, 2, 2)
-        self.beschreibung_input.returnPressed.connect(self.menge_darlene_input.setFocus)
-
-        # Menge
-        self.naming_section_layout.addWidget(self.menge_darlene_label, 3, 0)
-        self.naming_section_layout.addWidget(self.menge_darlene_input, 3, 2)
-        self.menge_darlene_input.returnPressed.connect(self.menge_diana_input.setFocus)
-
-        self.naming_section_layout.addWidget(self.menge_diana_label, 4, 0)
-        self.naming_section_layout.addWidget(self.menge_diana_input, 4, 2)
-        self.menge_diana_input.returnPressed.connect(self.einzelpreis_input.setFocus)
+        self.beschreibung_input.returnPressed.connect(self.einzelpreis_input.setFocus)
 
         # Einzelpreis
         self.naming_section_layout.addWidget(self.einzelpreis_label, 5, 0)
@@ -201,38 +177,14 @@ class PartsUI(QMainWindow):
     # ------------------ Utils ------------------
 
     def insert_new_orderable_part(self):
-        response = requests.post()
+        pass
+        # response = requests.post()
 
 
     def reset_inputs(self):
         self.kategorie_input.setText("")
         self.artikelnummer_input.setText("")
         self.beschreibung_input.setText("")
-        self.menge_darlene_input.setText("")
-        self.menge_diana_input.setText("")
         self.einzelpreis_input.setText("")
         self.gesamtpreis_input.setText("")
         self.haendler_input.setText("")
-
-
-
-class ApplicationWindowManager:
-    def __init__(self):
-        self.app = QApplication(sys.argv)
-        self.current_window = None
-
-    def start(self):
-        self.show_main_menu()
-        sys.exit(self.app.exec())
-
-    def show_main_menu(self):
-        if self.current_window is not None:
-            self.current_window.close()
-
-        self.current_window = PartsUI()
-        self.current_window.show()
-
-
-if __name__ == '__main__':
-    manager = ApplicationWindowManager()
-    manager.start()
