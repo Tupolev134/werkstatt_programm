@@ -5,7 +5,7 @@ import requests
 from copy import deepcopy
 
 # Constants
-EXCEL_PATH = "./Bestellliste-Defender-IMPORT.xlsx"
+EXCEL_PATH = "test_data/Bestellliste-Defender-IMPORT.xlsx"
 ORDERABLE_PARTS_ENDPOINT = "http://localhost:8080/api/orderable_parts"
 PROJECT_PARTS_ENDPOINT_TEMPLATE = "http://localhost:8080/api/project/parts/{}"
 PROJECT_ENDPOINT = "http://localhost:8080/api/projects"
@@ -86,7 +86,10 @@ if __name__ == '__main__':
             if response.status_code == 201:  # Assuming 201 means successful creation
                 returned_data = response.json()
                 part_project_map.append({returned_data['id']:payload['project']})
-                part_manufacturer_map[returned_data['id']] = returned_data['manufacturerInfo']['manufacturerName']
+                part_manufacturer_map[returned_data['id']] = {
+                    "manName":returned_data['manufacturerInfo']['manufacturerName'],
+                    "inStock": returned_data['inStock']
+                }
             else:
                 print("Error while creating orderable part: {}".format(response.text))
                 print(payload)
@@ -157,9 +160,9 @@ if __name__ == '__main__':
 
     for manufacturer_name, db_item in imported_manufacturers.items():
         man_id = db_item['id']
-        for part_id, mapped_man_name in part_manufacturer_map.items():
-            if manufacturer_name == mapped_man_name:
-                response = requests.post(MANUFACTURER_PARTS_ENDPOINT_TEMPLATE.format(man_id), json=[part_id])
+        for part_id, values in part_manufacturer_map.items():
+            if manufacturer_name == values['manName']:
+                response = requests.post(MANUFACTURER_PARTS_ENDPOINT_TEMPLATE.format(man_id), json={part_id: values['inStock']})
                 if response.status_code != 200:
                     print("Error while mapping parts to manuf: {}".format(response.text))
                     print(response.json())

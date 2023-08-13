@@ -41,20 +41,10 @@ class PartsUI(QMainWindow):
 
         # ------------------ Init Section Widgets ------------------
 
-        # Navigation
-        self.navigation_section_layout = QVBoxLayout()
-        self.profile_name_label = QLabel("No Profile Loaded")
-        self.profile_path_label = QLabel("No Profile Loaded")
-        self.profile_excel_path_label = QLabel("No Profile Loaded")
-        self.num_teile = QLabel("No Profile Loaded")
-        self.preis_total = QLabel("No Profile Loaded")
-        self.load_profile_btn = QPushButton("Load a profile", self)
-
         try:
             self.excel_profile = Profile.load_from_json("/Users/tupolev/Desktop/Coding/Python/py_parts/test_data/overlanders_parts_profile.json")
             self.profile_controller = ProfileController(self.excel_profile)
             self.profile_controller.populate_profile()
-            self.update_profile_labels()
         except Exception as e:
             raise
 
@@ -114,10 +104,8 @@ class PartsUI(QMainWindow):
         self.main_layout = QVBoxLayout(central_widget)
 
         if self.excel_profile: self.init_autofill_from_profile()
-        self.create_navigation_section()
         self.create_naming_section()
 
-        self.main_layout.addLayout(self.navigation_section_layout)
         self.main_layout.addLayout(self.naming_section_layout)
         self.main_layout.addWidget(_get_line_widget())
 
@@ -157,15 +145,6 @@ class PartsUI(QMainWindow):
         self.haendler_input.setCompleter(haendler_completer)
 
     # ------------------ Sections ------------------
-    def create_navigation_section(self):
-        self.navigation_section_layout.addWidget(self.profile_name_label)
-        self.navigation_section_layout.addWidget(self.profile_path_label)
-        self.navigation_section_layout.addWidget(self.profile_excel_path_label)
-        self.navigation_section_layout.addWidget(self.num_teile)
-        self.navigation_section_layout.addWidget(self.preis_total)
-        self.navigation_section_layout.addWidget(self.load_profile_btn)
-        self.next_button.setAutoDefault(True)
-        self.load_profile_btn.clicked.connect(self.load_profile_and_excel)
 
     def create_naming_section(self):
         # Kategorie
@@ -217,53 +196,13 @@ class PartsUI(QMainWindow):
         self.haendler_input.returnPressed.connect(self.next_button.setFocus)
 
         self.naming_section_layout.addWidget(self.next_button)
-        self.next_button.clicked.connect(self.insert_new_row)
+        self.next_button.clicked.connect(self.insert_new_orderable_part)
 
     # ------------------ Utils ------------------
 
-    def insert_new_row(self):
-        darlene = "DA" if self.menge_darlene_input.text() else ""
-        diana = "DI" if self.menge_diana_input.text() else ""
-        self.profile_controller.add_part_to_excel(
-            kategorie=self.kategorie_input.text(),
-            artikelnummer=self.artikelnummer_input.text(),
-            beschreibung=self.beschreibung_input.text(),
-            menge=int(self.menge_darlene_input.text()) + int(self.menge_diana_input.text()),
-            einzelpreis=float(self.einzelpreis_input.text()),
-            gesamtpreis=float(self.gesamtpreis_input.text()),
-            darlene=darlene,
-            diana=diana,
-            menge_da=int(self.menge_darlene_input.text()),
-            menge_di=int(self.menge_diana_input.text()),
-            haendler=self.haendler_input.text(),
-        )
-        self.update_profile_labels_static()
-        self.reset_inputs()
-        self.kategorie_input.setFocus()
+    def insert_new_orderable_part(self):
+        response = requests.post()
 
-    def load_profile_and_excel(self):
-        file_dialog = QFileDialog()
-        json_filter = "JSON (*.json)"
-        profile_path, _ = file_dialog.getOpenFileName(filter=json_filter)
-        try:
-            self.excel_profile = Profile.load_from_json(profile_path)
-            self.profile_controller = ProfileController(self.excel_profile)
-            self.update_profile_labels()
-        except:
-            pass
-
-    def update_profile_labels(self):
-        self.profile_name_label.setText(self.excel_profile.name)
-        self.profile_path_label.setText(self.excel_profile.path_to_profile)
-        self.profile_excel_path_label.setText(self.excel_profile.path_to_excel)
-        self.num_teile.setText("Anzahl verschiedener Teile: " + str(self.profile_controller.get_letzte_zeile()))
-        if self.profile_controller.get_gesamtpreis(): self.preis_total.setText("Gesamtpreis: " + str(round(self.profile_controller.get_gesamtpreis(), 2)) + "€")
-        if self.profile_controller.get_gesamtpreis(): self.laufender_gesamtpreis = round(self.profile_controller.get_gesamtpreis(), 2)
-
-    def update_profile_labels_static(self):
-        self.num_teile.setText("Anzahl verschiedener Teile: " + str(self.profile_controller.get_letzte_zeile() + 1))
-        self.laufender_gesamtpreis += float(self.gesamtpreis_input.text())
-        self.preis_total.setText("Gesamtpreis: " + str(self.laufender_gesamtpreis) + "€")
 
     def reset_inputs(self):
         self.kategorie_input.setText("")

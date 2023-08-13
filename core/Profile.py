@@ -5,7 +5,6 @@ class Profile:
     def __init__(self, name=None, path=None, path_to_excel=None):
         self.name = name
         self.path_to_profile = path
-        self.path_to_excel = path_to_excel
         self.kategorie = list()
         self.artikelnummer = list()
         self.beschreibung = list()
@@ -15,7 +14,6 @@ class Profile:
         return {
             "name": self.name,
             "path_to_profile": self.path_to_profile,
-            "path_to_excel": self.path_to_excel,
             "kategorie": self.kategorie,
             "artikelnummer": self.artikelnummer,
             "beschreibung": self.beschreibung,
