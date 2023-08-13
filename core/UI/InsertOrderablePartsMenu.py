@@ -1,3 +1,4 @@
+import json
 import os
 import re
 import subprocess
@@ -15,6 +16,7 @@ from PyQt6.QtCore import Qt, pyqtSignal, QStringListModel, QDate
 
 from core.UI.NavigationBar import NavigationBar
 
+ORDERABLE_PART_ENDPOINT = "http://localhost:8080/api/orderable_parts"
 
 def _get_line_widget():
     line = QFrame()
@@ -23,12 +25,9 @@ def _get_line_widget():
     return line
 
 
-def get_sorted_list(list_of_tuples):
-    return [item[0] for item in sorted(list_of_tuples, key=lambda x: x[1], reverse=True)]
+def get_sorted_list(list_of_strings):
+    return sorted(list_of_strings, reverse=True)
 
-
-class CustomQDateEdit:
-    pass
 
 class InsertOrderablePartsMenu(QMainWindow):
     def __init__(self, window_manager):
@@ -37,42 +36,44 @@ class InsertOrderablePartsMenu(QMainWindow):
         self.resize(450, 600)
 
         self.backend_profile = Profile()
+        if self.backend_profile.artikelnummer is None:
+            QMessageBox.warning(self, "Profile could not Reach Backend",
+                                "No Parts Suggestions will be available. Import might fail.")
 
         # Naming
-        self.naming_section_layout = QGridLayout()
+        self.last_imported_data = QLabel("No data imported yet.")
 
         # Kategorie
         self.kategorie_label = QLabel("Kategorie:")
-        self.kategorie_input = QLineEdit()
+        self.kategorie_input = QLineEdit(self)
 
         # Artikelnummer
         self.artikelnummer_label = QLabel("Artikelnummer:")
-        self.artikelnummer_input = QLineEdit()
+        self.artikelnummer_input = QLineEdit(self)
 
         # Beschreibung
         self.beschreibung_label = QLabel("Beschreibung:")
-        self.beschreibung_input = QLineEdit()
+        self.beschreibung_input = QLineEdit(self)
 
         # Einzelpreis
         self.einzelpreis_label = QLabel("Einzelpreis:")
-        self.einzelpreis_input = QLineEdit()
+        self.einzelpreis_input = QLineEdit(self)
 
-        # Gesamtpreis
-        self.gesamtpreis_label = QLabel("Gesamtpreis:")
-        self.gesamtpreis_input = QLineEdit()
+        # Create a dropdown for currency selection
+        self.currency_dropdown = QComboBox(self)
+        self.currency_dropdown.addItems(["€", "$", "£"])
 
         # Haendler
         self.haendler_label = QLabel("Haendler:")
-        self.haendler_input = QLineEdit()
+        self.haendler_input = QLineEdit(self)
 
-        self.next_button = QPushButton("Import", self)
+        self.import_data_btn = QPushButton("Import", self)
 
         # ------------------ setup Window ------------------
         central_widget = QWidget()
         scroll_area = QScrollArea()
         scroll_area.setWidgetResizable(True)
         scroll_area.setWidget(central_widget)
-        self.setCentralWidget(scroll_area)
 
         screen = QApplication.primaryScreen()
         rect = screen.availableGeometry()
@@ -85,12 +86,17 @@ class InsertOrderablePartsMenu(QMainWindow):
         self.window_manager = window_manager
         self.nav_bar = NavigationBar(self.window_manager)
         self.main_layout.addWidget(self.nav_bar)
+        self.main_layout.setAlignment(self.nav_bar, Qt.AlignmentFlag.AlignTop)
 
         # ------------------ setup Sections ------------------
-        self.create_naming_section()
+        self.feedback_section_layout = QHBoxLayout()
+        self.create_feedback_section()
+        self.main_layout.addLayout(self.feedback_section_layout)
 
-        self.main_layout.addLayout(self.naming_section_layout)
         self.main_layout.addWidget(_get_line_widget())
+        self.naming_section_layout = QGridLayout()
+        self.create_naming_section()
+        self.main_layout.addLayout(self.naming_section_layout)
 
         self.init_autofill_from_profile()
 
@@ -132,59 +138,86 @@ class InsertOrderablePartsMenu(QMainWindow):
     # ------------------ Sections ------------------
 
     def create_naming_section(self):
+
         # Kategorie
-        self.naming_section_layout.addWidget(self.kategorie_label, 0, 0)
-        self.naming_section_layout.addWidget(self.kategorie_input, 0, 2)
+        self.naming_section_layout.addWidget(self.kategorie_label, 1, 0)
+        self.naming_section_layout.addWidget(self.kategorie_input, 1, 2)
         self.kategorie_input.returnPressed.connect(self.artikelnummer_input.setFocus)
 
         # Artikelnummer
-        self.naming_section_layout.addWidget(self.artikelnummer_label, 1, 0)
-        self.naming_section_layout.addWidget(self.artikelnummer_input, 1, 2)
+        self.naming_section_layout.addWidget(self.artikelnummer_label, 2, 0)
+        self.naming_section_layout.addWidget(self.artikelnummer_input, 2, 2)
         self.artikelnummer_input.returnPressed.connect(self.beschreibung_input.setFocus)
 
         # Beschreibung
-        self.naming_section_layout.addWidget(self.beschreibung_label, 2, 0)
-        self.naming_section_layout.addWidget(self.beschreibung_input, 2, 2)
+        self.naming_section_layout.addWidget(self.beschreibung_label, 3, 0)
+        self.naming_section_layout.addWidget(self.beschreibung_input, 3, 2)
         self.beschreibung_input.returnPressed.connect(self.einzelpreis_input.setFocus)
 
         # Einzelpreis
         self.naming_section_layout.addWidget(self.einzelpreis_label, 5, 0)
         self.naming_section_layout.addWidget(self.einzelpreis_input, 5, 2)
-        self.einzelpreis_input.returnPressed.connect(self.gesamtpreis_input.setFocus)
-
-        def calculate_and_set_gesamtpreis():
-            if self.einzelpreis_input.text() and (self.menge_darlene_input.text() or self.menge_diana_input.text()):
-                einzelpreis_cleaned = self.einzelpreis_input.text().replace(',', '.')
-                self.einzelpreis_input.setText(einzelpreis_cleaned)
-                gesamtpreis = float(einzelpreis_cleaned) * (int(self.menge_darlene_input.text()) + int(self.menge_diana_input.text()))
-                gesamtpreis_rounded = round(gesamtpreis, 2)
-                self.gesamtpreis_input.setText(str(gesamtpreis_rounded))
-        self.einzelpreis_input.returnPressed.connect(calculate_and_set_gesamtpreis)
-
-        # Gesamtpreis
-        self.naming_section_layout.addWidget(self.gesamtpreis_label, 6, 0)
-        self.naming_section_layout.addWidget(self.gesamtpreis_input, 6, 2)
-        self.gesamtpreis_input.returnPressed.connect(self.haendler_input.setFocus)
+        self.einzelpreis_input.returnPressed.connect(self.haendler_input.setFocus)
+        self.naming_section_layout.addWidget(self.currency_dropdown, 5, 1)
 
         # Haendler
         self.naming_section_layout.addWidget(self.haendler_label, 7, 0)
         self.naming_section_layout.addWidget(self.haendler_input, 7, 2)
-        self.haendler_input.returnPressed.connect(self.next_button.setFocus)
+        self.haendler_input.returnPressed.connect(self.import_data_btn.setFocus)
 
-        self.naming_section_layout.addWidget(self.next_button)
-        self.next_button.clicked.connect(self.insert_new_orderable_part)
+        self.naming_section_layout.addWidget(self.import_data_btn)
+        self.import_data_btn.clicked.connect(self.insert_new_orderable_part)
+
+    def create_feedback_section(self):
+        self.feedback_section_layout.addWidget(self.last_imported_data)
 
     # ------------------ Utils ------------------
 
+    import datetime
+
     def insert_new_orderable_part(self):
-        pass
-        # response = requests.post()
+        # Get the values from the QLineEdit widgets
+        beschreibung = self.beschreibung_input.text()
+        kategorie = self.kategorie_input.text()
+        artikelnummer = self.artikelnummer_input.text()
+        haendler = self.haendler_input.text()
+        einzelpreis = float(self.einzelpreis_input.text())
+        selected_currency = self.currency_dropdown.currentText()
 
+        # Construct the JSON payload
+        payload = {
+            "name": beschreibung if beschreibung else "no name entered",  # set the value to None if empty
+            "category": kategorie if kategorie else "NOT_SPECIFIED",
+            "price": {
+                "priceEuro": einzelpreis if selected_currency == "€" else None,
+                "priceDollar": einzelpreis if selected_currency == "$" else None,
+                "pricePound": einzelpreis if selected_currency == "£" else None,
+            },
+            "manufacturerInfo": {
+                "manufacturerPartDescription": beschreibung if beschreibung else None,
+                "manufacturerPartNumber": artikelnummer if artikelnummer else None,
+                "manufacturerName": haendler if haendler else None
+            }
+        }
 
-    def reset_inputs(self):
+        # Send the JSON payload using the requests.post method
+        response = requests.post(ORDERABLE_PART_ENDPOINT, json=payload)
+
+        # Handle the response
+        if response.status_code == 201:
+            pass
+        else:
+            QMessageBox.warning(self, "Error", "Error while inserting new OrderablePart: " + response.text)
+        self.reset_inputs(response)
+
+    def reset_inputs(self, last_response=None):
+        if last_response is not None:
+            data = json.loads(last_response.text)
+            formatted_data = json.dumps(data, indent=4)
+
+            self.last_imported_data.setText(formatted_data)
         self.kategorie_input.setText("")
         self.artikelnummer_input.setText("")
         self.beschreibung_input.setText("")
         self.einzelpreis_input.setText("")
-        self.gesamtpreis_input.setText("")
         self.haendler_input.setText("")

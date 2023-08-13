@@ -31,9 +31,11 @@ class Profile:
             "Schrauben Halter Edelstahl",
             "EDELSTAHLSCHRAUBEN",
             "BREMSEbzh"]
-        self.artikelnummer = list()
-        self.beschreibung = list()
-        self.haendler = list()
+        self.artikelnummer = None
+        self.beschreibung = None
+        self.haendler = None
+
+        self.populate_data()
 
     def populate_data(self):
         self._populate_artikelnummer()

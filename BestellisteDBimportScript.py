@@ -36,6 +36,7 @@ def create_payload(row):
     # Update fields if they are not NaN
     if pd.notna(row["Bezeichnung "]):
         payload["manufacturerInfo"]["manufacturerPartDescription"] = row["Bezeichnung "]
+        payload["name"] = row["Bezeichnung "]
 
     if pd.notna(row["Kategorie"]):
         payload["category"] = row["Kategorie"]

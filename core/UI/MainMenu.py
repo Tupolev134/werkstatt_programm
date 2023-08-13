@@ -1,3 +1,4 @@
+from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QPushButton, QLineEdit, QFrame, QGridLayout, \
     QScrollArea
 from core.UI.NavigationBar import NavigationBar
@@ -24,6 +25,7 @@ class MainMenu(QMainWindow):
         self.import_data_section_layout = QGridLayout()
         self.import_part_btn = QPushButton("Import new Part", self)
         self.import_orderable_part_btn = QPushButton("Import new order-able Part", self)
+        self.import_orderable_part_raw_btn = QPushButton("Import new order-able Part as raw data", self)
         self.import_order_btn = QPushButton("Import new Order", self)
         self.import_project_btn = QPushButton("Import new Project", self)
         self.import_line = QLineEdit()
@@ -44,6 +46,7 @@ class MainMenu(QMainWindow):
         self.window_manager = window_manager
         self.nav_bar = NavigationBar(self.window_manager)
         self.main_layout.addWidget(self.nav_bar)
+        self.main_layout.setAlignment(self.nav_bar, Qt.AlignmentFlag.AlignTop)
 
         # ------------------ create and add Layout ------------------
         self.create_import_data_section()
@@ -52,14 +55,12 @@ class MainMenu(QMainWindow):
     # ------------------ Sections ------------------
 
     def create_import_data_section(self):
-        self.import_data_section_layout.addWidget(self.import_part_btn)
         self.import_data_section_layout.addWidget(self.import_orderable_part_btn)
-        self.import_data_section_layout.addWidget(self.import_order_btn)
-        self.import_data_section_layout.addWidget(self.import_project_btn)
-        self.import_data_section_layout.addWidget(self.import_line)
+        self.import_data_section_layout.addWidget(self.import_orderable_part_raw_btn)
+        # self.import_data_section_layout.addWidget(self.import_part_btn)
+        # self.import_data_section_layout.addWidget(self.import_order_btn)
+        # self.import_data_section_layout.addWidget(self.import_project_btn)
+        # self.import_data_section_layout.addWidget(self.import_line)
 
-        self.import_orderable_part_btn.clicked.connect(self.open_orderable_part_window)
-
-    # ------------------ Window Callbacks ------------------
-    def open_orderable_part_window(self):
-        self.window_manager.show_window('orderable_part')
+        self.import_orderable_part_btn.clicked.connect(lambda : self.window_manager.show_window('orderable_part'))
+        self.import_orderable_part_raw_btn.clicked.connect(lambda : self.window_manager.show_window('orderable_part_raw'))
