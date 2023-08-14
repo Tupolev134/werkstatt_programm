@@ -57,10 +57,11 @@ class MainMenu(QMainWindow):
     def create_import_data_section(self):
         self.import_data_section_layout.addWidget(self.import_orderable_part_btn)
         self.import_data_section_layout.addWidget(self.import_orderable_part_raw_btn)
+        self.import_data_section_layout.addWidget(self.import_order_btn)
         # self.import_data_section_layout.addWidget(self.import_part_btn)
-        # self.import_data_section_layout.addWidget(self.import_order_btn)
         # self.import_data_section_layout.addWidget(self.import_project_btn)
         # self.import_data_section_layout.addWidget(self.import_line)
 
+        self.import_order_btn.clicked.connect(lambda : self.window_manager.show_window('insert_order'))
         self.import_orderable_part_btn.clicked.connect(lambda : self.window_manager.show_window('orderable_part'))
         self.import_orderable_part_raw_btn.clicked.connect(lambda : self.window_manager.show_window('orderable_part_raw'))

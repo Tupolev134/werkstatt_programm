@@ -1,5 +1,6 @@
 import json
 import requests
+from PyQt6.QtWidgets import QMessageBox
 
 PATH_TO_BACKEND = "http://localhost:8080/api/{}"
 MANUFACTURER_PART_NUMBER_ENDPOINT = "orderable_parts/manufacturer_part_number"
