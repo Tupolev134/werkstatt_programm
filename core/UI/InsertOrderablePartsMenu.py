@@ -173,8 +173,6 @@ class InsertOrderablePartsMenu(QMainWindow):
 
     # ------------------ Utils ------------------
 
-    import datetime
-
     def insert_new_orderable_part(self):
         # Get the values from the QLineEdit widgets
         beschreibung = self.beschreibung_input.text()

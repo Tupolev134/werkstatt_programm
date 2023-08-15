@@ -11,20 +11,21 @@ from core.Profile import Profile
 from core.ProfileController import ProfileController
 from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QPushButton, QLabel, QProgressBar, \
     QComboBox, QLineEdit, QFileDialog, QMessageBox, QFrame, QHBoxLayout, QGridLayout, QCompleter, QScrollArea, \
-    QDateEdit, QInputDialog
+    QDateEdit, QInputDialog, QTextEdit, QCheckBox
 from PyQt6.QtGui import QAction
 from PyQt6.QtCore import Qt, pyqtSignal, QStringListModel, QDate
 
 from core.UI.NavigationBar import NavigationBar
 
 ORDER_BULK_ENDPOINT = "http://localhost:8080/api/orders/parts"
+WIDTH=600
+HEIGHT=800
 
 def _get_line_widget():
     line = QFrame()
     line.setFrameShape(QFrame.Shape.HLine)
     line.setFrameShadow(QFrame.Shadow.Sunken)
     return line
-
 
 def get_sorted_list(list_of_strings):
     return sorted(list_of_strings, reverse=True)
@@ -42,7 +43,7 @@ class InsertOrderPage(QMainWindow):
     def __init__(self, window_manager):
         super().__init__()
         self.setWindowTitle("Import OrderablePart")
-        self.resize(450, 600)
+        self.resize(WIDTH, HEIGHT)
 
         self.backend_profile = Profile()
         if self.backend_profile.artikelnummer is None:
@@ -50,6 +51,14 @@ class InsertOrderPage(QMainWindow):
                                 "No Parts Suggestions will be available. Import might fail.")
 
         self.parts_list = []
+
+        # ------------------ init Header fields ------------------
+        self.last_imported_part = QLabel("No data imported yet.")
+        self.last_imported_order = QLabel("No data imported yet.")
+        self.raw_data_label = QLabel("Raw JSON:")
+        self.raw_data_input = QTextEdit(self)
+        self.raw_data_input.setFixedHeight(200)
+
         # ------------------ init Order fields ------------------
 
         self.order_name_label = QLabel("Name der Bestellung:")
@@ -74,19 +83,21 @@ class InsertOrderPage(QMainWindow):
         self.order_porto_input = QLineEdit(self)
         self.order_porto_qurrency_dropdown = QComboBox(self)
         self.order_porto_qurrency_dropdown.addItems(["€", "$", "£"])
+        self.vst_included_checkbox = QCheckBox(self)
+
 
         self.order_invoice_date_label = QLabel("Rechnungsdatum:")
         self.order_invoice_date_input = CustomQDateEdit()
         self.order_invoice_date_input.setDate(QDate.currentDate())
         self.order_invoice_date_input.setDisplayFormat("dd.MM.yyyy")
 
-        # Naming
-        self.last_imported_part = QLabel("No data imported yet.")
-        self.last_imported_order = QLabel("No data imported yet.")
-
         # ------------------ init Parts fields ------------------
 
-        # Kategorie
+        # Projekt
+        self.project_label = QLabel("Projekt:")
+        self. project_dropdown = QComboBox(self)
+        for key, value in self.backend_profile.projekte.items():
+            self.project_dropdown.addItem(key, value)
         self.kategorie_label = QLabel("Kategorie:")
         self.kategorie_input = QLineEdit(self)
 
@@ -188,7 +199,42 @@ class InsertOrderPage(QMainWindow):
 
     # ------------------ Sections ------------------
 
+    # Order Section
+    def create_order_fields_section(self):
+        self.order_fields_section_layout.addWidget(self.order_name_label, 0, 0)
+        self.order_fields_section_layout.addWidget(self.order_name_input, 0, 2)
+        self.order_name_input.returnPressed.connect(self.order_number_input.setFocus)
+
+        self.order_fields_section_layout.addWidget(self.order_number_label, 1, 0)
+        self.order_fields_section_layout.addWidget(self.order_number_input, 1, 2)
+        self.order_number_input.returnPressed.connect(self.order_notes_input.setFocus)
+
+        self.order_fields_section_layout.addWidget(self.order_status_label, 2, 0)
+        self.order_fields_section_layout.addWidget(self.order_status_dropdown, 2, 2)
+
+        self.order_fields_section_layout.addWidget(self.order_notes_label, 3, 0)
+        self.order_fields_section_layout.addWidget(self.order_notes_input, 3, 2)
+        self.order_notes_input.returnPressed.connect(self.order_time_taken_input.setFocus)
+
+        self.order_fields_section_layout.addWidget(self.order_time_taken_label, 4, 0)
+        self.order_fields_section_layout.addWidget(self.order_time_taken_input, 4, 2)
+        self.order_time_taken_input.returnPressed.connect(self.order_porto_input.setFocus)
+
+        self.order_fields_section_layout.addWidget(self.order_porto_label, 5, 0)
+        self.order_fields_section_layout.addWidget(self.vst_included_checkbox, 5, 1)
+        # self.order_fields_section_layout.addWidget(self.order_porto_qurrency_dropdown, 5, 1)
+        self.order_fields_section_layout.addWidget(self.order_porto_input, 5, 2)
+        self.order_porto_input.returnPressed.connect(self.kategorie_input.setFocus)
+
+        self.order_fields_section_layout.addWidget(self.order_invoice_date_label, 6, 0)
+        self.order_fields_section_layout.addWidget(self.order_invoice_date_input, 6, 2)
+
+    # Part Section
     def create_part_fields_section(self):
+        # Project
+        self.naming_section_layout.addWidget(self.project_label, 0, 0)
+        self.naming_section_layout.addWidget(self.project_dropdown, 0, 2)
+
         # Kategorie
         self.naming_section_layout.addWidget(self.kategorie_label, 1, 0)
         self.naming_section_layout.addWidget(self.kategorie_input, 1, 2)
@@ -227,41 +273,66 @@ class InsertOrderPage(QMainWindow):
         self.import_otder_btn.setAutoDefault(True)
         self.import_otder_btn.clicked.connect(self.post_order)
 
-    def create_order_fields_section(self):
-        self.order_fields_section_layout.addWidget(self.order_name_label, 0, 0)
-        self.order_fields_section_layout.addWidget(self.order_name_input, 0, 2)
-        self.order_name_input.returnPressed.connect(self.order_number_input.setFocus)
-
-        self.order_fields_section_layout.addWidget(self.order_number_label, 1, 0)
-        self.order_fields_section_layout.addWidget(self.order_number_input, 1, 2)
-        self.order_number_input.returnPressed.connect(self.order_notes_input.setFocus)
-
-        self.order_fields_section_layout.addWidget(self.order_status_label, 2, 0)
-        self.order_fields_section_layout.addWidget(self.order_status_dropdown, 2, 2)
-
-        self.order_fields_section_layout.addWidget(self.order_notes_label, 3, 0)
-        self.order_fields_section_layout.addWidget(self.order_notes_input, 3, 2)
-        self.order_notes_input.returnPressed.connect(self.order_time_taken_input.setFocus)
-
-        self.order_fields_section_layout.addWidget(self.order_time_taken_label, 4, 0)
-        self.order_fields_section_layout.addWidget(self.order_time_taken_input, 4, 2)
-        self.order_time_taken_input.returnPressed.connect(self.order_porto_input.setFocus)
-
-        self.order_fields_section_layout.addWidget(self.order_porto_label, 5, 0)
-        self.order_fields_section_layout.addWidget(self.order_porto_qurrency_dropdown, 5, 1)
-        self.order_fields_section_layout.addWidget(self.order_porto_input, 5, 2)
-        self.order_porto_input.returnPressed.connect(self.kategorie_input.setFocus)
-
-        self.order_fields_section_layout.addWidget(self.order_invoice_date_label, 6, 0)
-        self.order_fields_section_layout.addWidget(self.order_invoice_date_input, 6, 2)
-
     def create_feedback_section(self):
+        self.feedback_section_layout.addWidget(self.raw_data_label)
+        self.feedback_section_layout.addWidget(self.raw_data_input)
+
         self.feedback_section_layout.addWidget(self.last_imported_order)
-        # self.feedback_section_layout.addWidget(self.last_imported_part)
+        self.feedback_section_layout.addWidget(self.last_imported_part)
 
     # ------------------ Utils ------------------
 
+    def append_new_orderable_part(self):
+        beschreibung = self.beschreibung_input.text()
+        kategorie = self.kategorie_input.text()
+        artikelnummer = self.artikelnummer_input.text()
+        haendler = self.haendler_input.text()
+        vst_included = self.vst_included_checkbox.isChecked()
+        try:
+            einzelpreis = float(self.einzelpreis_input.text())
+        except ValueError:
+            preis_sting = QInputDialog.getText(self, "Error", "Bitte einen gültigen Preis eingeben!")
+            einzelpreis = float(preis_sting[0])
+        selected_currency = self.currency_dropdown.currentText()
+        try:
+            amount = int(self.part_amount_input.text())
+        except ValueError:
+            amount = int(QInputDialog.getText(self, "Error", "Bitte eine gültige Stückzahl eingeben!")[0])
+
+        if not vst_included:
+            einzelpreis = einzelpreis * 1.19
+        # Construct the JSON payload
+        orderablePart = \
+        {
+            "orderablePart":{
+                "name": beschreibung if beschreibung else "no name entered",  # set the value to None if empty
+                "category": kategorie if kategorie else "NOT_SPECIFIED",
+                "price": {
+                    "priceEuro": einzelpreis if selected_currency == "€" else None,
+                    "priceDollar": einzelpreis if selected_currency == "$" else None,
+                    "pricePound": einzelpreis if selected_currency == "£" else None,
+                },
+                "manufacturerInfo": {
+                    "manufacturerPartDescription": beschreibung if beschreibung else None,
+                    "manufacturerPartNumber": artikelnummer if artikelnummer else None,
+                    "manufacturerName": haendler if haendler else None
+                }
+            },
+            "quantity": amount if amount else 0,
+            "projectId": self.project_dropdown.currentData() if self.project_dropdown.currentData() else None
+        }
+
+        self.parts_list.append(orderablePart)
+
+        self.reset_part_inputs(orderablePart)
+
     def post_order(self):
+        if self.raw_data_input.toPlainText():
+            self.post_raw_order()
+        else:
+            self.parse_and_post_order_from_inputs()
+
+    def parse_and_post_order_from_inputs(self):
         name = self.order_name_input.text()
         order_number = self.order_number_input.text()
         order_status = self.order_status_dropdown.currentText()
@@ -275,6 +346,9 @@ class InsertOrderPage(QMainWindow):
         except ValueError:
             preis_tuple = QInputDialog.getText(self, "Error", "Bitte einen gültigen Preis mit PUNKT eingeben!")
             porto = float(preis_tuple[0])
+
+        if not self.vst_included_checkbox.isChecked():
+            porto = porto * 1.19
 
         payload = {
             "name": name if name else "no name entered",
@@ -306,49 +380,37 @@ class InsertOrderPage(QMainWindow):
         else:
             pass
 
+    def post_raw_order(self):
+        raw_data = self.raw_data_input.toPlainText()
+        # remove leading and trailing newline and or spaces from raw_data
+        raw_data = raw_data.strip()
+        payload = json.loads(raw_data)
+        formatted_payload = json.dumps(payload, indent=4)
+        wrapped_payload = f"<div style='max-width:800px; word-wrap:break-word;'>{formatted_payload}</div>"
+        confirmation = QMessageBox.question(self, "Confirm Payload", wrapped_payload,
+                                            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
 
+        # If the user clicked 'Yes', send the request
+        if confirmation == QMessageBox.StandardButton.Yes:
+            response = requests.post(ORDER_BULK_ENDPOINT, json=payload)
+            if response.status_code == 201:
+                self.reset_page(response)
+            else:
+                QMessageBox.warning(self, "Error", "Error while inserting new OrderablePart: " + response.text)
+        else:
+            pass
 
-    def append_new_orderable_part(self):
-        beschreibung = self.beschreibung_input.text()
-        kategorie = self.kategorie_input.text()
-        artikelnummer = self.artikelnummer_input.text()
-        haendler = self.haendler_input.text()
-        try:
-            einzelpreis = float(self.einzelpreis_input.text())
-        except ValueError:
-            preis_sting = QInputDialog.getText(self, "Error", "Bitte einen gültigen Preis eingeben!")
-            einzelpreis = float(preis_sting[0])
-        selected_currency = self.currency_dropdown.currentText()
-        try:
-            amount = int(self.part_amount_input.text())
-        except ValueError:
-            amount = int(QInputDialog.getText(self, "Error", "Bitte eine gültige Stückzahl eingeben!")[0])
+    def save_response_to_file(self, response):
+        data = json.loads(response.text)
+        formatted_data = json.dumps(data, indent=4)
 
-        # Construct the JSON payload
-        orderablePart = \
-        {
-            "orderablePart":{
-                "name": beschreibung if beschreibung else "no name entered",  # set the value to None if empty
-                "category": kategorie if kategorie else "NOT_SPECIFIED",
-                "price": {
-                    "priceEuro": einzelpreis if selected_currency == "€" else None,
-                    "priceDollar": einzelpreis if selected_currency == "$" else None,
-                    "pricePound": einzelpreis if selected_currency == "£" else None,
-                },
-                "manufacturerInfo": {
-                    "manufacturerPartDescription": beschreibung if beschreibung else None,
-                    "manufacturerPartNumber": artikelnummer if artikelnummer else None,
-                    "manufacturerName": haendler if haendler else None
-                }
-            },
-            "quantity": amount if amount else 0
-        }
-
-        self.parts_list.append(orderablePart)
-
-        self.reset_part_inputs(orderablePart)
+        filename = data["name"] + ".json"
+        if filename[0]:
+            with open(filename[0], 'w') as f:
+                f.write(formatted_data)
 
     def reset_page(self, response):
+
         self.order_name_input.setText("")
         self.order_number_input.setText("")
         self.order_status_dropdown.setCurrentIndex(0)
@@ -357,19 +419,20 @@ class InsertOrderPage(QMainWindow):
         self.order_invoice_date_input.setDate(QDate.currentDate())
         self.parts_list = []
 
-        self.kategorie_input.setText("")
-        self.artikelnummer_input.setText("")
-        self.beschreibung_input.setText("")
-        self.einzelpreis_input.setText("")
-        self.haendler_input.setText("")
+        response_data = json.loads(response.text)
+        self.reset_part_inputs(response_data)
 
-        self.last_imported_part.setText("Imported Last order: " + json.dumps(response.json(), indent=4))
+        formatted_data = json.dumps(response_data, indent=4)
+        self.last_imported_order.setText(f"Imported Last order price: {response_data['price']['priceEuro']}")
+        self.last_imported_part.setText(f"Number of imported Parts: {len(response_data['orderableParts'])}")
+        self.order_name_input.setFocus()
+        self.raw_data_input.setText("")
+        # self.save_response_to_file(response)
 
-
-    def reset_part_inputs(self, last_response=None):
-        if last_response is not None:
-            formatted_data = json.dumps(last_response, indent=4)
-            self.last_imported_part.setText(formatted_data)
+    def reset_part_inputs(self, response_data=None):
+        if response_data is not None:
+            formatted_data = json.dumps(response_data, indent=4)
+            self.last_imported_part.setText(f"Number of Parts: {len(self.parts_list)}")
         self.artikelnummer_input.setText("")
         self.beschreibung_input.setText("")
         self.einzelpreis_input.setText("")

@@ -1,0 +1,101 @@
+{
+  "name": "Landy Diana Dichtungen",
+  "orderNumber": "23",
+  "orderStatus": "UNINITIALIZED",
+  "notes": "qef",
+  "orderTimeTakenInDays": "4",
+  "orderableParts": [
+    {
+      "orderablePart": {
+        "name": "316 S/S Towing Eyes & Fixings A4-80 ",
+        "category": "LENKUNG",
+        "price": {
+          "priceEuro": 92.1,
+          "priceDollar": null,
+          "pricePound": null
+        },
+        "manufacturerInfo": {
+          "manufacturerPartDescription": "316 S/S Towing Eyes & Fixings A4-80 ",
+          "manufacturerPartNumber": "3292.",
+          "manufacturerName": "Landy Scheune"
+        }
+      },
+      "quantity": 3,
+      "projectId": "64db4bcb2bcd867fe35be475"
+    },{
+      "orderablePart": {
+        "name": "TEST ",
+        "category": "LENKUNG",
+        "price": {
+          "priceEuro": 52.8,
+          "priceDollar": null,
+          "pricePound": null
+        },
+        "manufacturerInfo": {
+          "manufacturerPartDescription": "316 S/S Towing Eyes & Fixings A4-80 ",
+          "manufacturerPartNumber": "3292.",
+          "manufacturerName": "Landy Scheune"
+        }
+      },
+      "quantity": 18,
+      "projectId": "64db4bcb2bcd867fe35be475"
+    },{
+      "orderablePart": {
+        "name": "TEST ",
+        "category": "LENKUNG",
+        "price": {
+          "priceEuro": 23.1,
+          "priceDollar": null,
+          "pricePound": null
+        },
+        "manufacturerInfo": {
+          "manufacturerPartDescription": "316 S/S Towing Eyes & Fixings A4-80 ",
+          "manufacturerPartNumber": "3292.",
+          "manufacturerName": "Landy Scheune"
+        }
+      },
+      "quantity": 5,
+      "projectId": "64db4bce2bcd867fe35be476"
+    },{
+      "orderablePart": {
+        "name": "TEST ",
+        "category": "LENKUNG",
+        "price": {
+          "priceEuro": 29.1,
+          "priceDollar": null,
+          "pricePound": null
+        },
+        "manufacturerInfo": {
+          "manufacturerPartDescription": "316 S/S Towing Eyes & Fixings A4-80 ",
+          "manufacturerPartNumber": "3292.",
+          "manufacturerName": "Landy Scheune"
+        }
+      },
+      "quantity": 2,
+      "projectId": "64db4bcb2bcd867fe35be475"
+    },{
+      "orderablePart": {
+        "name": "TEST ",
+        "category": "LENKUNG",
+        "price": {
+          "priceEuro": 50.1,
+          "priceDollar": null,
+          "pricePound": null
+        },
+        "manufacturerInfo": {
+          "manufacturerPartDescription": "316 S/S Towing Eyes & Fixings A4-80 ",
+          "manufacturerPartNumber": "3292.",
+          "manufacturerName": "Landy Scheune"
+        }
+      },
+      "quantity": 2,
+      "projectId": "64db4bce2bcd867fe35be476"
+    }
+  ],
+  "porto": {
+    "priceEuro": 911.12,
+    "priceDollar": null,
+    "pricePound": null
+  },
+  "invoiceDate": "2023-08-14T00:00:00.000Z"
+}

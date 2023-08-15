@@ -115,6 +115,30 @@ if __name__ == '__main__':
         },
         "orderableParts": {}
     }).json()
+    project_inject_response_willko = requests.post(PROJECT_ENDPOINT, json={
+        "name": "Willko",
+        "notes": "TODO",
+        "price": {
+            "priceEuro": 0
+        },
+        "orderableParts": {}
+    }).json()
+    project_inject_response_werkstatt = requests.post(PROJECT_ENDPOINT, json={
+        "name": "Werkstatt Ausstattung",
+        "notes": "TODO",
+        "price": {
+            "priceEuro": 0
+        },
+        "orderableParts": {}
+    }).json()
+    project_inject_response_consumables = requests.post(PROJECT_ENDPOINT, json={
+        "name": "Verbrauchsmaterialien",
+        "notes": "TODO",
+        "price": {
+            "priceEuro": 0
+        },
+        "orderableParts": {}
+    }).json()
 
     # ------------------- Map Parts to Project DI or DA -------------------
     project_parts_payload_da = {}
