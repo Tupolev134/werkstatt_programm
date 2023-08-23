@@ -1,69 +1,87 @@
 {
-  "name": "awf",
-  "orderNumber": "no order number entered",
-  "orderStatus": "UNINITIALIZED",
+  "name": "Pegnitz-Schrauben - Verbrauchsmat. - Flachrundkopfschrauben Sechskantmuttern",
+  "orderNumber": "SHOP158760",
+  "orderStatus": "DELIVERED",
   "notes": null,
-  "orderTimeTakenInDays": null,
+  "orderTimeTakenInDays": "0",
   "orderableParts": [
     {
       "orderablePart": {
-        "name": "no name entered",
-        "category": "NOT_SPECIFIED",
+        "name": "Sechskantmutter selbstsichernd, hohe Form DIN 982 A4-80 M 6",
+        "category": "MOTOR",
         "price": {
-          "priceEuro": 23.12,
+          "priceEuro": 0.05315,
           "priceDollar": null,
           "pricePound": null
         },
         "manufacturerInfo": {
-          "manufacturerPartDescription": null,
-          "manufacturerPartNumber": null,
-          "manufacturerName": null
+          "manufacturerPartDescription": "Sechskantmutter selbstsichernd, hohe Form DIN 982 A4-80 M 6",
+          "manufacturerPartNumber": "098246",
+          "manufacturerName": "Pegnitz-Schrauben"
         }
       },
-      "quantity": 4,
-      "projectId": "64db4bcb2bcd867fe35be475"
+      "quantity": 200,
+      "projectId": "64db6c376e155f6a9c3aebbe"
     },
     {
       "orderablePart": {
-        "name": "esg",
-        "category": "NOT_SPECIFIED",
+        "name": "Flachrundkopfschraube ISR mit Flansch Vollgewinde ISO 7380-2 A4 M 6X18/18 TX30",
+        "category": "MOTOR",
         "price": {
-          "priceEuro": 24.12,
+          "priceEuro": 0.08595,
           "priceDollar": null,
           "pricePound": null
         },
         "manufacturerInfo": {
-          "manufacturerPartDescription": "esg",
-          "manufacturerPartNumber": "234",
-          "manufacturerName": null
+          "manufacturerPartDescription": "Flachrundkopfschraube ISR mit Flansch Vollgewinde ISO 7380-2 A4 M 6X18/18 TX30",
+          "manufacturerPartNumber": "738024T618",
+          "manufacturerName": "Pegnitz-Schrauben"
         }
       },
-      "quantity": 42,
-      "projectId": "64db4bcb2bcd867fe35be475"
+      "quantity": 200,
+      "projectId": "64db6c376e155f6a9c3aebbe"
     },
     {
       "orderablePart": {
-        "name": "4324",
-        "category": "NOT_SPECIFIED",
+        "name": "Scheibe DIN 9021 6,4 Kl. C Edelstahl A4",
+        "category": "MOTOR",
         "price": {
-          "priceEuro": 32.12,
+          "priceEuro": 0.0647,
           "priceDollar": null,
           "pricePound": null
         },
         "manufacturerInfo": {
-          "manufacturerPartDescription": "4324",
-          "manufacturerPartNumber": "sdf",
-          "manufacturerName": null
+          "manufacturerPartDescription": "Scheibe DIN 9021 6,4 Kl. C Edelstahl A4",
+          "manufacturerPartNumber": "090219409064000",
+          "manufacturerName": "Pegnitz-Schrauben"
         }
       },
-      "quantity": 6,
-      "projectId": "64db4bce2bcd867fe35be476"
+      "quantity": 200,
+      "projectId": "64db6c376e155f6a9c3aebbe"
+    },
+    {
+      "orderablePart": {
+        "name": "Sechskantmutter selbstsichernd, niedrige Form A4 M 6 Gleitmo",
+        "category": "MOTOR",
+        "price": {
+          "priceEuro": 0.05664,
+          "priceDollar": null,
+          "pricePound": null
+        },
+        "manufacturerInfo": {
+          "manufacturerPartDescription": "Sechskantmutter selbstsichernd, niedrige Form A4 M 6 Gleitmo",
+          "manufacturerPartNumber": "1051146",
+          "manufacturerName": "Pegnitz-Schrauben"
+        }
+      },
+      "quantity": 500,
+      "projectId": "64db6c376e155f6a9c3aebbe"
     }
   ],
   "porto": {
-    "priceEuro": 4.23,
+    "priceEuro": 5.9,
     "priceDollar": null,
     "pricePound": null
   },
-  "invoiceDate": "2023-08-15T00:00:00.000Z"
+  "invoiceDate": "2023-07-13T00:00:00.000Z"
 }

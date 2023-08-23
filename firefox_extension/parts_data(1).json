@@ -1,0 +1,1033 @@
+{
+    "crumbs": [
+        {
+            "name": "Land Rover",
+            "link": {
+                "wid": "modelTable",
+                "path": "/p5jlr/extern/vehicle/models?lang=de&serviceName=landrover_parts&upds=2023-08-02--09-32"
+            }
+        },
+        {
+            "name": "SALLDHMP8FA467589 - DEFENDER 2007 - 2016",
+            "link": {
+                "wid": "mainGroupsTable",
+                "path": "/p5jlr/extern/groups/vin_main?catalogCode=L8&lang=de&serviceName=landrover_parts&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589",
+                "vq": true,
+                "id": "L8C"
+            }
+        },
+        {
+            "name": "C - Karosserie und Fahrwerk",
+            "link": {
+                "wid": "subGroupsTable",
+                "path": "/p5jlr/extern/groups/vin_sub?catalogCode=L8&lang=de&mg=L8C&serviceName=landrover_parts&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589",
+                "vq": true,
+                "id": "L8C02"
+            }
+        },
+        {
+            "name": "02 - Fahrwerk",
+            "link": {
+                "wid": "illustrationsTable",
+                "path": "/p5jlr/extern/groups/vin_illus?catalogCode=L8&lang=de&mg=L8C&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589",
+                "vq": true,
+                "id": "L8C02011"
+            }
+        },
+        {
+            "name": "011 - Chassisrahmen kpl.",
+            "link": {
+                "wid": "bomlist",
+                "path": "/p5jlr/extern/bom/vin_bomdetails?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+            },
+            "prev": {
+                "name": "005 - Anbauteile - Karosserie",
+                "link": {
+                    "wid": "bomlist",
+                    "path": "/p5jlr/extern/bom/vin_bomdetails?btnr=L8C02005&catalogCode=L8&lang=de&mg=L8C&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                }
+            },
+            "next": {
+                "name": "015 - Motoraufhängung",
+                "link": {
+                    "wid": "bomlist",
+                    "path": "/p5jlr/extern/bom/vin_bomdetails?btnr=L8C02015&catalogCode=L8&lang=de&mg=L8C&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                }
+            }
+        }
+    ],
+    "search": {
+        "wid": "searchresult",
+        "path": "/p5jlr/extern/search/vin?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589&q="
+    },
+    "demo": false,
+    "data": {
+        "records": [
+            {
+                "id": "L8C020111LR032842@000015",
+                "description": "Fahrgestell",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C020111LR032842%40000015&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "presel": true,
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "1",
+                "values": {
+                    "restriction": "# Federn \\- hinten = Mit Standardfedern hinten",
+                    "caption": "Fahrgestell",
+                    "partno": "LR032842",
+                    "qty": "1",
+                    "pos": "1",
+                    "from": "+ (V) CA000001",
+                    "comment": "Rahmen\\-Befestigungshalter 'A' muss entsorgt werden"
+                }
+            },
+            {
+                "id": "L8C020111LR032844@000017",
+                "description": "Fahrgestell",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C020111LR032844%40000017&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "1",
+                "values": {
+                    "restriction": "# Federn \\- hinten = Mit Hochleistung\\-Hinterachsfedern",
+                    "caption": "Fahrgestell",
+                    "partno": "LR032844",
+                    "qty": "1",
+                    "pos": "1",
+                    "from": "+ (V) CA000001",
+                    "comment": "Rahmen\\-Befestigungshalter 'A' muss entsorgt werden"
+                }
+            },
+            {
+                "id": "L8C020112KVB000290@000003",
+                "description": "Querträger, Chassisrahmen",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C020112KVB000290%40000003&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "2",
+                "values": {
+                    "caption": "Querträger, Chassisrahmen",
+                    "partno": "KVB000290",
+                    "qty": "1",
+                    "pos": "2"
+                }
+            },
+            {
+                "id": "L8C020113NRC5724@000001",
+                "description": "Halterung,Stabilisator",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C020113NRC5724%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "3",
+                "values": {
+                    "caption": "Halterung,Stabilisator",
+                    "partno": "NRC5724",
+                    "qty": "2",
+                    "pos": "3",
+                    "comment": "Hinten"
+                }
+            },
+            {
+                "id": "L8C020114KVV100000@000002",
+                "description": "Abdeckstopfen",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C020114KVV100000%40000002&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "4",
+                "values": {
+                    "caption": "Abdeckstopfen",
+                    "partno": "KVV100000",
+                    "qty": "2",
+                    "pos": "4"
+                }
+            },
+            {
+                "id": "L8C020115KVB500060@000007",
+                "description": "Querträger, Chassisrahmen",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C020115KVB500060%40000007&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "5",
+                "values": {
+                    "caption": "Querträger, Chassisrahmen",
+                    "partno": "KVB500060",
+                    "qty": "1",
+                    "pos": "5"
+                }
+            },
+            {
+                "id": "L8C020116NTC7667@000001",
+                "description": "Halterung,Stabilisator",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C020116NTC7667%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "6",
+                "values": {
+                    "caption": "Halterung,Stabilisator",
+                    "partno": "NTC7667",
+                    "qty": "2",
+                    "pos": "6",
+                    "comment": "Vorn"
+                }
+            },
+            {
+                "id": "L8C020117AHR710370@000002",
+                "description": "Platte & Anschweißmutter",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C020117AHR710370%40000002&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "7",
+                "values": {
+                    "caption": "Platte & Anschweißmutter",
+                    "partno": "AHR710370",
+                    "qty": "2",
+                    "pos": "7",
+                    "comment": "an Stützhalterung Rückwand"
+                }
+            },
+            {
+                "id": "L8C020118LR016704@000002",
+                "description": "Befestigung, Heckklappenscharnier",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C020118LR016704%40000002&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "8",
+                "values": {
+                    "caption": "Befestigung, Heckklappenscharnier",
+                    "partno": "LR016704",
+                    "qty": "2",
+                    "pos": "8",
+                    "from": "+ (V) 9A888888"
+                }
+            },
+            {
+                "id": "L8C020119FS108207L@000001",
+                "description": "Schraube",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C020119FS108207L%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "9",
+                "values": {
+                    "caption": "Schraube",
+                    "partno": "FS108207L",
+                    "qty": "4",
+                    "pos": "9",
+                    "comment": "Flanschkopf\nM8 X 20MM"
+                }
+            },
+            {
+                "id": "L8C0201110WC108051L@000001",
+                "description": "Scheibe",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201110WC108051L%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "10",
+                "values": {
+                    "caption": "Scheibe",
+                    "partno": "WC108051L",
+                    "qty": "4",
+                    "pos": "10",
+                    "comment": "M8"
+                }
+            },
+            {
+                "id": "L8C0201111AQU710040@000003",
+                "description": "Halter kpl.-Fußtütze",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201111AQU710040%40000003&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "11",
+                "values": {
+                    "caption": "Halter kpl.\\-Fußtütze",
+                    "partno": "AQU710040",
+                    "qty": "1",
+                    "pos": "11",
+                    "comment": "Re"
+                }
+            },
+            {
+                "id": "L8C0201111AQU710050@000004",
+                "description": "Halter kpl.-Fußtütze",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201111AQU710050%40000004&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "11",
+                "values": {
+                    "caption": "Halter kpl.\\-Fußtütze",
+                    "partno": "AQU710050",
+                    "qty": "1",
+                    "pos": "11",
+                    "comment": "Li"
+                }
+            },
+            {
+                "id": "L8C0201112FS108257L@000001",
+                "description": "Schraube",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201112FS108257L%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "12",
+                "values": {
+                    "caption": "Schraube",
+                    "partno": "FS108257L",
+                    "qty": "4",
+                    "pos": "12",
+                    "comment": "Flanschkopf\nM8 x 25"
+                }
+            },
+            {
+                "id": "L8C0201112FS110256@000002",
+                "description": "Bolzen",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201112FS110256%40000002&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "12",
+                "values": {
+                    "caption": "Bolzen",
+                    "partno": "FS110256",
+                    "qty": "4",
+                    "pos": "12",
+                    "comment": "M10 x 25\nSechseckiger Kopf"
+                }
+            },
+            {
+                "id": "L8C0201113WA108056@000001",
+                "description": "Scheibe",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201113WA108056%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "13",
+                "values": {
+                    "caption": "Scheibe",
+                    "partno": "WA108056",
+                    "qty": "16",
+                    "pos": "13",
+                    "comment": "8MM"
+                }
+            },
+            {
+                "id": "L8C0201114FN108046@000001",
+                "description": "Sechskantmutter",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201114FN108046%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "14",
+                "values": {
+                    "caption": "Sechskantmutter",
+                    "partno": "FN108046",
+                    "qty": "1",
+                    "pos": "14",
+                    "comment": "Flanschkopf\nM8"
+                }
+            },
+            {
+                "id": "L8C0201115LR033004@000004",
+                "description": "Aufnahme - Rahmen",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201115LR033004%40000004&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "15",
+                "values": {
+                    "caption": "Aufnahme \\- Rahmen",
+                    "partno": "LR033004",
+                    "qty": "1",
+                    "pos": "15",
+                    "from": "+ (V) BA410474",
+                    "comment": "Re"
+                }
+            },
+            {
+                "id": "L8C0201115LR033005@000005",
+                "description": "Aufnahme - Rahmen",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201115LR033005%40000005&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "15",
+                "values": {
+                    "caption": "Aufnahme \\- Rahmen",
+                    "partno": "LR033005",
+                    "qty": "1",
+                    "pos": "15",
+                    "from": "+ (V) BA410474",
+                    "comment": "Li"
+                }
+            },
+            {
+                "id": "L8C0201116BH108201L@000001",
+                "description": "Bolzen",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201116BH108201L%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "16",
+                "values": {
+                    "caption": "Bolzen",
+                    "partno": "BH108201L",
+                    "qty": "4",
+                    "pos": "16",
+                    "comment": "M8 x 100\nSechseckiger Kopf"
+                }
+            },
+            {
+                "id": "L8C0201117WC108051L@000001",
+                "description": "Scheibe",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201117WC108051L%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "17",
+                "values": {
+                    "caption": "Scheibe",
+                    "partno": "WC108051L",
+                    "qty": "4",
+                    "pos": "17",
+                    "comment": "M8"
+                }
+            },
+            {
+                "id": "L8C0201118WP185L@000001",
+                "description": "Scheibe",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201118WP185L%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "18",
+                "values": {
+                    "caption": "Scheibe",
+                    "partno": "WP185L",
+                    "qty": "4",
+                    "pos": "18",
+                    "comment": "Klar\nStandard"
+                }
+            },
+            {
+                "id": "L8C0201119WL108007L@000001",
+                "description": "Scheibe",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201119WL108007L%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "19",
+                "values": {
+                    "caption": "Scheibe",
+                    "partno": "WL108007L",
+                    "qty": "4",
+                    "pos": "19",
+                    "comment": "M8\ngefedert"
+                }
+            },
+            {
+                "id": "L8C0201120FN108046@000001",
+                "description": "Sechskantmutter",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201120FN108046%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "20",
+                "values": {
+                    "caption": "Sechskantmutter",
+                    "partno": "FN108046",
+                    "qty": "1",
+                    "pos": "20",
+                    "comment": "Flanschkopf\nM8"
+                }
+            },
+            {
+                "id": "L8C0201121RYP501140@000002",
+                "description": "Bolzen",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201121RYP501140%40000002&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "21",
+                "values": {
+                    "caption": "Bolzen",
+                    "partno": "RYP501140",
+                    "qty": "4",
+                    "pos": "21",
+                    "comment": "M10\nSechseckiger Kopf\nan Querträger"
+                }
+            },
+            {
+                "id": "L8C0201122NRC5485@000001",
+                "description": "Unterlegscheibe,Nylon",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201122NRC5485%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "22",
+                "values": {
+                    "caption": "Unterlegscheibe,Nylon",
+                    "partno": "NRC5485",
+                    "qty": "4",
+                    "pos": "22"
+                }
+            },
+            {
+                "id": "L8C0201123WC110066@000001",
+                "description": "Scheibe",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201123WC110066%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "23",
+                "values": {
+                    "caption": "Scheibe",
+                    "partno": "WC110066",
+                    "qty": "4",
+                    "pos": "23",
+                    "comment": "Klar\nM10\nÜbergröße"
+                }
+            },
+            {
+                "id": "L8C0201124KYF500070@000001",
+                "description": "Scheibe",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201124KYF500070%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "24",
+                "values": {
+                    "caption": "Scheibe",
+                    "partno": "KYF500070",
+                    "qty": "4",
+                    "pos": "24",
+                    "comment": "Klar\nNr. 10"
+                }
+            },
+            {
+                "id": "L8C0201125FN110046@000001",
+                "description": "Sechskantmutter",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201125FN110046%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "25",
+                "values": {
+                    "caption": "Sechskantmutter",
+                    "partno": "FN110046",
+                    "qty": "4",
+                    "pos": "25",
+                    "comment": "M10"
+                }
+            },
+            {
+                "id": "L8C0201126RYG101360@000001",
+                "description": "Bolzen",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201126RYG101360%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "26",
+                "values": {
+                    "caption": "Bolzen",
+                    "partno": "RYG101360",
+                    "qty": "4",
+                    "pos": "26",
+                    "comment": "Duo\\-Taptite\nM10 x 25"
+                }
+            },
+            {
+                "id": "L8C0201127WD110061L@000001",
+                "description": "Unterlegscheibe, einfach, dünn",
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "27",
+                "values": {
+                    "caption": "Unterlegscheibe, einfach, dünn",
+                    "partno": "WD110061L",
+                    "qty": "12",
+                    "pos": "27"
+                }
+            },
+            {
+                "id": "L8C0201128FN110046@000001",
+                "description": "Sechskantmutter",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201128FN110046%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "28",
+                "values": {
+                    "caption": "Sechskantmutter",
+                    "partno": "FN110046",
+                    "qty": "4",
+                    "pos": "28",
+                    "comment": "M10"
+                }
+            },
+            {
+                "id": "L8C0201129NRC9695@000001",
+                "description": "Stützwinkel",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201129NRC9695%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "29",
+                "values": {
+                    "caption": "Stützwinkel",
+                    "partno": "NRC9695",
+                    "qty": "1",
+                    "pos": "29",
+                    "comment": "Re"
+                }
+            },
+            {
+                "id": "L8C0201129NRC9696@000002",
+                "description": "Stützwinkel",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201129NRC9696%40000002&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "29",
+                "values": {
+                    "caption": "Stützwinkel",
+                    "partno": "NRC9696",
+                    "qty": "1",
+                    "pos": "29",
+                    "comment": "Li"
+                }
+            },
+            {
+                "id": "L8C0201130FS108207L@000001",
+                "description": "Schraube",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201130FS108207L%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "30",
+                "values": {
+                    "caption": "Schraube",
+                    "partno": "FS108207L",
+                    "qty": "4",
+                    "pos": "30",
+                    "comment": "Flanschkopf\nM8 X 20MM\nStützhalter an Chassisrahmen"
+                }
+            },
+            {
+                "id": "L8C0201131WA108056@000001",
+                "description": "Scheibe",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201131WA108056%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "31",
+                "values": {
+                    "caption": "Scheibe",
+                    "partno": "WA108056",
+                    "qty": "4",
+                    "pos": "31",
+                    "comment": "8MM"
+                }
+            },
+            {
+                "id": "L8C0201132AFP710440@000001",
+                "description": "Platte & Anschweißmutter",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201132AFP710440%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "32",
+                "values": {
+                    "caption": "Platte & Anschweißmutter",
+                    "partno": "AFP710440",
+                    "qty": "2",
+                    "pos": "32"
+                }
+            },
+            {
+                "id": "L8C0201133WL108007L@000001",
+                "description": "Scheibe",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201133WL108007L%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "33",
+                "values": {
+                    "caption": "Scheibe",
+                    "partno": "WL108007L",
+                    "qty": "1",
+                    "pos": "33",
+                    "comment": "M8\ngefedert"
+                }
+            },
+            {
+                "id": "L8C0201134FS108207L@000001",
+                "description": "Schraube",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201134FS108207L%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "34",
+                "values": {
+                    "caption": "Schraube",
+                    "partno": "FS108207L",
+                    "qty": "2",
+                    "pos": "34",
+                    "comment": "Flanschkopf\nM8 X 20MM"
+                }
+            },
+            {
+                "id": "L8C0201135WL108007L@000001",
+                "description": "Scheibe",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201135WL108007L%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "35",
+                "values": {
+                    "caption": "Scheibe",
+                    "partno": "WL108007L",
+                    "qty": "1",
+                    "pos": "35",
+                    "comment": "M8\ngefedert"
+                }
+            },
+            {
+                "id": "L8C0201136WA108056@000001",
+                "description": "Scheibe",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201136WA108056%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "36",
+                "values": {
+                    "caption": "Scheibe",
+                    "partno": "WA108056",
+                    "qty": "1",
+                    "pos": "36",
+                    "comment": "8MM"
+                }
+            },
+            {
+                "id": "L8C0201137FN108046@000001",
+                "description": "Sechskantmutter",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201137FN108046%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "37",
+                "values": {
+                    "caption": "Sechskantmutter",
+                    "partno": "FN108046",
+                    "qty": "1",
+                    "pos": "37",
+                    "comment": "Flanschkopf\nM8"
+                }
+            },
+            {
+                "id": "L8C0201138KVU000060@000001",
+                "description": "Befestigungshalterung-Karosserie/Fahrgestell",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201138KVU000060%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "38",
+                "values": {
+                    "caption": "Befestigungshalterung\\-Karosserie/Fahrgestell",
+                    "partno": "KVU000060",
+                    "qty": "1",
+                    "pos": "38"
+                }
+            },
+            {
+                "id": "L8C0201139KYP500350@000001",
+                "description": "Schraube",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201139KYP500350%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "39",
+                "values": {
+                    "caption": "Schraube",
+                    "partno": "KYP500350",
+                    "qty": "4",
+                    "pos": "39"
+                }
+            },
+            {
+                "id": "L8C0201140KVW100580@000002",
+                "description": "Versteifung, Chassisrahmen",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201140KVW100580%40000002&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "40",
+                "values": {
+                    "restriction": "# Federn \\- hinten = Mit Hochleistung\\-Hinterachsfedern",
+                    "caption": "Versteifung, Chassisrahmen",
+                    "partno": "KVW100580",
+                    "qty": "1",
+                    "pos": "40",
+                    "comment": "Li"
+                }
+            },
+            {
+                "id": "L8C0201140KVW100590@000001",
+                "description": "Versteifung, Chassisrahmen",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201140KVW100590%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "40",
+                "values": {
+                    "restriction": "# Federn \\- hinten = Mit Hochleistung\\-Hinterachsfedern",
+                    "caption": "Versteifung, Chassisrahmen",
+                    "partno": "KVW100590",
+                    "qty": "1",
+                    "pos": "40",
+                    "comment": "Re"
+                }
+            },
+            {
+                "id": "L8C0201141ANR6563@000001",
+                "description": "Mutter",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201141ANR6563%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "41",
+                "values": {
+                    "caption": "Mutter",
+                    "partno": "ANR6563",
+                    "pos": "41",
+                    "comment": "M8\nsechseckig"
+                }
+            },
+            {
+                "id": "L8C0201142BTR8040L@000001",
+                "description": "Muttereinsatz,blind",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201142BTR8040L%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "42",
+                "values": {
+                    "caption": "Muttereinsatz,blind",
+                    "partno": "BTR8040L",
+                    "pos": "42",
+                    "comment": "M6\nQuadratisch"
+                }
+            },
+            {
+                "id": "L8C0201143AHR780110@000001",
+                "description": "Scheibe Und Schweissmutter",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201143AHR780110%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "43",
+                "values": {
+                    "caption": "Scheibe Und Schweissmutter",
+                    "partno": "AHR780110",
+                    "qty": "2",
+                    "pos": "43"
+                }
+            },
+            {
+                "id": "L8C0201144FA106106@000001",
+                "description": "Schraube",
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "44",
+                "values": {
+                    "caption": "Schraube",
+                    "partno": "FA106106",
+                    "qty": "4",
+                    "pos": "44"
+                }
+            },
+            {
+                "id": "L8C0201145RTC3354@000001",
+                "description": "Befestigungskit, Querträger",
+                "link": {
+                    "wid": "partinfo",
+                    "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8C02011&catalogCode=L8&lang=de&mg=L8C&partCHC=L8C0201145RTC3354%40000001&serviceName=landrover_parts&sg=L8C02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+                },
+                "hotspotImageIds": [
+                    "_DFLT_"
+                ],
+                "hotspotId": "45",
+                "values": {
+                    "restriction": "# Anforderungen für Militärfahrzeuge = ABDAC6",
+                    "caption": "Befestigungskit, Querträger",
+                    "partno": "RTC3354",
+                    "qty": "1",
+                    "pos": "45"
+                }
+            }
+        ],
+        "images": [
+            {
+                "id": "_DFLT_",
+                "uri": "/imageserver/ext/api/images/tiffimages/jlr/ln02/ln0279b.png?type=STD&token=Ib-AaGI0WKmDZd63idg-KeabbUYicBDSNPifbsEouLc.AAABihPNFOc.AAABihPRqMc.tz_RQo5qL0ITTfhSM-fN4Oc1JJvRki_A7kitYr5s0K0&wait=0&size=",
+                "name": "L8C02011 - Chassisrahmen kpl."
+            }
+        ]
+    }
+}

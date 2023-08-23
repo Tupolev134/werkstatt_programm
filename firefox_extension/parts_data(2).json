@@ -1,0 +1,451 @@
+[
+    {
+        "id": "L8D020151LR044234@000019",
+        "description": "Verkabelung - Chassis",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D020151LR044234%40000019&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "presel": true,
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "1",
+        "values": {
+            "restriction": "+ Heckklappe = Ohne Heckklappe\n+ Radstand = 110\"\"\\-Radstand",
+            "caption": "Verkabelung \\- Chassis",
+            "partno": "LR044234",
+            "qty": "1",
+            "pos": "1",
+            "from": "+ (V) DA000001",
+            "comment": "Fahrwerk"
+        }
+    },
+    {
+        "id": "L8D020152589452@000001",
+        "description": "Gummitülle",
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "2",
+        "values": {
+            "caption": "Gummitülle",
+            "partno": "589452",
+            "qty": "1",
+            "pos": "2",
+            "comment": "7 x 53mm\nSchwarz\nSeilzug"
+        }
+    },
+    {
+        "id": "L8D020153AAU3686@000001",
+        "description": "Band,Kabel",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D020153AAU3686%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "3",
+        "values": {
+            "caption": "Band,Kabel",
+            "partno": "AAU3686",
+            "qty": "2",
+            "pos": "3",
+            "comment": "6.5mm Bohrung\n8.0 x 155mm"
+        }
+    },
+    {
+        "id": "L8D020154C39377L@000001",
+        "description": "Klammer,P-",
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "4",
+        "values": {
+            "caption": "Klammer,P\\-",
+            "partno": "C39377L",
+            "qty": "1",
+            "pos": "4",
+            "comment": "4,0/12,0mm\nKunststoff\nVerstellbar\nWeiß."
+        }
+    },
+    {
+        "id": "L8D020155SE105121L@000001",
+        "description": "Schraube",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D020155SE105121L%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "5",
+        "values": {
+            "caption": "Schraube",
+            "partno": "SE105121L",
+            "qty": "1",
+            "pos": "5",
+            "comment": "Flachkopf\nM5 x 12"
+        }
+    },
+    {
+        "id": "L8D020156WJ105001L@000001",
+        "description": "Scheibe",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D020156WJ105001L%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "6",
+        "values": {
+            "caption": "Scheibe",
+            "partno": "WJ105001L",
+            "qty": "1",
+            "pos": "6",
+            "comment": "Klar\nM5\nÜbergröße"
+        }
+    },
+    {
+        "id": "L8D020157WL105001L@000001",
+        "description": "Scheibe",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D020157WL105001L%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "7",
+        "values": {
+            "caption": "Scheibe",
+            "partno": "WL105001L",
+            "qty": "1",
+            "pos": "7",
+            "comment": "M5\nhaltend"
+        }
+    },
+    {
+        "id": "L8D020158NH105041L@000001",
+        "description": "Mutter,Sechskant",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D020158NH105041L%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "8",
+        "values": {
+            "caption": "Mutter,Sechskant",
+            "partno": "NH105041L",
+            "qty": "1",
+            "pos": "8",
+            "comment": "M5"
+        }
+    },
+    {
+        "id": "L8D020159FA108202@000001",
+        "description": "Schraube",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D020159FA108202%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "9",
+        "values": {
+            "caption": "Schraube",
+            "partno": "FA108202",
+            "qty": "1",
+            "pos": "9",
+            "comment": "M8"
+        }
+    },
+    {
+        "id": "L8D0201510AFU1090L@000001",
+        "description": "Kabelklemme",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D0201510AFU1090L%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "10",
+        "values": {
+            "caption": "Kabelklemme",
+            "partno": "AFU1090L",
+            "qty": "3",
+            "pos": "10",
+            "comment": "8mm Bohrung"
+        }
+    },
+    {
+        "id": "L8D0201511EDV500210@000001",
+        "description": "Verkleidung",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D0201511EDV500210%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "11",
+        "values": {
+            "caption": "Verkleidung",
+            "partno": "EDV500210",
+            "qty": "2",
+            "pos": "11"
+        }
+    },
+    {
+        "id": "L8D0201512269257@000001",
+        "description": "Gummitülle",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D0201512269257%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "12",
+        "values": {
+            "caption": "Gummitülle",
+            "partno": "269257",
+            "qty": "1",
+            "pos": "12",
+            "comment": "6 x 33,5mm\nSchwarz\nSeilzug"
+        }
+    },
+    {
+        "id": "L8D0201513SE105121L@000001",
+        "description": "Schraube",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D0201513SE105121L%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "13",
+        "values": {
+            "caption": "Schraube",
+            "partno": "SE105121L",
+            "qty": "2",
+            "pos": "13",
+            "comment": "Flachkopf\nM5 x 12"
+        }
+    },
+    {
+        "id": "L8D0201514WM702001L@000001",
+        "description": "Unterlegscheibe,Feder",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D0201514WM702001L%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "14",
+        "values": {
+            "caption": "Unterlegscheibe,Feder",
+            "partno": "WM702001L",
+            "qty": "2",
+            "pos": "14",
+            "comment": "3/16 Durchmesser\nQuadratisch"
+        }
+    },
+    {
+        "id": "L8D0201515WA105001L@000001",
+        "description": "Scheibe",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D0201515WA105001L%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "15",
+        "values": {
+            "caption": "Scheibe",
+            "partno": "WA105001L",
+            "qty": "2",
+            "pos": "15",
+            "comment": "Klar\nM5\nStandard"
+        }
+    },
+    {
+        "id": "L8D0201516NH105041L@000001",
+        "description": "Mutter,Sechskant",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D0201516NH105041L%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "16",
+        "values": {
+            "caption": "Mutter,Sechskant",
+            "partno": "NH105041L",
+            "qty": "2",
+            "pos": "16",
+            "comment": "M5"
+        }
+    },
+    {
+        "id": "L8D0201517C393771L@000001",
+        "description": "Klammer,P-",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D0201517C393771L%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "17",
+        "values": {
+            "caption": "Klammer,P\\-",
+            "partno": "C393771L",
+            "qty": "1",
+            "pos": "17",
+            "comment": "11,0/20,0mm\nKunststoff\nSchwarz\nVerstellbar"
+        }
+    },
+    {
+        "id": "L8D0201518SE105121L@000001",
+        "description": "Schraube",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D0201518SE105121L%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "18",
+        "values": {
+            "caption": "Schraube",
+            "partno": "SE105121L",
+            "qty": "1",
+            "pos": "18",
+            "comment": "Flachkopf\nM5 x 12"
+        }
+    },
+    {
+        "id": "L8D0201519WJ105001L@000001",
+        "description": "Scheibe",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D0201519WJ105001L%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "19",
+        "values": {
+            "caption": "Scheibe",
+            "partno": "WJ105001L",
+            "qty": "1",
+            "pos": "19",
+            "comment": "Klar\nM5\nÜbergröße"
+        }
+    },
+    {
+        "id": "L8D0201520WL105001L@000001",
+        "description": "Scheibe",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D0201520WL105001L%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "20",
+        "values": {
+            "caption": "Scheibe",
+            "partno": "WL105001L",
+            "qty": "1",
+            "pos": "20",
+            "comment": "M5\nhaltend"
+        }
+    },
+    {
+        "id": "L8D0201521NH105041L@000001",
+        "description": "Mutter,Sechskant",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D0201521NH105041L%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "21",
+        "values": {
+            "caption": "Mutter,Sechskant",
+            "partno": "NH105041L",
+            "qty": "1",
+            "pos": "21",
+            "comment": "M5"
+        }
+    },
+    {
+        "id": "L8D0201523RRC8681@000001",
+        "description": "Kabel, Masseverbindung",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D0201523RRC8681%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "23",
+        "values": {
+            "caption": "Kabel, Masseverbindung",
+            "partno": "RRC8681",
+            "qty": "1",
+            "pos": "23"
+        }
+    },
+    {
+        "id": "L8D0201524WC108057@000001",
+        "description": "Scheibe",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D0201524WC108057%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "24",
+        "values": {
+            "caption": "Scheibe",
+            "partno": "WC108057",
+            "qty": "1",
+            "pos": "24",
+            "comment": "M8"
+        }
+    },
+    {
+        "id": "L8D0201525NH108041L@000001",
+        "description": "Sechskantmutter",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8D02015&catalogCode=L8&lang=de&mg=L8D&partCHC=L8D0201525NH108041L%40000001&serviceName=landrover_parts&sg=L8D02&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "25",
+        "values": {
+            "caption": "Sechskantmutter",
+            "partno": "NH108041L",
+            "qty": "1",
+            "pos": "25",
+            "comment": "M8\nSechseckiger Kopf"
+        }
+    }
+]

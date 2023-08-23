@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+  "name": "Defender",
+  "version": "1.0",
+  "description": "Save specific images automatically",
+  "permissions": ["activeTab","webRequest", "webRequestBlocking", "<all_urls>", "downloads"],
+  "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+  }
+}

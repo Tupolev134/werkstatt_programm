@@ -1,0 +1,282 @@
+[
+    {
+        "id": "L8B060051LR033038@000002",
+        "description": "Überrollbügel",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8B06005&catalogCode=L8&lang=de&mg=L8B&partCHC=L8B060051LR033038%40000002&serviceName=landrover_parts&sg=L8B06&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "presel": true,
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "1",
+        "values": {
+            "partno": "LR033038",
+            "qty": "1",
+            "caption": "Überrollbügel",
+            "pos": "1",
+            "from": "+ (V) BA408309"
+        }
+    },
+    {
+        "id": "L8B060052NRC5674@000002",
+        "description": "Buchse,Stabilisator",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8B06005&catalogCode=L8&lang=de&mg=L8B&partCHC=L8B060052NRC5674%40000002&serviceName=landrover_parts&sg=L8B06&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "2",
+        "values": {
+            "partno": "NRC5674",
+            "qty": "2",
+            "caption": "Buchse,Stabilisator",
+            "pos": "2",
+            "restriction": "+ Radstand = 110\"\"\\-Radstand"
+        }
+    },
+    {
+        "id": "L8B060053592773@000004",
+        "description": "Riemen-Schraube-Füllscheibe-Aufhängung hinten",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8B06005&catalogCode=L8&lang=de&mg=L8B&partCHC=L8B060053592773%40000004&serviceName=landrover_parts&sg=L8B06&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "3",
+        "values": {
+            "partno": "592773",
+            "qty": "2",
+            "caption": "Riemen\\-Schraube\\-Füllscheibe\\-Aufhängung hinten",
+            "pos": "3",
+            "restriction": "+ Radstand = 110\"\"\\-Radstand"
+        }
+    },
+    {
+        "id": "L8B060054FS108257L@000003",
+        "description": "Schraube",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8B06005&catalogCode=L8&lang=de&mg=L8B&partCHC=L8B060054FS108257L%40000003&serviceName=landrover_parts&sg=L8B06&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "4",
+        "values": {
+            "partno": "FS108257L",
+            "qty": "8",
+            "caption": "Schraube",
+            "pos": "4",
+            "restriction": "+ Radstand = 110\"\"\\-Radstand",
+            "comment": "M8 x 25 gaaanz viel spam text um zu sehen ob das auch passt, wenn da mehr text steht. Außerdem noch ein paar Umlaute: äöüßÄÖÜ"
+        }
+    },
+    {
+        "id": "L8B060055WA108056@000003",
+        "description": "Scheibe",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8B06005&catalogCode=L8&lang=de&mg=L8B&partCHC=L8B060055WA108056%40000003&serviceName=landrover_parts&sg=L8B06&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "5",
+        "values": {
+            "partno": "WA108056",
+            "qty": "8",
+            "caption": "Scheibe",
+            "pos": "5",
+            "comment": "8MM"
+        }
+    },
+    {
+        "id": "L8B060056NY108041@000002",
+        "description": "Mutter",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8B06005&catalogCode=L8&lang=de&mg=L8B&partCHC=L8B060056NY108041%40000002&serviceName=landrover_parts&sg=L8B06&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "6",
+        "values": {
+            "partno": "NY108041",
+            "qty": "8",
+            "caption": "Mutter",
+            "pos": "6",
+            "comment": "Elastisch\\-selbsthemmend\nM8"
+        }
+    },
+    {
+        "id": "L8B060057NTC1888@000001",
+        "description": "Kugelgelenk-unterer Lenker-Vorderrad-/Hinterradaufhängung",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8B06005&catalogCode=L8&lang=de&mg=L8B&partCHC=L8B060057NTC1888%40000001&serviceName=landrover_parts&sg=L8B06&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "7",
+        "values": {
+            "partno": "NTC1888",
+            "qty": "2",
+            "caption": "Kugelgelenk\\-unterer Lenker\\-Vorderrad\\-/Hinterradaufhängung",
+            "pos": "7"
+        }
+    },
+    {
+        "id": "L8B060058WC112081L@000001",
+        "description": "Unterlegscheibe, Standard",
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "8",
+        "values": {
+            "partno": "WC112081L",
+            "qty": "2",
+            "caption": "Unterlegscheibe, Standard",
+            "pos": "8",
+            "comment": "M12 x 28"
+        }
+    },
+    {
+        "id": "L8B060059NC112046@000001",
+        "description": "Kronenmutter",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8B06005&catalogCode=L8&lang=de&mg=L8B&partCHC=L8B060059NC112046%40000001&serviceName=landrover_parts&sg=L8B06&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "9",
+        "values": {
+            "partno": "NC112046",
+            "qty": "2",
+            "caption": "Kronenmutter",
+            "pos": "9",
+            "comment": "M12"
+        }
+    },
+    {
+        "id": "L8B0600510UYT500030@000001",
+        "description": "Stift-gespalten",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8B06005&catalogCode=L8&lang=de&mg=L8B&partCHC=L8B0600510UYT500030%40000001&serviceName=landrover_parts&sg=L8B06&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "10",
+        "values": {
+            "partno": "UYT500030",
+            "qty": "2",
+            "caption": "Stift\\-gespalten",
+            "pos": "10",
+            "comment": "3.2 x 32"
+        }
+    },
+    {
+        "id": "L8B0600511RYG501490@000003",
+        "description": "Bolzen",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8B06005&catalogCode=L8&lang=de&mg=L8B&partCHC=L8B0600511RYG501490%40000003&serviceName=landrover_parts&sg=L8B06&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "11",
+        "values": {
+            "partno": "RYG501490",
+            "qty": "2",
+            "caption": "Bolzen",
+            "pos": "11"
+        }
+    },
+    {
+        "id": "L8B0600512RYF500160@000002",
+        "description": "Scheibe",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8B06005&catalogCode=L8&lang=de&mg=L8B&partCHC=L8B0600512RYF500160%40000002&serviceName=landrover_parts&sg=L8B06&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "12",
+        "values": {
+            "partno": "RYF500160",
+            "qty": "2",
+            "caption": "Scheibe",
+            "pos": "12",
+            "from": "+ (V) 7A739224"
+        }
+    },
+    {
+        "id": "L8B06005138510241@000001",
+        "description": "Büchse",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8B06005&catalogCode=L8&lang=de&mg=L8B&partCHC=L8B06005138510241%40000001&serviceName=landrover_parts&sg=L8B06&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "13",
+        "values": {
+            "partno": "8510241",
+            "qty": "4",
+            "caption": "Büchse",
+            "pos": "13"
+        }
+    },
+    {
+        "id": "L8B0600514WC116101@000001",
+        "description": "Scheibe",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8B06005&catalogCode=L8&lang=de&mg=L8B&partCHC=L8B0600514WC116101%40000001&serviceName=landrover_parts&sg=L8B06&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "14",
+        "values": {
+            "partno": "WC116101",
+            "qty": "2",
+            "caption": "Scheibe",
+            "pos": "14",
+            "comment": "Klar\nM16"
+        }
+    },
+    {
+        "id": "L8B0600515FY116046@000002",
+        "description": "Sechskantmutter",
+        "link": {
+            "wid": "partinfo",
+            "path": "/p5jlr/extern/partinfo/vin_partinfo?btnr=L8B06005&catalogCode=L8&lang=de&mg=L8B&partCHC=L8B0600515FY116046%40000002&serviceName=landrover_parts&sg=L8B06&upds=2023-08-02--09-32&vin=SALLDHMP8FA467589"
+        },
+        "hotspotImageIds": [
+            "_DFLT_"
+        ],
+        "hotspotId": "15",
+        "values": {
+            "partno": "FY116046",
+            "qty": "2",
+            "caption": "Sechskantmutter",
+            "pos": "15",
+            "comment": "Elastisch\\-selbsthemmend\nM16"
+        }
+    }
+]

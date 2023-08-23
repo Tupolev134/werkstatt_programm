@@ -1,9 +1,8 @@
 from core.ApplicationManager import ApplicationWindowManager
-from core.Profile import Profile
-from core.UI.InsertOrder import InsertOrderPage
-from core.UI.InsertOrderablePartsRaw import InsertOrderablePartsRaw
+from core.UI.insert_pages.InsertOrder import InsertOrderPage
+from core.UI.insert_pages.InsertOrderablePartsRaw import InsertOrderablePartsRaw
 from core.UI.MainMenu import MainMenu
-from core.UI.InsertOrderablePartsMenu import InsertOrderablePartsMenu
+from core.UI.insert_pages.InsertOrderablePartsMenu import InsertOrderablePartsMenu
 
 
 if __name__ == '__main__':
