@@ -12,13 +12,16 @@ import os
 from openpyxl.styles import PatternFill
 
 from core.UI.NavigationBar import NavigationBar
+from dotenv import load_dotenv
+load_dotenv()
+DEFAULT_PARTS_JSON_FOLDER_PATH = os.getenv("DEFAULT_PARTS_JSON_FOLDER_PATH")
 
 
 class ConvertPartsToExcelList(QMainWindow):
     def __init__(self, window_manager):
         super().__init__()
-        self.setWindowTitle("Import OrderablePart Raw")
-        self.resize(950, 800)
+        self.setWindowTitle("Convert Parts to Excel List")
+        self.resize(400, 300)
 
         # Initialize the folder_path to None
         self.folder_path = None
@@ -26,13 +29,15 @@ class ConvertPartsToExcelList(QMainWindow):
         # Naming
         self.naming_section_layout = QVBoxLayout()
         self.choose_folder_btn = QPushButton("Ordner Auswählen", self)
-        self.choose_folder_btn.clicked.connect(self.open_folder_dialog)
         self.same_folder_checkbox = QCheckBox("In gleichem Ordner speichern", self)
         self.convert_to_excel_btn = QPushButton("Alle Konvertieren", self)
-        self.convert_to_excel_btn.clicked.connect(self.convert_to_excel)
+
         self.naming_section_layout.addWidget(self.choose_folder_btn)
         self.naming_section_layout.addWidget(self.same_folder_checkbox)
         self.naming_section_layout.addWidget(self.convert_to_excel_btn)
+
+        self.choose_folder_btn.clicked.connect(self.open_folder_dialog)
+        self.convert_to_excel_btn.clicked.connect(self.convert_to_excel)
 
         # ------------------ setup Window ------------------
         central_widget = QWidget()
@@ -71,8 +76,8 @@ class ConvertPartsToExcelList(QMainWindow):
         if self.folder_path:
             create_custom_formatted_excel(self.folder_path)
         else:
-            # You can show an error message or notification here if folder_path is None.
-            pass
+            self.folder_path = DEFAULT_PARTS_JSON_FOLDER_PATH
+            create_custom_formatted_excel(self.folder_path)
 
 
 def sanitize_content(content):

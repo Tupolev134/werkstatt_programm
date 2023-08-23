@@ -3,3 +3,5 @@ bin
 lib
 .idea
 .venv
+.env
+
