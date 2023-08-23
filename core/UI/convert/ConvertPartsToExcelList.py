@@ -190,7 +190,7 @@ def create_custom_formatted_excel(directory_path):
                     row_height = 40
 
         # Sanitize the heading for use as a filename
-        excel_filename = sanitize_filename(heading) + ".xlsx"
+        excel_filename = file.replace('json','xlsx')
 
         # Save the Excel workbook
         wb.save(os.path.join(directory_path, excel_filename))
