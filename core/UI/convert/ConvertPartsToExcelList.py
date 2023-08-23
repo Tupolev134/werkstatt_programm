@@ -185,11 +185,32 @@ def create_custom_formatted_excel(directory_path):
                 if col_index is 5:
                     row_height = 40
 
-
         # Sanitize the heading for use as a filename
         excel_filename = sanitize_filename(heading) + ".xlsx"
 
         # Save the Excel workbook
         wb.save(os.path.join(directory_path, excel_filename))
 
+        # Convert the Excel workbook to PDF
+        pdf_filename = sanitize_filename(heading) + ".pdf"
+        excel_to_pdf(os.path.join(directory_path, excel_filename), os.path.join(directory_path, pdf_filename))
+
     return f"Processed {len(files)} files."
+
+
+def excel_to_pdf(excel_filename, pdf_filename):
+    excel = win32.Dispatch('Excel.Application')
+    excel.Visible = False
+
+    # Open the Excel workbook
+    workbook = excel.Workbooks.Open(excel_filename)
+
+    try:
+        # Export the workbook to PDF
+        workbook.ExportAsFixedFormat(0, pdf_filename)
+    except Exception as e:
+        print(f"Failed to convert {excel_filename} to PDF. {str(e)}")
+    finally:
+        # Close the workbook and quit Excel
+        workbook.Close()
+        excel.Quit()

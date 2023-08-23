@@ -1,6 +1,12 @@
 // Map to store objectURLs against download ids
 let urlMap = new Map();
 
+let export_folder = "parts_link_exports";
+
+let sharedState = {
+    currentFilename: null
+};
+
 function sanitizeFilename(filename) {
     let invalidChars = /[<>:"/\\|?*]/g;  // Regular expression to match invalid Windows filename characters
     return filename.replace(invalidChars, '_');  // Replace invalid characters with underscores
@@ -51,8 +57,11 @@ function parts_parse_listener(details) {
       return; // Exit if the expected data is missing
     }
     let names = jsonResponse.crumbs.map(crumb => sanitizeFilename(crumb.name));
-    let subdirectory = "parts_link_exports/teilelisten/";
-    let filename = subdirectory + names.join('_') + '.json';
+    let filename = names.join('_');
+    let subdirectory = export_folder + filename + '/'
+
+    sharedState.currentFilename = filename;
+    document.dispatchEvent(new Event('partsProcessingComplete'));
 
     let records = jsonResponse.data.records;
     let recordsJson = JSON.stringify(records);
@@ -62,7 +71,7 @@ function parts_parse_listener(details) {
 
     let downloading = browser.downloads.download({
       url: objectURL,
-      filename: filename,
+      filename: subdirectory + filename + '.json',
     });
 
     downloading.then(id => {
@@ -75,6 +84,17 @@ function parts_parse_listener(details) {
 }
 
 function image_download_listener(details) {
+    // If the filename is not yet available, delay the processing
+    if (!sharedState.currentFilename) {
+        document.addEventListener('partsProcessingComplete', () => {
+            processImageData(details);
+        });
+    } else {
+        processImageData(details);
+    }
+}
+
+function processImageData(details) {
   let filter = browser.webRequest.filterResponseData(details.requestId);
   // This variable will accumulate the chunks of data
   let chunks = [];
@@ -104,10 +124,12 @@ function image_download_listener(details) {
     let blob = new Blob([base64ToUint8Array(base64data)], {type: 'image/png'});
     let objectURL = URL.createObjectURL(blob);
 
+    let subdirectory = export_folder + sharedState.currentFilename.replace('.json', '') + '/';
+    let filename = sharedState.currentFilename;
+
     let downloading = browser.downloads.download({
       url: objectURL,
-      filename: "parts_link_exports/explosionszeichnungen/image-data.png",
-      saveAs: true,
+      filename: subdirectory + filename + '.png'
     });
 
     downloading.then(id => {
