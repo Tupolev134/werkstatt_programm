@@ -4,7 +4,7 @@ import sys
 
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QMainWindow, QGridLayout, QPushButton, QWidget, QScrollArea, QApplication, QVBoxLayout, \
-    QCheckBox, QFileDialog
+    QCheckBox, QFileDialog, QLabel
 from openpyxl import Workbook
 from openpyxl.styles import Font, Border, Side, Alignment
 import pandas as pd
@@ -21,17 +21,19 @@ class ConvertPartsToExcelList(QMainWindow):
     def __init__(self, window_manager):
         super().__init__()
         self.setWindowTitle("Convert Parts to Excel List")
-        self.resize(400, 300)
+        self.resize(600, 300)
 
         # Initialize the folder_path to None
         self.folder_path = None
 
         # Naming
         self.naming_section_layout = QVBoxLayout()
+        self.folder_path_label = QLabel(DEFAULT_PARTS_JSON_FOLDER_PATH, self)
         self.choose_folder_btn = QPushButton("Ordner Auswählen", self)
         self.same_folder_checkbox = QCheckBox("In gleichem Ordner speichern", self)
         self.convert_to_excel_btn = QPushButton("Alle Konvertieren", self)
 
+        self.naming_section_layout.addWidget(self.folder_path_label)
         self.naming_section_layout.addWidget(self.choose_folder_btn)
         self.naming_section_layout.addWidget(self.same_folder_checkbox)
         self.naming_section_layout.addWidget(self.convert_to_excel_btn)
@@ -71,6 +73,7 @@ class ConvertPartsToExcelList(QMainWindow):
         # folder = QFileDialog.getExistingDirectory(self, "Select Directory", "", options=options)
         if folder:
             self.folder_path = folder
+            self.folder_path_label.text = folder
 
     def convert_to_excel(self):
         if self.folder_path:
