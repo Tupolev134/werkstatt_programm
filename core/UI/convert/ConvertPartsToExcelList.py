@@ -4,7 +4,7 @@ import sys
 
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QMainWindow, QGridLayout, QPushButton, QWidget, QScrollArea, QApplication, QVBoxLayout, \
-    QCheckBox, QFileDialog, QLabel
+    QCheckBox, QFileDialog, QLabel, QMessageBox
 from openpyxl import Workbook
 from openpyxl.styles import Font, Border, Side, Alignment
 import pandas as pd
@@ -76,12 +76,14 @@ class ConvertPartsToExcelList(QMainWindow):
             self.folder_path_label.text = folder
 
     def convert_to_excel(self):
-        if self.folder_path:
-            create_custom_formatted_excel(self.folder_path)
-        else:
-            self.folder_path = DEFAULT_PARTS_JSON_FOLDER_PATH
-            create_custom_formatted_excel(self.folder_path)
-
+        try:
+            if self.folder_path:
+                create_custom_formatted_excel(self.folder_path)
+            else:
+                self.folder_path = DEFAULT_PARTS_JSON_FOLDER_PATH
+                create_custom_formatted_excel(self.folder_path)
+        except Exception as e:
+            QMessageBox.warning(self, "Error", "While parsing Data: " + e.__str__())
 
 def sanitize_content(content):
     """Sanitize content to ensure it's encodable in 'latin-1'."""
@@ -140,10 +142,13 @@ def create_custom_formatted_excel(directory_path):
             ws.column_dimensions[chr(64 + col_index)].width = col_width
 
         # Extracting the heading from the filename
-        filename_parts = file.replace(" - ", "_").split("_")
-        heading_parts = filename_parts[5:]
-        heading_parts[-1] = heading_parts[-1].replace('.json', '')
-        heading = sanitize_content(" - ".join(heading_parts))
+        try:
+            filename_parts = file.replace(" - ", "_").split("_")
+            heading_parts = filename_parts[5:]
+            heading_parts[-1] = heading_parts[-1].replace('.json', '')
+            heading = sanitize_content(" - ".join(heading_parts))
+        except Exception as e:
+            heading = file.replace('.json', '')
 
         # Insert merged cells for heading
         ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=5)
