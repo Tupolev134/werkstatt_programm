@@ -10,6 +10,7 @@ from openpyxl.styles import Font, Border, Side, Alignment
 import pandas as pd
 import os
 from openpyxl.styles import PatternFill
+import win32com.client as win32
 
 from core.UI.NavigationBar import NavigationBar
 from dotenv import load_dotenv
