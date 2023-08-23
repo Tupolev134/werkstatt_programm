@@ -84,6 +84,7 @@ class ConvertPartsToExcelList(QMainWindow):
                 self.folder_path = DEFAULT_PARTS_JSON_FOLDER_PATH
                 create_custom_formatted_excel(self.folder_path)
         except Exception as e:
+            print(e.__str__())
             QMessageBox.warning(self, "Error", "While parsing Data: " + e.__str__())
 
 def sanitize_content(content):
@@ -106,13 +107,15 @@ def sanitize_filename(filename):
 
 
 def create_custom_formatted_excel(directory_path):
-    # List all files in the directory
-    files = [f for f in os.listdir(directory_path) if
-             os.path.isfile(os.path.join(directory_path, f)) and f.endswith(".json")]
+    # List all files in the directory and its subdirectories
+    files = []
+    for dirpath, dirnames, filenames in os.walk(directory_path):
+        for filename in [f for f in filenames if f.endswith(".json")]:
+            files.append(os.path.join(dirpath, filename))
 
     for file in files:
         # Read the JSON content
-        with open(os.path.join(directory_path, file), "r", encoding="utf-8") as f:
+        with open(file, "r", encoding="utf-8") as f:
             data = json.load(f)
 
         # Extract required information and put it into a DataFrame
