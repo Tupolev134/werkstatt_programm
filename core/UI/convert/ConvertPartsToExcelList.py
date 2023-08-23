@@ -2,6 +2,7 @@ import json
 import re
 import sys
 
+from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QMainWindow, QGridLayout, QPushButton, QWidget, QScrollArea, QApplication, QVBoxLayout, \
     QCheckBox, QFileDialog
 from openpyxl import Workbook
@@ -10,25 +11,11 @@ import pandas as pd
 import os
 from openpyxl.styles import PatternFill
 
-
-class ApplicationWindowManager:
-    def __init__(self):
-        self.app = QApplication(sys.argv)
-        self.current_window = None
-
-    def start(self):
-        self.show_main_menu()
-        sys.exit(self.app.exec())
-
-    def show_main_menu(self):
-        if self.current_window is not None:
-            self.current_window.close()
-
-        self.current_window = ConvertPartsDataToExcel()
+from core.UI.NavigationBar import NavigationBar
 
 
-class ConvertPartsDataToExcel(QMainWindow):
-    def __init__(self):
+class ConvertPartsToExcelList(QMainWindow):
+    def __init__(self, window_manager):
         super().__init__()
         self.setWindowTitle("Import OrderablePart Raw")
         self.resize(950, 800)
@@ -59,6 +46,12 @@ class ConvertPartsDataToExcel(QMainWindow):
 
         self.setCentralWidget(scroll_area)
         self.main_layout = QVBoxLayout(central_widget)
+
+        # Window Manager
+        self.window_manager = window_manager
+        self.nav_bar = NavigationBar(self.window_manager)
+        self.main_layout.addWidget(self.nav_bar)
+        self.main_layout.setAlignment(self.nav_bar, Qt.AlignmentFlag.AlignTop)
 
         # ------------------ setup Sections ------------------
 
@@ -186,8 +179,3 @@ def create_custom_formatted_excel(directory_path):
         wb.save(os.path.join(directory_path, excel_filename))
 
     return f"Processed {len(files)} files."
-
-
-if __name__ == '__main__':
-    manager = ApplicationWindowManager()
-    manager.start()

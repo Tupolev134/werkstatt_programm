@@ -23,6 +23,7 @@ class MainMenu(QMainWindow):
         # ------------------ setup Sections ------------------
         # Import Data section
         self.import_data_section_layout = QGridLayout()
+        self.convert_parts_to_excel_btn = QPushButton("Convert Parts To Excel", self)
         self.import_part_btn = QPushButton("Import new Part", self)
         self.import_orderable_part_btn = QPushButton("Import new order-able Part", self)
         self.import_orderable_part_raw_btn = QPushButton("Import new order-able Part as raw data", self)
@@ -55,6 +56,7 @@ class MainMenu(QMainWindow):
     # ------------------ Sections ------------------
 
     def create_import_data_section(self):
+        self.import_data_section_layout.addWidget(self.convert_parts_to_excel_btn)
         self.import_data_section_layout.addWidget(self.import_orderable_part_btn)
         self.import_data_section_layout.addWidget(self.import_orderable_part_raw_btn)
         self.import_data_section_layout.addWidget(self.import_order_btn)
@@ -62,6 +64,7 @@ class MainMenu(QMainWindow):
         # self.import_data_section_layout.addWidget(self.import_project_btn)
         # self.import_data_section_layout.addWidget(self.import_line)
 
+        self.convert_parts_to_excel_btn.clicked.connect(lambda : self.window_manager.show_window('convert_parts_to_excel'))
         self.import_order_btn.clicked.connect(lambda : self.window_manager.show_window('insert_order'))
         self.import_orderable_part_btn.clicked.connect(lambda : self.window_manager.show_window('orderable_part'))
         self.import_orderable_part_raw_btn.clicked.connect(lambda : self.window_manager.show_window('orderable_part_raw'))
