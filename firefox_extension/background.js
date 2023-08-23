@@ -46,8 +46,8 @@ function parts_parse_listener(details) {
       return; // Exit if the expected data is missing
     }
     let names = jsonResponse.crumbs.map(crumb => crumb.name);
-    let filename = names.join('_') + '.json';
-
+    let subdirectory = "parts_link_exports/teilelisten/";
+    let filename = subdirectory + names.join('_') + '.json';
 
     let records = jsonResponse.data.records;
     let recordsJson = JSON.stringify(records);
@@ -101,7 +101,7 @@ function image_download_listener(details) {
 
     let downloading = browser.downloads.download({
       url: objectURL,
-      filename: "image-data.png",
+      filename: "parts_link_exports/explosionszeichnungen/image-data.png",
       saveAs: true,
     });
 
