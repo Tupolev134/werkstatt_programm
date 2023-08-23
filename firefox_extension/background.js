@@ -1,7 +1,7 @@
 // Map to store objectURLs against download ids
 let urlMap = new Map();
 
-let export_folder = "parts_link_exports";
+let export_folder = "parts_link_exports/";
 
 let sharedState = {
     currentFilename: null
@@ -124,7 +124,7 @@ function processImageData(details) {
     let blob = new Blob([base64ToUint8Array(base64data)], {type: 'image/png'});
     let objectURL = URL.createObjectURL(blob);
 
-    let subdirectory = export_folder + sharedState.currentFilename.replace('.json', '') + '/';
+    let subdirectory = export_folder + sharedState.currentFilename + '/';
     let filename = sharedState.currentFilename;
 
     let downloading = browser.downloads.download({
