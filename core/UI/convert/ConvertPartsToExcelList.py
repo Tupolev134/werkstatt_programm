@@ -159,7 +159,7 @@ def create_custom_formatted_excel(directory_path):
         # Set header background color
         header_fill = PatternFill(start_color="D3D3D3", end_color="D3D3D3", fill_type="solid")
         headers = ["Position", "Teilenummer", "Name", "Kommentar", "Menge"]
-        for col_index, header in enumerate(headers, start=2):
+        for col_index, header in enumerate(headers, start=1):
             cell = ws.cell(row=2, column=col_index, value=header)
             cell.font = font
             cell.border = border
