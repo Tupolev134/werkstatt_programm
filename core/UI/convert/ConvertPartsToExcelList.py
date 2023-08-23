@@ -155,10 +155,11 @@ def create_custom_formatted_excel(directory_path):
         ws['A1'].value = heading
         ws['A1'].font = font
         ws['A1'].alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+
         # Set header background color
         header_fill = PatternFill(start_color="D3D3D3", end_color="D3D3D3", fill_type="solid")
         headers = ["Position", "Teilenummer", "Name", "Kommentar", "Menge"]
-        for col_index, header in enumerate(headers, start=1):
+        for col_index, header in enumerate(headers, start=2):
             cell = ws.cell(row=2, column=col_index, value=header)
             cell.font = font
             cell.border = border
@@ -167,7 +168,7 @@ def create_custom_formatted_excel(directory_path):
 
         # Write data to Excel worksheet
         row_height = 40
-        for row_index, row in enumerate(df_data, start=2):
+        for row_index, row in enumerate(df_data, start=3):
             for col_index, cell_value in enumerate(row, start=1):
                 cell = ws.cell(row=row_index, column=col_index, value=cell_value)
                 cell.font = font
