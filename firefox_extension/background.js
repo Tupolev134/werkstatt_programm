@@ -7,6 +7,17 @@ let sharedState = {
     currentFilename: null
 };
 
+function parseEssentials(inputStr) {
+    // Split the string by " - "
+    const segments = inputStr.split(" - ");
+
+    // Get the last three segments
+    const lastThree = segments.slice(-3);
+
+    // Join them back together
+    return lastThree.join(" - ");
+}
+
 function sanitizeFilename(filename) {
     let invalidChars = /[<>:"/\\|?*]/g;  // Regular expression to match invalid Windows filename characters
     return filename.replace(invalidChars, '_');  // Replace invalid characters with underscores
@@ -71,7 +82,7 @@ function parts_parse_listener(details) {
 
     let downloading = browser.downloads.download({
       url: objectURL,
-      filename: subdirectory + filename + '.json',
+      filename: subdirectory + parseEssentials(filename) + '.json',
     });
 
     downloading.then(id => {
@@ -129,7 +140,7 @@ function processImageData(details) {
 
     let downloading = browser.downloads.download({
       url: objectURL,
-      filename: subdirectory + filename + '.png'
+      filename: subdirectory + parseEssentials(filename) + '.png'
     });
 
     downloading.then(id => {
