@@ -1,6 +1,11 @@
 // Map to store objectURLs against download ids
 let urlMap = new Map();
 
+function sanitizeFilename(filename) {
+    let invalidChars = /[<>:"/\\|?*]/g;  // Regular expression to match invalid Windows filename characters
+    return filename.replace(invalidChars, '_');  // Replace invalid characters with underscores
+}
+
 function base64ToUint8Array(base64) {
     let binary_string = atob(base64);
     let len = binary_string.length;
@@ -45,7 +50,7 @@ function parts_parse_listener(details) {
       filter.close();
       return; // Exit if the expected data is missing
     }
-    let names = jsonResponse.crumbs.map(crumb => crumb.name);
+    let names = jsonResponse.crumbs.map(crumb => sanitizeFilename(crumb.name));
     let subdirectory = "parts_link_exports/teilelisten/";
     let filename = subdirectory + names.join('_') + '.json';
 
