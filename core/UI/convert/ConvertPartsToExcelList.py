@@ -87,6 +87,7 @@ class ConvertPartsToExcelList(QMainWindow):
             print(e.__str__())
             QMessageBox.warning(self, "Error", "While parsing Data: " + e.__str__())
 
+
 def sanitize_content(content):
     """Sanitize content to ensure it's encodable in 'latin-1'."""
     return content.encode('latin-1', 'ignore').decode('latin-1')
@@ -190,7 +191,7 @@ def create_custom_formatted_excel(directory_path):
                     row_height = 40
 
         # Sanitize the heading for use as a filename
-        excel_filename = file.replace('json','xlsx')
+        excel_filename = file.replace('.json','.xlsx')
 
         # Save the Excel workbook
         wb.save(os.path.join(directory_path, excel_filename))

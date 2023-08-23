@@ -68,7 +68,7 @@ function parts_parse_listener(details) {
       return; // Exit if the expected data is missing
     }
     let names = jsonResponse.crumbs.map(crumb => sanitizeFilename(crumb.name));
-    let filename = names.join('_');
+    let filename = parseEssentials(names.join('_'));
     let subdirectory = export_folder + filename + '/'
 
     sharedState.currentFilename = filename;
