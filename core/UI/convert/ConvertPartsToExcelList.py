@@ -207,7 +207,7 @@ def convert_json_to_excel_and_pdf(directory_path):
         # Convert the Excel workbook to PDF
         # parent_dir = os.path.dirname(directory_path.rstrip(os.sep))
         # pdf_filename = directory_path + '/' + os.path.basename(file).replace('.json','.pdf')
-        pdf_filename = directory_path + '\\' + "export_" + str(iter) + ".pdf"
+        pdf_filename = directory_path + '\\' + "export_" + str(iter) + ".1" + ".pdf"
         excel_to_pdf(excel_filename,  pdf_filename)
         iter += 1
 
