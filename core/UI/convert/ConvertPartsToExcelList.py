@@ -3,6 +3,7 @@ import re
 import sys
 from PIL import Image
 import PyPDF2
+from PyPDF2 import PdfWriter, PdfReader
 
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QMainWindow, QGridLayout, QPushButton, QWidget, QScrollArea, QApplication, QVBoxLayout, \
@@ -226,6 +227,8 @@ def convert_json_to_excel_and_pdf(directory_path):
         # pdf_filename = directory_path + '/' + os.path.basename(file).replace('.json','.pdf')
         pdf_filename = directory_path + '\\' + "export_" + str(iter) + ".1" + ".pdf"
         excel_to_pdf(excel_filename,  pdf_filename)
+
+        rescale_pdf(pdf_filename, pdf_filename, 2)
         iter += 1
 
     print(f"Converted {len(json_files)} JSON files.")
@@ -235,7 +238,7 @@ def convert_json_to_excel_and_pdf(directory_path):
             # Resize and pad image to A4 dimensions
             a4_img = resize_and_pad(img, A4_DIMENSIONS)
 
-            # Convert PNG to PDF
+            # Convert PNG to PDF with specified DPI
             pdf_file = os.path.join(os.path.dirname(os.path.dirname(png_file)), f'export_{iter}.0.pdf')
             a4_img.save(pdf_file, dpi=A4_DPI)
             iter += 1
@@ -264,6 +267,7 @@ def excel_to_pdf(excel_filename, pdf_filename):
         workbook.Close()
         excel.Quit()
 
+
 def resize_and_pad(img, target_dimensions):
     # Calculate aspect ratio of the original image and the target size
     src_aspect = img.width / img.height
@@ -286,6 +290,20 @@ def resize_and_pad(img, target_dimensions):
     output.paste(resized_img, (x_offset, y_offset))
 
     return output
+
+
+def rescale_pdf(input_pdf, output_pdf, scale_factor):
+    # Read the input
+    reader = PdfReader(input_pdf)
+    writer = PdfWriter()
+
+    # Loop through all pages in the input PDF and scale each page
+    for page in reader.pages:
+        page.scale_by(scale_factor)
+        writer.add_page(page)
+
+    # Write the scaled pages to the output PDF
+    writer.write(output_pdf)
 
 def merge(directory_path, output_filename="combined.pdf"):
     # List all files in the directory
