@@ -89,7 +89,6 @@ class ConvertPartsToExcelList(QMainWindow):
         except Exception as e:
             print(e.__str__())
             QMessageBox.warning(self, "Error", "While parsing Data: " + e.__str__())
-            raise e
 
 
 def sanitize_content(content):
@@ -208,7 +207,7 @@ def convert_json_to_excel_and_pdf(directory_path):
         # Convert the Excel workbook to PDF
         # parent_dir = os.path.dirname(directory_path.rstrip(os.sep))
         # pdf_filename = directory_path + '/' + os.path.basename(file).replace('.json','.pdf')
-        pdf_filename = directory_path + '\\' + "teileliste_" + str(iter) + ".pdf"
+        pdf_filename = directory_path + '\\' + "export_" + str(iter) + ".pdf"
         excel_to_pdf(excel_filename,  pdf_filename)
         iter += 1
 
@@ -217,7 +216,7 @@ def convert_json_to_excel_and_pdf(directory_path):
     for png_file in png_files:
         with Image.open(png_file) as img:
             # Convert PNG to PDF
-            pdf_file = os.path.join(os.path.dirname(os.path.dirname(png_file)), f'explosionszeichnung_{iter}.pdf')
+            pdf_file = os.path.join(os.path.dirname(os.path.dirname(png_file)), f'export_{iter}.pdf')
             img.convert('RGB').save(pdf_file)
             iter += 1
     print(f"Converted {len(png_files)} PNG files.")
@@ -237,12 +236,10 @@ def excel_to_pdf(excel_filename, pdf_filename):
     workbook = excel.Workbooks.Open(excel_filename)
 
     try:
-        # Export the workbook to PDF
         workbook.ExportAsFixedFormat(0, pdf_filename)
     except Exception as e:
         print(f"Failed to convert {excel_filename} to PDF. {str(e)}")
         raise e
     finally:
-        # Close the workbook and quit Excel
         workbook.Close()
         excel.Quit()
