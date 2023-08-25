@@ -19,6 +19,7 @@ from dotenv import load_dotenv
 load_dotenv()
 DEFAULT_PARTS_JSON_FOLDER_PATH = os.getenv("DEFAULT_PARTS_JSON_FOLDER_PATH")
 A4_DIMENSIONS = (2480, 3508)  # At 300 DPI
+A4_DPI = (300, 300)  # Standard printing DPI
 
 
 class ConvertPartsToExcelList(QMainWindow):
@@ -236,7 +237,7 @@ def convert_json_to_excel_and_pdf(directory_path):
 
             # Convert PNG to PDF
             pdf_file = os.path.join(os.path.dirname(os.path.dirname(png_file)), f'export_{iter}.0.pdf')
-            a4_img.save(pdf_file)
+            a4_img.save(pdf_file, dpi=A4_DPI)
             iter += 1
     print(f"Converted {len(png_files)} PNG files.")
     return f"Converted {len(json_files)} JSON files and {len(png_files)} PNG files."
