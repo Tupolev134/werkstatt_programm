@@ -2,6 +2,7 @@ import json
 import re
 import sys
 from PIL import Image
+import PyPDF2
 
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QMainWindow, QGridLayout, QPushButton, QWidget, QScrollArea, QApplication, QVBoxLayout, \
@@ -32,16 +33,17 @@ class ConvertPartsToExcelList(QMainWindow):
         self.naming_section_layout = QVBoxLayout()
         self.folder_path_label = QLabel(DEFAULT_PARTS_JSON_FOLDER_PATH, self)
         self.choose_folder_btn = QPushButton("Ordner Auswählen", self)
-        self.same_folder_checkbox = QCheckBox("In gleichem Ordner speichern", self)
         self.convert_to_excel_btn = QPushButton("Alle Konvertieren", self)
+        self.combine_exports_btn = QPushButton("Alle Exporte kombinieren", self)
 
         self.naming_section_layout.addWidget(self.folder_path_label)
         self.naming_section_layout.addWidget(self.choose_folder_btn)
-        self.naming_section_layout.addWidget(self.same_folder_checkbox)
         self.naming_section_layout.addWidget(self.convert_to_excel_btn)
+        self.naming_section_layout.addWidget(self.combine_exports_btn)
 
         self.choose_folder_btn.clicked.connect(self.open_folder_dialog)
         self.convert_to_excel_btn.clicked.connect(self.convert_to_excel)
+        self.combine_exports_btn.clicked.connect(self.merge_pdfs)
 
         # ------------------ setup Window ------------------
         central_widget = QWidget()
@@ -90,6 +92,19 @@ class ConvertPartsToExcelList(QMainWindow):
             print(e.__str__())
             QMessageBox.warning(self, "Error", "While parsing Data: " + e.__str__())
 
+    def merge_pdfs(self, output_filename="combined.pdf"):
+        try:
+            if self.folder_path:
+                convert_json_to_excel_and_pdf(self.folder_path)
+                message = merge(self.folder_path)
+                QMessageBox.information(self, "Erfolgreich", message)
+            else:
+                self.folder_path = DEFAULT_PARTS_JSON_FOLDER_PATH
+                message = merge(self.folder_path)
+                QMessageBox.information(self, "Erfolgreich", message)
+        except Exception as e:
+            print(e.__str__())
+            QMessageBox.warning(self, "Error", "While parsing Data: " + e.__str__())
 
 def sanitize_content(content):
     """Sanitize content to ensure it's encodable in 'latin-1'."""
@@ -243,3 +258,25 @@ def excel_to_pdf(excel_filename, pdf_filename):
     finally:
         workbook.Close()
         excel.Quit()
+
+
+def merge(directory_path, output_filename="combined.pdf"):
+    # List all files in the directory
+    files = [f for f in os.listdir(directory_path) if f.endswith('.pdf')]
+
+    # Sort the files by name
+    sorted_files = sorted(files)
+
+    # Create a PDF merger object
+    pdf_merger = PyPDF2.PdfFileMerger()
+
+    # Append each PDF to the merger object
+    for file in sorted_files:
+        with open(os.path.join(directory_path, file), 'rb') as f:
+            pdf_merger.append(f)
+
+    # Write the merged PDF to the output file
+    with open(os.path.join(directory_path, output_filename), 'wb') as f:
+        pdf_merger.write(f)
+
+    return f"PDFs merged into {output_filename}"
