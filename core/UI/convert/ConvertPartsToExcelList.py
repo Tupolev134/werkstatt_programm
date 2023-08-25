@@ -18,6 +18,7 @@ from core.UI.NavigationBar import NavigationBar
 from dotenv import load_dotenv
 load_dotenv()
 DEFAULT_PARTS_JSON_FOLDER_PATH = os.getenv("DEFAULT_PARTS_JSON_FOLDER_PATH")
+A4_DIMENSIONS = (2480, 3508)  # At 300 DPI
 
 
 class ConvertPartsToExcelList(QMainWindow):
@@ -230,9 +231,12 @@ def convert_json_to_excel_and_pdf(directory_path):
     iter = 0
     for png_file in png_files:
         with Image.open(png_file) as img:
+            # Resize and pad image to A4 dimensions
+            a4_img = resize_and_pad(img, A4_DIMENSIONS)
+
             # Convert PNG to PDF
             pdf_file = os.path.join(os.path.dirname(os.path.dirname(png_file)), f'export_{iter}.0.pdf')
-            img.convert('RGB').save(pdf_file)
+            a4_img.save(pdf_file)
             iter += 1
     print(f"Converted {len(png_files)} PNG files.")
     return f"Converted {len(json_files)} JSON files and {len(png_files)} PNG files."
@@ -259,6 +263,28 @@ def excel_to_pdf(excel_filename, pdf_filename):
         workbook.Close()
         excel.Quit()
 
+def resize_and_pad(img, target_dimensions):
+    # Calculate aspect ratio of the original image and the target size
+    src_aspect = img.width / img.height
+    tgt_aspect = target_dimensions[0] / target_dimensions[1]
+
+    # Resize the image
+    if src_aspect > tgt_aspect:
+        # If the original image is wider than the target size
+        resized_img = img.resize((target_dimensions[0], round(target_dimensions[0] / src_aspect)))
+    else:
+        # If the original image is taller than the target size or equal
+        resized_img = img.resize((round(target_dimensions[1] * src_aspect), target_dimensions[1]))
+
+    # Create a white background
+    output = Image.new("RGB", target_dimensions, "white")
+
+    # Paste the resized image onto the white background
+    y_offset = (target_dimensions[1] - resized_img.height) // 2
+    x_offset = (target_dimensions[0] - resized_img.width) // 2
+    output.paste(resized_img, (x_offset, y_offset))
+
+    return output
 
 def merge(directory_path, output_filename="combined.pdf"):
     # List all files in the directory
@@ -268,7 +294,7 @@ def merge(directory_path, output_filename="combined.pdf"):
     sorted_files = sorted(files)
 
     # Create a PDF merger object
-    pdf_merger = PyPDF2.PdfFileMerger()
+    pdf_merger = PyPDF2.PdfMerger()
 
     # Append each PDF to the merger object
     for file in sorted_files:
