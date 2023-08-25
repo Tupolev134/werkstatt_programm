@@ -86,6 +86,7 @@ class ConvertPartsToExcelList(QMainWindow):
         except Exception as e:
             print(e.__str__())
             QMessageBox.warning(self, "Error", "While parsing Data: " + e.__str__())
+            raise e
 
 
 def sanitize_content(content):
@@ -109,6 +110,7 @@ def sanitize_filename(filename):
 
 def create_custom_formatted_excel(directory_path):
     # List all files in the directory and its subdirectories
+    iter = 0
     files = []
     for dirpath, dirnames, filenames in os.walk(directory_path):
         for filename in [f for f in filenames if f.endswith(".json")]:
@@ -194,16 +196,24 @@ def create_custom_formatted_excel(directory_path):
         excel_filename = file.replace('.json','.xlsx')
 
         # Save the Excel workbook
-        wb.save(os.path.join(directory_path, excel_filename))
+        wb.save(excel_filename)
 
         # Convert the Excel workbook to PDF
-        pdf_filename = sanitize_filename(heading) + ".pdf"
-        excel_to_pdf(os.path.join(directory_path, excel_filename), os.path.join(directory_path, pdf_filename))
+        # parent_dir = os.path.dirname(directory_path.rstrip(os.sep))
+        # pdf_filename = directory_path + '/' + os.path.basename(file).replace('.json','.pdf')
+        pdf_filename = directory_path + '\\' + "export" + str(iter) + ".pdf"
+        excel_to_pdf(excel_filename,  pdf_filename)
+        iter += 1
 
     return f"Processed {len(files)} files."
 
 
 def excel_to_pdf(excel_filename, pdf_filename):
+    print("----------------------------------------")
+    print("PDF:")
+    print(pdf_filename)
+    print("EXCEL:")
+    print(excel_filename)
     excel = win32.Dispatch('Excel.Application')
     excel.Visible = False
 
@@ -215,6 +225,7 @@ def excel_to_pdf(excel_filename, pdf_filename):
         workbook.ExportAsFixedFormat(0, pdf_filename)
     except Exception as e:
         print(f"Failed to convert {excel_filename} to PDF. {str(e)}")
+        raise e
     finally:
         # Close the workbook and quit Excel
         workbook.Close()
