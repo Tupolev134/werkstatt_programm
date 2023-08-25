@@ -1,6 +1,7 @@
 import json
 import re
 import sys
+from PIL import Image
 
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QMainWindow, QGridLayout, QPushButton, QWidget, QScrollArea, QApplication, QVBoxLayout, \
@@ -69,7 +70,6 @@ class ConvertPartsToExcelList(QMainWindow):
 
     def open_folder_dialog(self):
         file_dialog = QFileDialog()
-        json_filter = "JSON (*.json)"
         folder = file_dialog.getExistingDirectory()
         # folder = QFileDialog.getExistingDirectory(self, "Select Directory", "", options=options)
         if folder:
@@ -79,10 +79,13 @@ class ConvertPartsToExcelList(QMainWindow):
     def convert_to_excel(self):
         try:
             if self.folder_path:
-                create_custom_formatted_excel(self.folder_path)
+                convert_json_to_excel_and_pdf(self.folder_path)
+                message = convert_json_to_excel_and_pdf(self.folder_path)
+                QMessageBox.information(self, "Erfolgreich", message)
             else:
                 self.folder_path = DEFAULT_PARTS_JSON_FOLDER_PATH
-                create_custom_formatted_excel(self.folder_path)
+                message = convert_json_to_excel_and_pdf(self.folder_path)
+                QMessageBox.information(self, "Erfolgreich", message)
         except Exception as e:
             print(e.__str__())
             QMessageBox.warning(self, "Error", "While parsing Data: " + e.__str__())
@@ -108,17 +111,21 @@ def sanitize_filename(filename):
     return filename
 
 
-def create_custom_formatted_excel(directory_path):
+def convert_json_to_excel_and_pdf(directory_path):
     # List all files in the directory and its subdirectories
     iter = 0
-    files = []
+    json_files = []
+    png_files = []
     for dirpath, dirnames, filenames in os.walk(directory_path):
-        for filename in [f for f in filenames if f.endswith(".json")]:
-            files.append(os.path.join(dirpath, filename))
+        for filename in [f for f in filenames]:
+            if filename.endswith(".json"):
+                json_files.append(os.path.join(dirpath, filename))
+            elif filename.endswith(".png"):
+                png_files.append(os.path.join(dirpath, filename))
 
-    for file in files:
-        # Read the JSON content
-        with open(file, "r", encoding="utf-8") as f:
+    # make jsons to pdfs
+    for json_file in json_files:
+        with open(json_file, "r", encoding="utf-8") as f:
             data = json.load(f)
 
         # Extract required information and put it into a DataFrame
@@ -150,12 +157,12 @@ def create_custom_formatted_excel(directory_path):
 
         # Extracting the heading from the filename
         try:
-            filename_parts = file.replace(" - ", "_").split("_")
+            filename_parts = json_file.replace(" - ", "_").split("_")
             heading_parts = filename_parts[5:]
             heading_parts[-1] = heading_parts[-1].replace('.json', '')
             heading = sanitize_content(" - ".join(heading_parts))
         except Exception as e:
-            heading = file.replace('.json', '')
+            heading = json_file.replace('.json', '')
 
         # Insert merged cells for heading
         ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=5)
@@ -193,7 +200,7 @@ def create_custom_formatted_excel(directory_path):
                     row_height = 40
 
         # Sanitize the heading for use as a filename
-        excel_filename = file.replace('.json','.xlsx')
+        excel_filename = json_file.replace('.json','.xlsx')
 
         # Save the Excel workbook
         wb.save(excel_filename)
@@ -201,11 +208,20 @@ def create_custom_formatted_excel(directory_path):
         # Convert the Excel workbook to PDF
         # parent_dir = os.path.dirname(directory_path.rstrip(os.sep))
         # pdf_filename = directory_path + '/' + os.path.basename(file).replace('.json','.pdf')
-        pdf_filename = directory_path + '\\' + "export" + str(iter) + ".pdf"
+        pdf_filename = directory_path + '\\' + "teileliste_" + str(iter) + ".pdf"
         excel_to_pdf(excel_filename,  pdf_filename)
         iter += 1
 
-    return f"Processed {len(files)} files."
+    print(f"Converted {len(json_files)} JSON files.")
+    iter = 0
+    for png_file in png_files:
+        with Image.open(png_file) as img:
+            # Convert PNG to PDF
+            pdf_file = os.path.join(os.path.dirname(os.path.dirname(png_file)), f'explosionszeichnung_{iter}.pdf')
+            img.convert('RGB').save(pdf_file)
+            iter += 1
+    print(f"Converted {len(png_files)} PNG files.")
+    return f"Converted {len(json_files)} JSON files and {len(png_files)} PNG files."
 
 
 def excel_to_pdf(excel_filename, pdf_filename):
