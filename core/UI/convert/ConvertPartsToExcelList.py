@@ -70,7 +70,7 @@ class ConvertPartsToExcelList(QMainWindow):
 
     def open_folder_dialog(self):
         file_dialog = QFileDialog()
-        folder = file_dialog.getExistingDirectory()
+        folder = file_dialog.getExistingDirectory(directory=r"C:\Users\TheOverlanders\Downloads\parts_link_exports")
         # folder = QFileDialog.getExistingDirectory(self, "Select Directory", "", options=options)
         if folder:
             self.folder_path = folder
@@ -216,7 +216,7 @@ def convert_json_to_excel_and_pdf(directory_path):
     for png_file in png_files:
         with Image.open(png_file) as img:
             # Convert PNG to PDF
-            pdf_file = os.path.join(os.path.dirname(os.path.dirname(png_file)), f'export_{iter}.pdf')
+            pdf_file = os.path.join(os.path.dirname(os.path.dirname(png_file)), f'export_{iter}.0.pdf')
             img.convert('RGB').save(pdf_file)
             iter += 1
     print(f"Converted {len(png_files)} PNG files.")
