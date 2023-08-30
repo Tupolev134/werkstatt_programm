@@ -4,6 +4,10 @@ from PyQt6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QScrollArea, QTab
 from core.UI.NavigationBar import NavigationBar
 from core.UI.cash_register.CashRegisterData import CashRegisterData
 
+import os
+from dotenv import load_dotenv
+load_dotenv()
+REGISTER_PATH=os.getenv("REGISTER_PATH")
 
 class CashRegisterPage(QMainWindow):
     def __init__(self, window_manager):
@@ -29,9 +33,9 @@ class CashRegisterPage(QMainWindow):
 
         # ------------------ create Expense List ------------------
         self.create_expense_list_section()
-        self.populate_expense_table()
+        self.register_data = CashRegisterData(REGISTER_PATH)
 
-        self.register_data = CashRegisterData("/Users/tupolev/Desktop/Arbeit/Overlanders_Coding/werkstatt_programm/test_data/test_register_data.json")
+        print(REGISTER_PATH)
 
     def create_expense_list_section(self):
         self.expense_table = QTableWidget(self)
