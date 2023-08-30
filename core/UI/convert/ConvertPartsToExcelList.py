@@ -84,7 +84,6 @@ class ConvertPartsToExcelList(QMainWindow):
     def convert_to_excel(self):
         try:
             if self.folder_path:
-                convert_json_to_excel_and_pdf(self.folder_path)
                 message = convert_json_to_excel_and_pdf(self.folder_path)
                 QMessageBox.information(self, "Erfolgreich", message)
             else:
@@ -98,7 +97,6 @@ class ConvertPartsToExcelList(QMainWindow):
     def merge_pdfs(self, output_filename="combined.pdf"):
         try:
             if self.folder_path:
-                merge(self.folder_path)
                 message = merge(self.folder_path)
                 QMessageBox.information(self, "Erfolgreich", message)
             else:
@@ -168,7 +166,7 @@ def convert_json_to_excel_and_pdf(directory_path):
         alignment = Alignment(wrap_text=True)
 
         # Hardcode column widths
-        col_widths = [4, 10, 28, 30, 4]
+        col_widths = [3, 10, 33, 30, 8]
         for col_index, col_width in enumerate(col_widths, start=1):
             ws.column_dimensions[chr(64 + col_index)].width = col_width
 
@@ -189,7 +187,7 @@ def convert_json_to_excel_and_pdf(directory_path):
 
         # Set header background color
         header_fill = PatternFill(start_color="D3D3D3", end_color="D3D3D3", fill_type="solid")
-        headers = ["Position", "Teilenummer", "Name", "Kommentar", "Menge"]
+        headers = ["Pos", "Teilenummer", "Name", "Kommentar", "Menge"]
         for col_index, header in enumerate(headers, start=1):
             cell = ws.cell(row=2, column=col_index, value=header)
             cell.font = font
@@ -206,14 +204,14 @@ def convert_json_to_excel_and_pdf(directory_path):
                 cell.border = border
                 cell.alignment = alignment
                 if col_index in [3, 4]:  # Name and Kommentar columns
-                    if col_index is 3:
+                    if col_index == 3:
                         lines_required = -(-len(cell_value) // 20)
                     else:
                         lines_required = -(-len(cell_value) // 30)
                     calc_row_height = 40 + (max(0, lines_required - 2) * 15)
                     row_height = calc_row_height if calc_row_height > row_height else row_height
                     ws.row_dimensions[row_index].height = row_height
-                if col_index is 5:
+                if col_index == 5:
                     row_height = 40
 
         # Sanitize the heading for use as a filename
@@ -311,6 +309,7 @@ def merge(directory_path, output_filename="combined.pdf"):
 
     # Sort the files by name
     sorted_files = sorted(files)
+    print(sorted_files)
 
     # Create a PDF merger object
     pdf_merger = PyPDF2.PdfMerger()
