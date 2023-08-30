@@ -2,6 +2,7 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QScrollArea, QTableWidget, QTableWidgetItem, QApplication
 
 from core.UI.NavigationBar import NavigationBar
+from core.UI.cash_register.CashRegisterData import CashRegisterData
 
 
 class CashRegisterPage(QMainWindow):
@@ -28,6 +29,9 @@ class CashRegisterPage(QMainWindow):
 
         # ------------------ create Expense List ------------------
         self.create_expense_list_section()
+        self.populate_expense_table()
+
+        self.register_data = CashRegisterData("/Users/tupolev/Desktop/Arbeit/Overlanders_Coding/werkstatt_programm/test_data/test_register_data.json")
 
     def create_expense_list_section(self):
         self.expense_table = QTableWidget(self)
@@ -42,3 +46,18 @@ class CashRegisterPage(QMainWindow):
         self.expense_table.setItem(0, 3, QTableWidgetItem("$10.50"))
 
         self.main_layout.addWidget(self.expense_table)
+
+    def populate_expense_table(self):
+        # Clear the table first
+        self.expense_table.setRowCount(0)
+
+        # Iterate through transactions and populate the table
+        for transaction in self.register_data.transactions:
+            row_position = self.expense_table.rowCount()
+            self.expense_table.insertRow(row_position)
+
+            self.expense_table.setItem(row_position, 0, QTableWidgetItem(transaction.date.strftime('%Y-%m-%d')))
+            self.expense_table.setItem(row_position, 1, QTableWidgetItem(transaction.name))
+            self.expense_table.setItem(row_position, 2, QTableWidgetItem(transaction.expense_type))
+            self.expense_table.setItem(row_position, 3, QTableWidgetItem(transaction.amount))
+
