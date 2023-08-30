@@ -1,11 +1,15 @@
-from PyQt6.QtCore import Qt
-from PyQt6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QScrollArea, QTableWidget, QTableWidgetItem, QApplication
+from PyQt6.QtCore import Qt, QDate
+from PyQt6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QScrollArea, QTableWidget, QTableWidgetItem, \
+    QApplication, QDateEdit, QLabel, QComboBox, QLineEdit, QPushButton
 
 from core.UI.NavigationBar import NavigationBar
 from core.UI.cash_register.CashRegisterData import CashRegisterData
 
 import os
 from dotenv import load_dotenv
+
+from core.UI.cash_register.Transaction import Transaction
+
 load_dotenv()
 REGISTER_PATH=os.getenv("REGISTER_PATH")
 
@@ -65,3 +69,55 @@ class CashRegisterPage(QMainWindow):
             self.expense_table.setItem(row_position, 2, QTableWidgetItem(transaction.expense_type))
             self.expense_table.setItem(row_position, 3, QTableWidgetItem(transaction.amount))
 
+    def create_insert_section(self):
+        # Layout to hold input widgets
+        input_layout = QVBoxLayout()
+
+        # Date selection widget
+        self.date_edit = QDateEdit(self)
+        self.date_edit.setDate(QDate.currentDate())
+        input_layout.addWidget(QLabel("Date:"))
+        input_layout.addWidget(self.date_edit)
+
+        # Name selection widget (QComboBox with hardcoded names)
+        self.name_combobox = QComboBox(self)
+        self.name_combobox.addItems(['John Doe', 'Jane Smith', 'Alice', 'Bob'])  # Hardcoded names
+        input_layout.addWidget(QLabel("Name:"))
+        input_layout.addWidget(self.name_combobox)
+
+        # Expense type input widget
+        self.expense_type_edit = QLineEdit(self)
+        input_layout.addWidget(QLabel("Expense Type:"))
+        input_layout.addWidget(self.expense_type_edit)
+
+        # Amount input widget
+        self.amount_edit = QLineEdit(self)
+        input_layout.addWidget(QLabel("Amount:"))
+        input_layout.addWidget(self.amount_edit)
+
+        # Submit button
+        submit_button = QPushButton("Add Transaction", self)
+        submit_button.clicked.connect(self.add_transaction)
+        input_layout.addWidget(submit_button)
+
+        # Add the input layout to the main layout
+        self.main_layout.addLayout(input_layout)
+
+
+    def add_transaction(self):
+        # Gather data from input widgets
+        date = self.date_edit.date().toPyDate()
+        name = self.name_combobox.currentText()
+        expense_type = self.expense_type_edit.text()
+        amount = self.amount_edit.text()
+
+        # Create a new transaction and add it to the register data
+        new_transaction = Transaction(date, name, expense_type, amount)
+        self.register_data.add_transaction(new_transaction)
+
+        # Refresh the table to display the new transaction
+        self.populate_expense_table()
+
+        # Optionally: clear the input fields
+        self.expense_type_edit.clear()
+        self.amount_edit.clear()
