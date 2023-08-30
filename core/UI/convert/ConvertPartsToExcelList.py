@@ -98,7 +98,7 @@ class ConvertPartsToExcelList(QMainWindow):
     def merge_pdfs(self, output_filename="combined.pdf"):
         try:
             if self.folder_path:
-                convert_json_to_excel_and_pdf(self.folder_path)
+                merge(self.folder_path)
                 message = merge(self.folder_path)
                 QMessageBox.information(self, "Erfolgreich", message)
             else:
@@ -228,7 +228,7 @@ def convert_json_to_excel_and_pdf(directory_path):
         pdf_filename = directory_path + '\\' + "export_" + str(iter) + ".1" + ".pdf"
         excel_to_pdf(excel_filename,  pdf_filename)
 
-        rescale_pdf(pdf_filename, pdf_filename, 2)
+        rescale_pdf(pdf_filename, pdf_filename, 1.4)
         iter += 1
 
     print(f"Converted {len(json_files)} JSON files.")
