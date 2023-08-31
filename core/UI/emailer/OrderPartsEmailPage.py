@@ -46,17 +46,20 @@ class OrderPartsEmailPage(QMainWindow):
 
         # Load suppliers and populate dropdown
         self.supplier_data = SupplierData(SUPPLIER_DATA_PATH)
-        supplier_names = [f"{supplier.first_name} {supplier.last_name}" for supplier in self.supplier_data.suppliers]
+        supplier_handles = [f"{supplier.handle}" for supplier in self.supplier_data.suppliers]
         self.name_combobox = QComboBox(self)
-        self.name_combobox.addItems(supplier_names)
+        self.name_combobox.addItems(supplier_handles)
         self.name_combobox.currentIndexChanged.connect(self.display_selected_supplier_info)
         self.order_header_section.addWidget(self.name_combobox)
 
         # Input fields to display and edit supplier info
+        self.internal_handle = QLineEdit(self)
         self.first_name_input = QLineEdit(self)
         self.last_name_input = QLineEdit(self)
         self.email_input = QLineEdit(self)
 
+        self.order_header_section.addWidget(QLabel("Internal Handle:"))
+        self.order_header_section.addWidget(self.internal_handle)
         self.order_header_section.addWidget(QLabel("First Name:"))
         self.order_header_section.addWidget(self.first_name_input)
         self.order_header_section.addWidget(QLabel("Last Name:"))
@@ -69,6 +72,7 @@ class OrderPartsEmailPage(QMainWindow):
 
     def display_selected_supplier_info(self, index):
         selected_supplier = self.supplier_data.suppliers[index]
+        self.internal_handle.setText(selected_supplier.handle)
         self.first_name_input.setText(selected_supplier.first_name)
         self.last_name_input.setText(selected_supplier.last_name)
         self.email_input.setText(selected_supplier.email)
