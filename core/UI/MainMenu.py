@@ -14,6 +14,7 @@ def get_sorted_list(list_of_tuples):
     return [item[0] for item in sorted(list_of_tuples, key=lambda x: x[1], reverse=True)]
 
 
+# noinspection PyAttributeOutsideInit
 class MainMenu(QMainWindow):
     def __init__(self, window_manager):
         super().__init__()
@@ -22,15 +23,6 @@ class MainMenu(QMainWindow):
 
         # ------------------ setup Sections ------------------
         # Import Data section
-        self.import_data_section_layout = QGridLayout()
-        self.open_cash_register_btn = QPushButton("Cash Register", self)
-        self.convert_parts_to_excel_btn = QPushButton("Convert Parts To Excel", self)
-        self.import_part_btn = QPushButton("Import new Part", self)
-        self.import_orderable_part_btn = QPushButton("Import new order-able Part", self)
-        self.import_orderable_part_raw_btn = QPushButton("Import new order-able Part as raw data", self)
-        self.import_order_btn = QPushButton("Import new Order", self)
-        self.import_project_btn = QPushButton("Import new Project", self)
-        self.import_line = QLineEdit()
 
         # ------------------ setup Window ------------------
         central_widget = QWidget()
@@ -57,15 +49,27 @@ class MainMenu(QMainWindow):
     # ------------------ Sections ------------------
 
     def create_import_data_section(self):
-        self.import_data_section_layout.addWidget(self.open_cash_register_btn)
-        self.import_data_section_layout.addWidget(self.convert_parts_to_excel_btn)
-        self.import_data_section_layout.addWidget(self.import_orderable_part_btn)
-        self.import_data_section_layout.addWidget(self.import_orderable_part_raw_btn)
-        self.import_data_section_layout.addWidget(self.import_order_btn)
-        # self.import_data_section_layout.addWidget(self.import_part_btn)
-        # self.import_data_section_layout.addWidget(self.import_project_btn)
-        # self.import_data_section_layout.addWidget(self.import_line)
+        self.import_data_section_layout = QGridLayout()
 
+        self.order_emailer_btn = QPushButton("Order Emailer", self)
+        self.import_data_section_layout.addWidget(self.order_emailer_btn)
+
+        self.open_cash_register_btn = QPushButton("Cash Register", self)
+        self.import_data_section_layout.addWidget(self.open_cash_register_btn)
+
+        self.convert_parts_to_excel_btn = QPushButton("Convert Parts To Excel", self)
+        self.import_data_section_layout.addWidget(self.convert_parts_to_excel_btn)
+
+        self.import_orderable_part_btn = QPushButton("Import new order-able Part", self)
+        self.import_data_section_layout.addWidget(self.import_orderable_part_btn)
+
+        self.import_orderable_part_raw_btn = QPushButton("Import new order-able Part as raw data", self)
+        self.import_data_section_layout.addWidget(self.import_orderable_part_raw_btn)
+
+        self.import_order_btn = QPushButton("Import new Order", self)
+        self.import_data_section_layout.addWidget(self.import_order_btn)
+
+        self.order_emailer_btn.clicked.connect(lambda : self.window_manager.show_window('order_emailer'))
         self.open_cash_register_btn.clicked.connect(lambda : self.window_manager.show_window('cash_register'))
         self.convert_parts_to_excel_btn.clicked.connect(lambda : self.window_manager.show_window('convert_parts_to_excel'))
         self.import_order_btn.clicked.connect(lambda : self.window_manager.show_window('insert_order'))
