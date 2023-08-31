@@ -54,13 +54,14 @@ class OrderPartsEmailPage(QMainWindow):
 
         self.create_parts_table()
         self.main_layout.addWidget(_get_line_widget())
+
+        self.order_header_section = QVBoxLayout()
         self.create_order_header_section()
+
         self.main_layout.addWidget(_get_line_widget())
         self.create_input_parts_section()
 
     def create_order_header_section(self):
-        self.order_header_section = QVBoxLayout()
-
         # Load suppliers and populate dropdown
         self.supplier_data = SupplierData(SUPPLIER_DATA_PATH)
         supplier_handles = [f"{supplier.handle}" for supplier in self.supplier_data.suppliers]
@@ -69,6 +70,13 @@ class OrderPartsEmailPage(QMainWindow):
         self.name_combobox.currentIndexChanged.connect(self.display_selected_supplier_info)
         self.order_header_section.addWidget(self.name_combobox)
 
+        self.show_details_button = QPushButton("Show Supplier Details")
+        self.show_details_button.clicked.connect(self.show_supplier_details)
+        self.order_header_section.addWidget(self.show_details_button)
+
+        self.main_layout.addLayout(self.order_header_section)
+
+    def show_supplier_details(self):
         # Input fields to display and edit supplier info
         self.internal_handle = QLineEdit(self)
         self.first_name_input = QLineEdit(self)
@@ -84,7 +92,8 @@ class OrderPartsEmailPage(QMainWindow):
         self.order_header_section.addWidget(QLabel("Email:"))
         self.order_header_section.addWidget(self.email_input)
 
-        self.main_layout.addLayout(self.order_header_section)
+        self.order_header_section.removeWidget(self.show_details_button)
+
         self.display_selected_supplier_info(0)
 
     def display_selected_supplier_info(self, index):
@@ -211,6 +220,7 @@ class OrderPartsEmailPage(QMainWindow):
         selected_supplier = self.supplier_data.suppliers[self.name_combobox.currentIndex()]
         outlook = win32.Dispatch('outlook.application')
         mail = outlook.CreateItem(0)
+        mail.To = selected_supplier.email
         mail.Subject = "Teilebestellung - The Overlanders Garage GmbH"
 
         # Construct the email body

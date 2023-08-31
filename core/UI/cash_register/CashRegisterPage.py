@@ -62,7 +62,8 @@ class CashRegisterPage(QMainWindow):
             row_position = self.expense_table.rowCount()
             self.expense_table.insertRow(row_position)
 
-            self.expense_table.setItem(row_position, 0, QTableWidgetItem(transaction.date.strftime('%dd-%mm-%YYYY')))
+            # Fixed the date format here
+            self.expense_table.setItem(row_position, 0, QTableWidgetItem(transaction.date.strftime('%d.%m.%Y')))
             self.expense_table.setItem(row_position, 1, QTableWidgetItem(transaction.name))
             self.expense_table.setItem(row_position, 2, QTableWidgetItem(transaction.expense_type))
             self.expense_table.setItem(row_position, 3, QTableWidgetItem(str(transaction.amount)))
@@ -147,8 +148,13 @@ class CashRegisterPage(QMainWindow):
 
         # Check which column was changed and update the respective attribute
         if item.column() == 0:  # Date column
-            date = datetime.strptime(item.text(), '%dd.%mm.%YYYY').date()  # Convert string to date
-            transaction.date = date
+            try:
+                # Fixed the date format here and added error handling
+                date = datetime.strptime(item.text(), '%d.%m.%Y').date()
+                transaction.date = date
+            except ValueError:
+                QMessageBox.critical(self, "Error", "Invalid date format. Please use 'dd.mm.yyyy'")
+                return
         elif item.column() == 1:  # Name column
             transaction.name = item.text()
         elif item.column() == 2:  # Expense Type column
