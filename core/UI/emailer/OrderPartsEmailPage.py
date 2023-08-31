@@ -2,7 +2,7 @@ from datetime import datetime
 
 from PyQt6.QtCore import Qt, QDate
 from PyQt6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QScrollArea, QTableWidget, QTableWidgetItem, \
-    QApplication, QDateEdit, QLabel, QComboBox, QLineEdit, QPushButton, QMessageBox
+    QApplication, QDateEdit, QLabel, QComboBox, QLineEdit, QPushButton, QMessageBox, QHBoxLayout
 
 from core.UI.NavigationBar import NavigationBar
 
@@ -36,6 +36,9 @@ class OrderPartsEmailPage(QMainWindow):
         self.main_layout.addWidget(self.nav_bar)
         self.main_layout.setAlignment(self.nav_bar, Qt.AlignmentFlag.AlignTop)
 
+        self.create_order_header_section()
+        self.create_input_parts_section()
+
     def create_order_header_section(self):
         self.order_header_section = QVBoxLayout()
 
@@ -60,11 +63,64 @@ class OrderPartsEmailPage(QMainWindow):
         self.order_header_section.addWidget(self.email_input)
 
         self.main_layout.addLayout(self.order_header_section)
-        self.display_selected_supplier_info(0)  # Display info for the first supplier by default
+        self.display_selected_supplier_info(0)
 
     def display_selected_supplier_info(self, index):
         selected_supplier = self.supplier_data.suppliers[index]
         self.first_name_input.setText(selected_supplier.first_name)
         self.last_name_input.setText(selected_supplier.last_name)
         self.email_input.setText(selected_supplier.email)
+
+    def create_input_parts_section(self):
+        self.input_parts_section = QVBoxLayout()
+
+        # Field for chassis number
+        self.chassis_input = QLineEdit(self)
+        self.input_parts_section.addWidget(QLabel("Chassis Number:"))
+        self.input_parts_section.addWidget(self.chassis_input)
+
+        # Input fields for parts details
+        self.parts_layout = QVBoxLayout()
+        self.parts_number_input = QLineEdit(self)
+        self.part_description_input = QLineEdit(self)
+        self.quantity_input = QLineEdit(self)
+        self.additional_info_input = QLineEdit(self)
+
+        # Horizontal layout for parts inputs
+        self.parts_inputs_hlayout = QHBoxLayout()
+        self.parts_inputs_hlayout.addWidget(QLabel("Parts Number:"))
+        self.parts_inputs_hlayout.addWidget(self.parts_number_input)
+        self.parts_inputs_hlayout.addWidget(QLabel("Part Description:"))
+        self.parts_inputs_hlayout.addWidget(self.part_description_input)
+        self.parts_inputs_hlayout.addWidget(QLabel("Quantity:"))
+        self.parts_inputs_hlayout.addWidget(self.quantity_input)
+        self.parts_inputs_hlayout.addWidget(QLabel("Additional Info:"))
+        self.parts_inputs_hlayout.addWidget(self.additional_info_input)
+
+        # Add button
+        self.add_parts_button = QPushButton("Add", self)
+        self.add_parts_button.clicked.connect(self.add_part)
+        self.parts_inputs_hlayout.addWidget(self.add_parts_button)
+        self.parts_layout.addLayout(self.parts_inputs_hlayout)
+        self.input_parts_section.addLayout(self.parts_layout)
+
+        self.main_layout.addLayout(self.input_parts_section)
+
+        # Initialize parts list
+        self.parts_list = []
+
+    def add_part(self):
+        part = {
+            "parts_number": self.parts_number_input.text(),
+            "part_description": self.part_description_input.text(),
+            "quantity": self.quantity_input.text(),
+            "additional_info": self.additional_info_input.text(),
+        }
+        self.parts_list.append(part)
+
+        # Clear input fields after adding
+        self.parts_number_input.clear()
+        self.part_description_input.clear()
+        self.quantity_input.clear()
+        self.additional_info_input.clear()
 
