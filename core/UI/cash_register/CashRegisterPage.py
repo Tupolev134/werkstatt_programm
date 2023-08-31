@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from PyQt6.QtCore import Qt, QDate
 from PyQt6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QScrollArea, QTableWidget, QTableWidgetItem, \
     QApplication, QDateEdit, QLabel, QComboBox, QLineEdit, QPushButton, QMessageBox
@@ -49,6 +51,7 @@ class CashRegisterPage(QMainWindow):
         self.expense_table.horizontalHeader().setStretchLastSection(True)
 
         self.main_layout.addWidget(self.expense_table)
+        self.expense_table.itemChanged.connect(self.handle_item_changed)
 
     def populate_expense_table(self):
         # Clear the table first
@@ -129,4 +132,29 @@ class CashRegisterPage(QMainWindow):
         # Optionally: clear the input fields
         self.expense_type_edit.clear()
         self.amount_edit.clear()
+        self.register_data.save_data()
+
+    def handle_item_changed(self, item: QTableWidgetItem):
+        # Get the row of the changed item
+        row = item.row()
+
+        # Check if the row exceeds the number of transactions (shouldn't happen, but safety check)
+        if row >= len(self.register_data.transactions):
+            return
+
+        # Get the corresponding transaction from the data model
+        transaction = self.register_data.transactions[row]
+
+        # Check which column was changed and update the respective attribute
+        if item.column() == 0:  # Date column
+            date = datetime.strptime(item.text(), '%d.%m.%Y').date()  # Convert string to date
+            transaction.date = date
+        elif item.column() == 1:  # Name column
+            transaction.name = item.text()
+        elif item.column() == 2:  # Expense Type column
+            transaction.expense_type = item.text()
+        elif item.column() == 3:  # Amount column
+            transaction.amount = item.text()
+
+        # Save the updated data to the JSON file
         self.register_data.save_data()
