@@ -15,6 +15,16 @@ SUPPLIER_DATA_PATH = os.getenv("SUPPLIER_DATA_PATH")
 from core.UI.emailer.SupplierData import SupplierData
 
 
+class CustomPushButton(QPushButton):
+    def __init__(self, label, parent=None):
+        super().__init__(label, parent)
+
+    def keyPressEvent(self, event):
+        if event.key() in [Qt.Key.Key_Enter, Qt.Key.Key_Return]:
+            self.clicked.emit()
+        super().keyPressEvent(event)
+
+
 # noinspection PyAttributeOutsideInit
 class OrderPartsEmailPage(QMainWindow):
     def __init__(self, window_manager):
@@ -116,7 +126,7 @@ class OrderPartsEmailPage(QMainWindow):
         self.quantity_input.editingFinished.connect(self.additional_info_input.setFocus)
 
         # Add button
-        self.add_parts_button = QPushButton("Add", self)
+        self.add_parts_button = CustomPushButton("Add", self)
         self.add_parts_button.clicked.connect(self.add_part)
         self.parts_inputs_hlayout.addWidget(self.add_parts_button)
 
@@ -204,19 +214,21 @@ class OrderPartsEmailPage(QMainWindow):
         mail.Subject = "Teilebestellung - The Overlanders Garage GmbH"
 
         # Construct the email body
-        email_body = f"""
-Hallo {selected_supplier.salutation} {selected_supplier.last_name},
+        email_body = f"Hallo {selected_supplier.salutation} {selected_supplier.last_name},"
+        email_body += f"\n\ngerne würden wir folgende Teile für das Fahrzeug mit der Fahrgestellnummer:\n\n{self.chassis_input.text()}"
+        email_body += "\n\nbei Ihnen bestellen:"
 
-Gerne würden wir folgende Teile für das Fahrzeug mit der Fahrgestellnummer:
-
-{self.chassis_input.text()}
-
-bei Ihnen bestellen:
-        """
         for i, part in enumerate(self.parts_list, 1):
-            email_body += f"\n{i}) {part['parts_number']}, {part['part_description']}, Menge: {part['quantity']} {part['additional_info']}"
+            part_description = f" | Beschreibung | {part['part_description']}" if part['part_description'] else ""
+            additional_info = f" | {part['additional_info']}" if part['additional_info'] else ""
+            email_body += f"\n{i}) Teilenummer {part['parts_number']}{part_description} | Menge: {part['quantity']}{additional_info}"
 
         email_body += "\n\nVielen Dank und Liebe Grüße aus Berlin"
+
+        # Add default Outlook signature to the email
+        new_mail = outlook.CreateItem(0)
+        if new_mail.Body:  # Check if there's a default signature
+            email_body += "\n\n" + new_mail.Body
 
         mail.Body = email_body
         mail.Display()
