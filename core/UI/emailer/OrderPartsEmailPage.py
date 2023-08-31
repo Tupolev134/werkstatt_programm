@@ -208,13 +208,13 @@ class OrderPartsEmailPage(QMainWindow):
 
         # Construct the email body
         email_body = f"""
-            Hallo {selected_supplier.salutation} {selected_supplier.last_name},
+Hallo {selected_supplier.salutation} {selected_supplier.last_name},
 
-            Gerne würden wir folgende Teile für das Fahrzeug mit der Fahrgestellnummer:
+Gerne würden wir folgende Teile für das Fahrzeug mit der Fahrgestellnummer:
 
-            {self.chassis_input.text()}
+{self.chassis_input.text()}
 
-            bei Ihnen bestellen:
+bei Ihnen bestellen:
         """
         for i, part in enumerate(self.parts_list, 1):
             email_body += f"\n{i}) {part['parts_number']}, {part['part_description']}, Menge: {part['quantity']} {part['additional_info']}"

@@ -17,4 +17,4 @@ class Supplier:
 
     @classmethod
     def from_dict(cls, data: dict):
-        return cls(data['handle'], data['salutation'], data['first_name'], data['last_name'], data['email'])
+        return cls(data['handle'], data['first_name'], data['last_name'], data['email'], data['salutation'])
