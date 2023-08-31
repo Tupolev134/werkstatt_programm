@@ -1,6 +1,6 @@
 from PyQt6.QtCore import Qt, QDate
 from PyQt6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QScrollArea, QTableWidget, QTableWidgetItem, \
-    QApplication, QDateEdit, QLabel, QComboBox, QLineEdit, QPushButton
+    QApplication, QDateEdit, QLabel, QComboBox, QLineEdit, QPushButton, QMessageBox
 
 from core.UI.NavigationBar import NavigationBar
 from core.UI.cash_register.CashRegisterData import CashRegisterData
@@ -46,6 +46,7 @@ class CashRegisterPage(QMainWindow):
         self.expense_table = QTableWidget(self)
         self.expense_table.setColumnCount(4)  # Date, Name, Expense Type, Amount
         self.expense_table.setHorizontalHeaderLabels(["Date", "Name", "Expense Type", "Amount"])
+        self.expense_table.horizontalHeader().setStretchLastSection(True)
 
         self.main_layout.addWidget(self.expense_table)
 
@@ -89,21 +90,34 @@ class CashRegisterPage(QMainWindow):
         input_layout.addWidget(QLabel("Amount:"))
         input_layout.addWidget(self.amount_edit)
 
-        # Submit button
-        submit_button = QPushButton("Add Transaction", self)
-        submit_button.clicked.connect(self.add_transaction)
-        input_layout.addWidget(submit_button)
+        # Submit buttons
+        self.incoming_button = QPushButton("Add Incoming Payment", self)
+        self.incoming_button.clicked.connect(self.add_transaction)
+        self.outgoing_button = QPushButton("Add Outgoing Payment", self)
+        self.outgoing_button.clicked.connect(lambda: self.add_transaction(ingoing=False))
+        input_layout.addWidget(self.incoming_button)
+        input_layout.addWidget(self.outgoing_button)
+
+        self.date_edit.setDisplayFormat("dd.MM.yyyy")
+        self.expense_type_edit.returnPressed.connect(self.amount_edit.setFocus)
+        self.amount_edit.returnPressed.connect(self.add_transaction)  # pressing enter on amount adds the transaction
 
         # Add the input layout to the main layout
         self.main_layout.addLayout(input_layout)
 
-
-    def add_transaction(self):
+    def add_transaction(self, ingoing=True):
         # Gather data from input widgets
         date = self.date_edit.date().toPyDate()
         name = self.name_combobox.currentText()
         expense_type = self.expense_type_edit.text()
-        amount = self.amount_edit.text()
+        try:
+            if ingoing:
+                amount = float(self.amount_edit.text())
+            else:
+                amount = -float(self.amount_edit.text())
+        except ValueError:
+            QMessageBox.critical(self, "Error", "Amount must be a number")
+            return
 
         # Create a new transaction and add it to the register data
         new_transaction = Transaction(date, name, expense_type, amount)
