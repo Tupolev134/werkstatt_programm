@@ -84,9 +84,6 @@ class OrderPartsEmailPage(QMainWindow):
         self.last_name_input.setText(selected_supplier.last_name)
         self.email_input.setText(selected_supplier.email)
 
-    def get_chassis(self):
-        self.chassis = self.chassis_input.text()
-
     def create_input_parts_section(self):
         self.input_parts_section = QVBoxLayout()
 
@@ -94,7 +91,6 @@ class OrderPartsEmailPage(QMainWindow):
         self.chassis_input = QLineEdit(self)
         self.input_parts_section.addWidget(QLabel("Chassis Number:"))
         self.input_parts_section.addWidget(self.chassis_input)
-        self.chassis_input.editingFinished(lambda: self.get_chassis())
         self.input_parts_section.addWidget(_get_line_widget())
 
         # Input fields for parts details
@@ -201,6 +197,7 @@ class OrderPartsEmailPage(QMainWindow):
             part["additional_info"] = item.text()
 
     def generate_outlook_email(self):
+        self.chassis = self.chassis_input.text()
         selected_supplier = self.supplier_data.suppliers[self.name_combobox.currentIndex()]
         outlook = win32.Dispatch('outlook.application')
         mail = outlook.CreateItem(0)
