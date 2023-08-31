@@ -100,8 +100,11 @@ class OrderPartsEmailPage(QMainWindow):
         # Show or hide the details based on the checked state of the QGroupBox
         if checked:
             self.details_groupbox.setLayout(self.details_layout)
+            for widget in [self.internal_handle, self.first_name_input, self.last_name_input, self.email_input]:
+                widget.setVisible(True)
         else:
-            self.details_groupbox.setLayout(None)
+            for widget in [self.internal_handle, self.first_name_input, self.last_name_input, self.email_input]:
+                widget.setVisible(False)
 
     def display_selected_supplier_info(self, index):
         selected_supplier = self.supplier_data.suppliers[index]
@@ -236,7 +239,7 @@ class OrderPartsEmailPage(QMainWindow):
         email_body += "\n\nbei Ihnen bestellen:"
 
         for i, part in enumerate(self.parts_list, 1):
-            part_description = f" | Beschreibung | {part['part_description']}" if part['part_description'] else ""
+            part_description = f" | Beschreibung : {part['part_description']}" if part['part_description'] else ""
             additional_info = f" | {part['additional_info']}" if part['additional_info'] else ""
             email_body += f"\n{i}) Teilenummer {part['parts_number']}{part_description} | Menge: {part['quantity']}{additional_info}"
 
