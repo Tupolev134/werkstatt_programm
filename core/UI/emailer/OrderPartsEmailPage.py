@@ -6,7 +6,7 @@ from PyQt6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QScrollArea, QTab
 
 from core.UI.MainMenu import _get_line_widget
 from core.UI.NavigationBar import NavigationBar
-
+import win32com.client as win32
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -40,6 +40,7 @@ class OrderPartsEmailPage(QMainWindow):
         self.main_layout.setAlignment(self.nav_bar, Qt.AlignmentFlag.AlignTop)
 
         self.parts_list = []
+        self.chassis = None
 
         self.create_parts_table()
         self.main_layout.addWidget(_get_line_widget())
@@ -83,6 +84,9 @@ class OrderPartsEmailPage(QMainWindow):
         self.last_name_input.setText(selected_supplier.last_name)
         self.email_input.setText(selected_supplier.email)
 
+    def get_chassis(self):
+        self.chassis = self.chassis_input.text()
+
     def create_input_parts_section(self):
         self.input_parts_section = QVBoxLayout()
 
@@ -90,6 +94,7 @@ class OrderPartsEmailPage(QMainWindow):
         self.chassis_input = QLineEdit(self)
         self.input_parts_section.addWidget(QLabel("Chassis Number:"))
         self.input_parts_section.addWidget(self.chassis_input)
+        self.chassis_input.editingFinished(lambda: self.get_chassis())
         self.input_parts_section.addWidget(_get_line_widget())
 
         # Input fields for parts details
@@ -110,12 +115,28 @@ class OrderPartsEmailPage(QMainWindow):
         self.parts_inputs_hlayout.addWidget(QLabel("Additional Info:"))
         self.parts_inputs_hlayout.addWidget(self.additional_info_input)
 
+        self.parts_number_input.editingFinished.connect(self.part_description_input.setFocus)
+        self.part_description_input.editingFinished.connect(self.quantity_input.setFocus)
+        self.quantity_input.editingFinished.connect(self.additional_info_input.setFocus)
+
         # Add button
         self.add_parts_button = QPushButton("Add", self)
         self.add_parts_button.clicked.connect(self.add_part)
         self.parts_inputs_hlayout.addWidget(self.add_parts_button)
+
+        self.add_parts_button.clicked.connect(self.parts_number_input.setFocus)
+        self.additional_info_input.editingFinished.connect(self.add_parts_button.setFocus)
+
+        # Generate Email Button
+        self.send_section_section = QVBoxLayout()
+        self.generate_email_button = QPushButton("Generate Email", self)
+        self.generate_email_button.clicked.connect(self.generate_outlook_email)
+        self.send_section_section.addWidget(self.generate_email_button)
+
         self.parts_layout.addLayout(self.parts_inputs_hlayout)
         self.input_parts_section.addLayout(self.parts_layout)
+        self.input_parts_section.addWidget(_get_line_widget())
+        self.input_parts_section.addLayout(self.send_section_section)
 
         self.main_layout.addLayout(self.input_parts_section)
 
@@ -141,7 +162,7 @@ class OrderPartsEmailPage(QMainWindow):
         self.parts_table = QTableWidget(0, 4)  # 0 rows initially, 4 columns
         self.parts_table.setHorizontalHeaderLabels(["Parts Number", "Part Description", "Quantity", "Additional Info"])
         self.parts_table.itemChanged.connect(self.handle_parts_item_changed)
-        self.parts_table.setFixedHeight(600)
+        self.parts_table.setFixedHeight(400)
         self.main_layout.addWidget(self.parts_table)
 
     def populate_parts_table(self):
@@ -178,3 +199,27 @@ class OrderPartsEmailPage(QMainWindow):
             part["quantity"] = item.text()
         elif item.column() == 3:  # Additional Info column
             part["additional_info"] = item.text()
+
+    def generate_outlook_email(self):
+        selected_supplier = self.supplier_data.suppliers[self.name_combobox.currentIndex()]
+        outlook = win32.Dispatch('outlook.application')
+        mail = outlook.CreateItem(0)
+        mail.Subject = "Teilebestellung - The Overlanders Garage GmbH"
+
+        # Construct the email body
+        email_body = f"""
+            Hallo {selected_supplier.salutation} {selected_supplier.last_name},
+
+            Gerne würden wir folgende Teile für das Fahrzeug mit der Fahrgestellnummer:
+
+            {self.chassis_input.text()}
+
+            bei Ihnen bestellen:
+        """
+        for i, part in enumerate(self.parts_list, 1):
+            email_body += f"\n{i}) {part['parts_number']}, {part['part_description']}, Menge: {part['quantity']} {part['additional_info']}"
+
+        email_body += "\n\nVielen Dank und Liebe Grüße aus Berlin"
+
+        mail.Body = email_body
+        mail.Display()
