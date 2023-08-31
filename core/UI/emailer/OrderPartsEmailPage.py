@@ -4,6 +4,7 @@ from PyQt6.QtCore import Qt, QDate
 from PyQt6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QScrollArea, QTableWidget, QTableWidgetItem, \
     QApplication, QDateEdit, QLabel, QComboBox, QLineEdit, QPushButton, QMessageBox, QHBoxLayout
 
+from core.UI.MainMenu import _get_line_widget
 from core.UI.NavigationBar import NavigationBar
 
 import os
@@ -40,9 +41,11 @@ class OrderPartsEmailPage(QMainWindow):
 
         self.parts_list = []
 
-        self.create_order_header_section()
-        self.create_input_parts_section()
         self.create_parts_table()
+        self.main_layout.addWidget(_get_line_widget())
+        self.create_order_header_section()
+        self.main_layout.addWidget(_get_line_widget())
+        self.create_input_parts_section()
 
     def create_order_header_section(self):
         self.order_header_section = QVBoxLayout()
@@ -87,6 +90,7 @@ class OrderPartsEmailPage(QMainWindow):
         self.chassis_input = QLineEdit(self)
         self.input_parts_section.addWidget(QLabel("Chassis Number:"))
         self.input_parts_section.addWidget(self.chassis_input)
+        self.input_parts_section.addWidget(_get_line_widget())
 
         # Input fields for parts details
         self.parts_layout = QVBoxLayout()
@@ -137,6 +141,7 @@ class OrderPartsEmailPage(QMainWindow):
         self.parts_table = QTableWidget(0, 4)  # 0 rows initially, 4 columns
         self.parts_table.setHorizontalHeaderLabels(["Parts Number", "Part Description", "Quantity", "Additional Info"])
         self.parts_table.itemChanged.connect(self.handle_parts_item_changed)
+        self.parts_table.setFixedHeight(600)
         self.main_layout.addWidget(self.parts_table)
 
     def populate_parts_table(self):

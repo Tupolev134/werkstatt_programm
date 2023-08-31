@@ -43,31 +43,33 @@ class MainMenu(QMainWindow):
         self.main_layout.setAlignment(self.nav_bar, Qt.AlignmentFlag.AlignTop)
 
         # ------------------ create and add Layout ------------------
-        self.create_import_data_section()
-        self.main_layout.addLayout(self.import_data_section_layout)
+        self.create_page_select_section()
+        self.main_layout.addLayout(self.page_select_layout)
 
     # ------------------ Sections ------------------
 
-    def create_import_data_section(self):
-        self.import_data_section_layout = QGridLayout()
+    def create_page_select_section(self):
+        self.page_select_layout = QGridLayout()
 
         self.order_emailer_btn = QPushButton("Order Emailer", self)
-        self.import_data_section_layout.addWidget(self.order_emailer_btn)
+        self.page_select_layout.addWidget(self.order_emailer_btn)
+        self.page_select_layout.addWidget(_get_line_widget())
 
         self.open_cash_register_btn = QPushButton("Cash Register", self)
-        self.import_data_section_layout.addWidget(self.open_cash_register_btn)
+        self.page_select_layout.addWidget(self.open_cash_register_btn)
+        self.page_select_layout.addWidget(_get_line_widget())
 
         self.convert_parts_to_excel_btn = QPushButton("Convert Parts To Excel", self)
-        self.import_data_section_layout.addWidget(self.convert_parts_to_excel_btn)
+        self.page_select_layout.addWidget(self.convert_parts_to_excel_btn)
 
         self.import_orderable_part_btn = QPushButton("Import new order-able Part", self)
-        self.import_data_section_layout.addWidget(self.import_orderable_part_btn)
+        self.page_select_layout.addWidget(self.import_orderable_part_btn)
 
         self.import_orderable_part_raw_btn = QPushButton("Import new order-able Part as raw data", self)
-        self.import_data_section_layout.addWidget(self.import_orderable_part_raw_btn)
+        self.page_select_layout.addWidget(self.import_orderable_part_raw_btn)
 
         self.import_order_btn = QPushButton("Import new Order", self)
-        self.import_data_section_layout.addWidget(self.import_order_btn)
+        self.page_select_layout.addWidget(self.import_order_btn)
 
         self.order_emailer_btn.clicked.connect(lambda : self.window_manager.show_window('order_emailer'))
         self.open_cash_register_btn.clicked.connect(lambda : self.window_manager.show_window('cash_register'))
