@@ -8,6 +8,8 @@ from core.UI.NavigationBar import NavigationBar
 
 import os
 from dotenv import load_dotenv
+load_dotenv()
+SUPPLIER_DATA_PATH = os.getenv("SUPPLIER_DATA_PATH")
 
 from core.UI.emailer.SupplierData import SupplierData
 
@@ -43,7 +45,7 @@ class OrderPartsEmailPage(QMainWindow):
         self.order_header_section = QVBoxLayout()
 
         # Load suppliers and populate dropdown
-        self.supplier_data = SupplierData()
+        self.supplier_data = SupplierData(SUPPLIER_DATA_PATH)
         supplier_names = [f"{supplier.first_name} {supplier.last_name}" for supplier in self.supplier_data.suppliers]
         self.name_combobox = QComboBox(self)
         self.name_combobox.addItems(supplier_names)

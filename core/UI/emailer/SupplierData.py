@@ -3,7 +3,6 @@ from typing import List
 
 from core.UI.emailer.Supplier import Supplier
 
-
 class SupplierData:
     def __init__(self, filename="supplier_data.json"):
         self.filename = filename
