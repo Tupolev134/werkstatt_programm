@@ -38,8 +38,11 @@ class OrderPartsEmailPage(QMainWindow):
         self.main_layout.addWidget(self.nav_bar)
         self.main_layout.setAlignment(self.nav_bar, Qt.AlignmentFlag.AlignTop)
 
+        self.parts_list = []
+
         self.create_order_header_section()
         self.create_input_parts_section()
+        self.create_parts_table()
 
     def create_order_header_section(self):
         self.order_header_section = QVBoxLayout()
@@ -112,9 +115,6 @@ class OrderPartsEmailPage(QMainWindow):
 
         self.main_layout.addLayout(self.input_parts_section)
 
-        # Initialize parts list
-        self.parts_list = []
-
     def add_part(self):
         part = {
             "parts_number": self.parts_number_input.text(),
@@ -130,3 +130,46 @@ class OrderPartsEmailPage(QMainWindow):
         self.quantity_input.clear()
         self.additional_info_input.clear()
 
+        self.populate_parts_table()
+
+    def create_parts_table(self):
+        # Create the table with headers
+        self.parts_table = QTableWidget(0, 4)  # 0 rows initially, 4 columns
+        self.parts_table.setHorizontalHeaderLabels(["Parts Number", "Part Description", "Quantity", "Additional Info"])
+        self.parts_table.itemChanged.connect(self.handle_parts_item_changed)
+        self.main_layout.addWidget(self.parts_table)
+
+    def populate_parts_table(self):
+        # Clear the table first
+        self.parts_table.setRowCount(0)
+
+        # Populate the table with parts from parts_list
+        for part in self.parts_list:
+            row_position = self.parts_table.rowCount()
+            self.parts_table.insertRow(row_position)
+
+            self.parts_table.setItem(row_position, 0, QTableWidgetItem(part["parts_number"]))
+            self.parts_table.setItem(row_position, 1, QTableWidgetItem(part["part_description"]))
+            self.parts_table.setItem(row_position, 2, QTableWidgetItem(part["quantity"]))
+            self.parts_table.setItem(row_position, 3, QTableWidgetItem(part["additional_info"]))
+
+    def handle_parts_item_changed(self, item: QTableWidgetItem):
+        # Get the row of the changed item
+        row = item.row()
+
+        # Check if the row exceeds the number of parts (safety check)
+        if row >= len(self.parts_list):
+            return
+
+        # Get the corresponding part from parts_list
+        part = self.parts_list[row]
+
+        # Check which column was changed and update the respective attribute
+        if item.column() == 0:  # Parts Number column
+            part["parts_number"] = item.text()
+        elif item.column() == 1:  # Part Description column
+            part["part_description"] = item.text()
+        elif item.column() == 2:  # Quantity column
+            part["quantity"] = item.text()
+        elif item.column() == 3:  # Additional Info column
+            part["additional_info"] = item.text()
