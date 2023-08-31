@@ -1,32 +1,8 @@
 [
     {
-        "date": "2023-08-30",
-        "name": "Leonardo Smura",
-        "expense_type": "Ott",
-        "amount": "200"
-    },
-    {
-        "date": "2023-08-30",
-        "name": "Felix Tappert",
-        "expense_type": "TEST",
-        "amount": "420"
-    },
-    {
-        "date": "2023-08-30",
-        "name": "Felix Tappert",
-        "expense_type": "",
-        "amount": ""
-    },
-    {
         "date": "2023-08-31",
         "name": "Felix Tappert",
-        "expense_type": "asd",
-        "amount": "2"
-    },
-    {
-        "date": "2023-08-31",
-        "name": "Felix Tappert",
-        "expense_type": "Nochn Test",
-        "amount": "99"
+        "expense_type": "Metall",
+        "amount": -234.12
     }
 ]

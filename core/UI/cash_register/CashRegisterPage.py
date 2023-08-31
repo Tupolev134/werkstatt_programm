@@ -62,10 +62,10 @@ class CashRegisterPage(QMainWindow):
             row_position = self.expense_table.rowCount()
             self.expense_table.insertRow(row_position)
 
-            self.expense_table.setItem(row_position, 0, QTableWidgetItem(transaction.date.strftime('%Y-%m-%d')))
+            self.expense_table.setItem(row_position, 0, QTableWidgetItem(transaction.date.strftime('%dd-%mm-%YYYY')))
             self.expense_table.setItem(row_position, 1, QTableWidgetItem(transaction.name))
             self.expense_table.setItem(row_position, 2, QTableWidgetItem(transaction.expense_type))
-            self.expense_table.setItem(row_position, 3, QTableWidgetItem(transaction.amount))
+            self.expense_table.setItem(row_position, 3, QTableWidgetItem(str(transaction.amount)))
 
     def create_insert_section(self):
         # Layout to hold input widgets
@@ -101,7 +101,7 @@ class CashRegisterPage(QMainWindow):
         input_layout.addWidget(self.incoming_button)
         input_layout.addWidget(self.outgoing_button)
 
-        self.date_edit.setDisplayFormat("dd.MM.yyyy")
+        self.date_edit.setDisplayFormat("d.M.y")
         self.expense_type_edit.returnPressed.connect(self.amount_edit.setFocus)
         self.amount_edit.returnPressed.connect(self.add_transaction)  # pressing enter on amount adds the transaction
 
@@ -147,7 +147,7 @@ class CashRegisterPage(QMainWindow):
 
         # Check which column was changed and update the respective attribute
         if item.column() == 0:  # Date column
-            date = datetime.strptime(item.text(), '%d.%m.%Y').date()  # Convert string to date
+            date = datetime.strptime(item.text(), '%dd.%mm.%YYYY').date()  # Convert string to date
             transaction.date = date
         elif item.column() == 1:  # Name column
             transaction.name = item.text()
