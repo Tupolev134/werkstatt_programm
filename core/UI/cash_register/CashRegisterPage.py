@@ -102,7 +102,7 @@ class CashRegisterPage(QMainWindow):
         input_layout.addWidget(self.incoming_button)
         input_layout.addWidget(self.outgoing_button)
 
-        self.date_edit.setDisplayFormat("d.M.y")
+        self.date_edit.setDisplayFormat("dd.MM.yyyy")
         self.expense_type_edit.returnPressed.connect(self.amount_edit.setFocus)
         self.amount_edit.returnPressed.connect(self.add_transaction)  # pressing enter on amount adds the transaction
 

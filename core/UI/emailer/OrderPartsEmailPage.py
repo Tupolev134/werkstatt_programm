@@ -2,7 +2,7 @@ from datetime import datetime
 
 from PyQt6.QtCore import Qt, QDate
 from PyQt6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QScrollArea, QTableWidget, QTableWidgetItem, \
-    QApplication, QDateEdit, QLabel, QComboBox, QLineEdit, QPushButton, QMessageBox, QHBoxLayout
+    QApplication, QDateEdit, QLabel, QComboBox, QLineEdit, QPushButton, QMessageBox, QHBoxLayout, QGroupBox
 
 from core.UI.MainMenu import _get_line_widget
 from core.UI.NavigationBar import NavigationBar
@@ -41,7 +41,7 @@ class OrderPartsEmailPage(QMainWindow):
         rect = screen.availableGeometry()
         self.setMaximumHeight(rect.height())
         self.main_layout = QVBoxLayout(central_widget)
-        self.resize(600,900)
+        self.resize(600,750)
 
         # ------------------ create and add NavigationBar ------------------
         self.window_manager = window_manager
@@ -62,39 +62,46 @@ class OrderPartsEmailPage(QMainWindow):
         self.create_input_parts_section()
 
     def create_order_header_section(self):
-        # Load suppliers and populate dropdown
-        self.supplier_data = SupplierData(SUPPLIER_DATA_PATH)
+        self.order_header_section.addWidget(QLabel("Choose Supplier:"))
+        self.supplier_data = SupplierData(SUPPLIER_DATA_PATH)  # Assuming SupplierData is imported and defined elsewhere
         supplier_handles = [f"{supplier.handle}" for supplier in self.supplier_data.suppliers]
         self.name_combobox = QComboBox(self)
         self.name_combobox.addItems(supplier_handles)
         self.name_combobox.currentIndexChanged.connect(self.display_selected_supplier_info)
         self.order_header_section.addWidget(self.name_combobox)
 
-        self.show_details_button = QPushButton("Show Supplier Details")
-        self.show_details_button.clicked.connect(self.show_supplier_details)
-        self.order_header_section.addWidget(self.show_details_button)
+        # Create a QGroupBox for supplier details
+        self.details_groupbox = QGroupBox("Show Supplier Details", self)
+        self.details_groupbox.setCheckable(True)
+        self.details_groupbox.setChecked(False)  # Initially collapsed
+        self.details_groupbox.toggled.connect(self.toggle_supplier_details)
+        self.details_layout = QVBoxLayout(self.details_groupbox)
 
-        self.main_layout.addLayout(self.order_header_section)
-
-    def show_supplier_details(self):
         # Input fields to display and edit supplier info
         self.internal_handle = QLineEdit(self)
         self.first_name_input = QLineEdit(self)
         self.last_name_input = QLineEdit(self)
         self.email_input = QLineEdit(self)
 
-        self.order_header_section.addWidget(QLabel("Internal Handle:"))
-        self.order_header_section.addWidget(self.internal_handle)
-        self.order_header_section.addWidget(QLabel("First Name:"))
-        self.order_header_section.addWidget(self.first_name_input)
-        self.order_header_section.addWidget(QLabel("Last Name:"))
-        self.order_header_section.addWidget(self.last_name_input)
-        self.order_header_section.addWidget(QLabel("Email:"))
-        self.order_header_section.addWidget(self.email_input)
+        self.details_layout.addWidget(QLabel("Internal Handle:"))
+        self.details_layout.addWidget(self.internal_handle)
+        self.details_layout.addWidget(QLabel("First Name:"))
+        self.details_layout.addWidget(self.first_name_input)
+        self.details_layout.addWidget(QLabel("Last Name:"))
+        self.details_layout.addWidget(self.last_name_input)
+        self.details_layout.addWidget(QLabel("Email:"))
+        self.details_layout.addWidget(self.email_input)
 
-        self.order_header_section.removeWidget(self.show_details_button)
-
+        self.order_header_section.addWidget(self.details_groupbox)
+        self.main_layout.addLayout(self.order_header_section)
         self.display_selected_supplier_info(0)
+
+    def toggle_supplier_details(self, checked):
+        # Show or hide the details based on the checked state of the QGroupBox
+        if checked:
+            self.details_groupbox.setLayout(self.details_layout)
+        else:
+            self.details_groupbox.setLayout(None)
 
     def display_selected_supplier_info(self, index):
         selected_supplier = self.supplier_data.suppliers[index]
