@@ -172,9 +172,27 @@ class CashRegisterPage(QMainWindow):
         self.expense_type_edit.clear()
         self.amount_edit.clear()
         self.register_data.save_data()
-    
+
     def delete_transaction(self):
-        self.register_data.delete_transaction()
+        # Get the selected row index
+        selected_row = self.expense_table.currentRow()
+
+        # Check if a row is selected
+        if selected_row == -1:
+            QMessageBox.warning(self, "Selection Error", "No row selected.")
+            return
+
+        # Delete the transaction from the data model using the selected row index
+        self.register_data.delete_transaction(selected_row)
+
+        # Refresh the table to reflect the deletion
+        self.populate_expense_table()
+
+        # Update the balance table
+        self.update_balance()
+
+        # Save the data
+        self.register_data.save_data()
 
     def handle_item_changed(self, item: QTableWidgetItem):
         # Get the row of the changed item

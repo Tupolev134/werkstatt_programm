@@ -30,4 +30,4 @@ class CashRegisterData:
         self.save_data()
 
     def delete_transaction(self, row):
-        self.transactions.remove(row)
+        del self.transactions[row]
