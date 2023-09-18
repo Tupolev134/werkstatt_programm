@@ -32,6 +32,8 @@ class CashRegisterPage(QMainWindow):
         self.main_layout = QVBoxLayout(central_widget)
         self.resize(600,900)
 
+        self.selected_row = None
+
         # ------------------ create and add NavigationBar ------------------
         self.window_manager = window_manager
         self.nav_bar = NavigationBar(self.window_manager)  # Assuming NavigationBar is imported
@@ -172,7 +174,7 @@ class CashRegisterPage(QMainWindow):
         self.register_data.save_data()
     
     def delete_transaction(self):
-        self.register_data.
+        self.register_data.delete_transaction()
 
     def handle_item_changed(self, item: QTableWidgetItem):
         # Get the row of the changed item

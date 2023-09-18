@@ -28,3 +28,6 @@ class CashRegisterData:
         """Add a new transaction and save the data."""
         self.transactions.append(transaction)
         self.save_data()
+
+    def delete_transaction(self, row):
+        self.transactions.remove(row)
