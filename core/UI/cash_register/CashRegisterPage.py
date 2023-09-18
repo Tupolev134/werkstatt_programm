@@ -66,8 +66,8 @@ class CashRegisterPage(QMainWindow):
         self.main_layout.addWidget(self.balance_table)
 
     def update_balance(self):
-        sum_incoming = sum([transaction.amount for transaction in self.register_data.transactions if transaction.amount > 0])
-        sum_outgoing = sum([transaction.amount for transaction in self.register_data.transactions if transaction.amount < 0])
+        sum_incoming = sum([float(transaction.amount) for transaction in self.register_data.transactions if float(transaction.amount) > 0])
+        sum_outgoing = sum([float(transaction.amount) for transaction in self.register_data.transactions if float(transaction.amount) < 0])
         total_balance = sum_incoming + sum_outgoing
 
         self.balance_table.setItem(0, 1, QTableWidgetItem(str(sum_incoming)))
@@ -127,6 +127,8 @@ class CashRegisterPage(QMainWindow):
         input_layout.addWidget(self.amount_edit)
 
         # Submit buttons
+
+        self.delete_button = QPushButton("Delete Selected", self)
         self.incoming_button = QPushButton("Add Incoming Payment", self)
         self.incoming_button.clicked.connect(self.add_transaction)
         self.outgoing_button = QPushButton("Add Outgoing Payment", self)

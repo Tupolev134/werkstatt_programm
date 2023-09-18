@@ -2,7 +2,7 @@ from datetime import datetime
 
 
 class Transaction:
-    def __init__(self, date, name, expense_type, amount):
+    def __init__(self, date, name, expense_type, amount: float):
         self.date = date
         self.name = name
         self.expense_type = expense_type
@@ -21,4 +21,4 @@ class Transaction:
     def from_dict(cls, data):
         """Create a Transaction instance from a dictionary."""
         date = datetime.strptime(data["date"], '%Y-%m-%d').date()
-        return cls(date, data["name"], data["expense_type"], data["amount"])
+        return cls(date, data["name"], data["expense_type"], float(data["amount"]))
