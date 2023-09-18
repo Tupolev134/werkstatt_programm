@@ -129,6 +129,7 @@ class CashRegisterPage(QMainWindow):
         # Submit buttons
 
         self.delete_button = QPushButton("Delete Selected", self)
+        self.delete_button.clicked.connect(self.delete_transaction)
         self.incoming_button = QPushButton("Add Incoming Payment", self)
         self.incoming_button.clicked.connect(self.add_transaction)
         self.outgoing_button = QPushButton("Add Outgoing Payment", self)
@@ -169,6 +170,9 @@ class CashRegisterPage(QMainWindow):
         self.expense_type_edit.clear()
         self.amount_edit.clear()
         self.register_data.save_data()
+    
+    def delete_transaction(self):
+        self.register_data.
 
     def handle_item_changed(self, item: QTableWidgetItem):
         # Get the row of the changed item
